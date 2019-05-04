@@ -1,0 +1,26 @@
+
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block title %}login{% endblock %}
+{% block css %}<link href="{% static 'css/login.css' %}" rel="stylesheet"/>{% endblock %}
+
+
+{% block content %}
+    <div class="col">
+    {% if message %}
+                    <div class="alert alert-warning">{{ message }}</div>
+    {% endif %}
+
+              <form class="form-login" action="/login/" method="post">
+                  <h3 class="text-center">welcome</h3>
+
+                  {{ login_form }}
+
+                  <div>
+                  <a href="/register/" class="text-success "><ins>sign up</ins></a>
+                  <button type="submit" class="btn btn-primary float-right">login</button>
+                  </div>
+              </form>
+            </div>
+
+{% endblock %}

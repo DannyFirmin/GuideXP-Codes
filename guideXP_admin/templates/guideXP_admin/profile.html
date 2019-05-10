@@ -1,0 +1,22 @@
+{% extends 'guideXP_admin/base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+    <div class="media">
+        <div class="media-body">
+            <h2 class="text-uppercase">{{user.username}}</h2>
+            <p class="text-secondary">{{user.email}}</p>
+            <p class="text-secondary">{{user.guidexpuser.get_user_type_display}}</p>
+        </div>
+    </div>
+    <form method = "POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <fieldset class="form-group">
+            <legend class="border-bottom mb-4">Update Profile</legend>
+            {{u_form|crispy}}
+            {{p_form|crispy}}
+        </fieldset>
+        <div class="form-group">
+            <button class="btn btn-outline-secondary btn-lg btn-block" type="submit">Update</button>
+        </div>
+    </form>
+{% endblock %}

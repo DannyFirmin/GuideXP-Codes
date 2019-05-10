@@ -1,0 +1,46 @@
+{% extends 'guideXP_admin/base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+    <form method = "POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <fieldset class="form-group">
+            <legend class="border-bottom mb-4">Upload art</legend>
+            {{form|crispy}}
+        </fieldset>
+
+
+       <div class="form-group">
+           <button class="btn btn-outline-secondary btn-lg btn-block" data-toggle="collapse" data-target="#showArtistForm" type="button">Add Artist</button>
+           <div class="collapse" id="showArtistForm">
+            <div class="card card-body">
+                <select class="custom-select" id="artist-select">
+                  <option value="ignore" selected>Select stored artist...</option>
+                    {% for artist in artists %}
+                        <option value="{{artist.id}}">{{artist.artist_name}}</option>
+                    {% endfor %}
+                </select>
+                <div class="form-group mt-5" id="artist-form">
+                    {{form1|crispy}}
+                </div>
+
+                {% for artist in artists %}
+                    <div id="artist-details-{{artist.id}}" style="display: none">
+                        <img id="artist-details-img" src="{{MEDIA_URL}}artist_images/{{artist.artist_img}}" class="artist-detail-img-style">
+                        <p id="artist-detail-name">{{artist.artist_name}}</p>
+                    </div>
+                {% endfor %}
+
+
+
+            </div>
+           </div>
+        </div>
+
+        <div class="form-group">
+            <button class="btn btn-outline-secondary btn-lg btn-block" type="submit">Upload</button>
+        </div>
+    </form>
+
+
+
+{% endblock %}

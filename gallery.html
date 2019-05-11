@@ -1,34 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>GuideXP</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:300i,400,700" rel="stylesheet">
-    <link rel="stylesheet" href="fonts/icomoon/style.css">
+<head>
+  <title>GuideXP</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/magnific-popup.css">
-    <link rel="stylesheet" href="css/jquery-ui.css">
-    <link rel="stylesheet" href="css/owl.carousel.min.css">
-    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:300i,400,700" rel="stylesheet">
+  <link rel="stylesheet" href="fonts/icomoon/style.css">
 
-    <link rel="stylesheet" href="css/lightgallery.min.css">    
-    
-    <link rel="stylesheet" href="css/bootstrap-datepicker.css">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/magnific-popup.css">
+  <link rel="stylesheet" href="css/jquery-ui.css">
+  <link rel="stylesheet" href="css/owl.carousel.min.css">
+  <link rel="stylesheet" href="css/owl.theme.default.min.css">
 
-    <link rel="stylesheet" href="fonts/flaticon/font/flaticon.css">
-    
-    <link rel="stylesheet" href="css/swiper.css">
+  <link rel="stylesheet" href="css/lightgallery.min.css">
 
-    <link rel="stylesheet" href="css/aos.css">
+  <link rel="stylesheet" href="css/bootstrap-datepicker.css">
 
-    <link rel="stylesheet" href="css/style.css">
-    
-  </head>
-  <body>
-  
+  <link rel="stylesheet" href="fonts/flaticon/font/flaticon.css">
+
+  <link rel="stylesheet" href="css/swiper.css">
+
+  <link rel="stylesheet" href="css/aos.css">
+
+  <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+
   <div class="site-wrap">
 
     <div class="site-mobile-menu">
@@ -39,7 +41,7 @@
       </div>
       <div class="site-mobile-menu-body"></div>
     </div>
-    
+
 
 
 
@@ -47,52 +49,70 @@
 
 
 
-  <div class="site-section"  data-aos="fade">
-    <div class="container-fluid">
-      
-      <div class="row justify-content-center">
-        
-        <div class="col-md-7">
-          <div class="row mb-5">
-            <div class="col-12 ">
-              <h2 class="site-section-heading text-center">Nature Gallery</h2>
+    <div class="site-section" data-aos="fade">
+      <div class="container-fluid">
+
+        <div class="row justify-content-center">
+
+          <div class="col-md-7">
+            <div class="row mb-5">
+              <div class="col-12 ">
+                <h2 class="site-section-heading text-center">Nature Gallery</h2>
+              </div>
             </div>
           </div>
-        </div>
-    
-      </div>
-      <div class="row" id="lightgallery">
-        <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2 item" data-aos="fade" data-src="images/big-images/nature_big_1.jpg" data-sub-html="<h4>Fading Light</h4><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor doloremque hic excepturi fugit, sunt impedit fuga tempora, ad amet aliquid?</p>">
-          <a href="#"><img src="images/nature_small_1.jpg" alt="IMage" class="img-fluid"></a>
-        </div>
-       
 
+        </div>
+        <div class="row" id="lightgallery">
+          <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2 item" data-aos="fade" data-html="#audio1"
+            data-sub-html="<h4>Fading Light</h4><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor doloremque hic excepturi fugit, sunt impedit fuga tempora, ad amet aliquid?</p>">
+            <a href="#"><img src="images/nature_small_1.jpg" alt="IMage" class="img-fluid"></a>
+          </div>
+
+          <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2 item" data-aos="fade" data-html="#audio2"
+            data-sub-html="<h4>Fading Light</h4><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor doloremque hic excepturi fugit, sunt impedit fuga tempora, ad amet aliquid?</p>">
+            <a href="#"><img src="images/nature_small_2.jpg" alt="IMage" class="img-fluid"></a>
+          </div>
+
+        </div>
       </div>
     </div>
-  </div>
 
-  <div class="footer py-4">
-    <div class="container-fluid text-center">
-      <p>
+    <div style="display:none;" id="audio1">
+      <audio class="lg-video-object lg-html5 video-js vjs-default-skin" poster="images/nature_small_1.jpg" controls preload="none">
+        <source
+          src="https://cs.anu.edu.au/courses/comp2300/v_media/lecture-recordings/01_COPE_Part_0__Organisation_&_Contents.mp3"
+          type="audio/mpeg">
+        Your browser does not support HTML5 video.
+      </audio>
+    </div>
+
+    <div style="display:none;" id="audio2">
+      <audio class="lg-video-object lg-html5 video-js vjs-default-skin" poster="images/nature_small_2.jpg" controls preload="none">
+        <source
+          src="https://cs.anu.edu.au/courses/comp2300/v_media/lecture-recordings/06_COPE_Part_2__Hardware_Software_Interface_I.mp3"
+          type="audio/mpeg">
+        Your browser does not support HTML5 video.
+      </audio>
+    </div>
+
+    <div class="footer py-4">
+      <div class="container-fluid text-center">
+        <p>
           GuideXP - Create a guided tour for anything
-      </p>
+        </p>
+      </div>
     </div>
   </div>
-
-    
-
-    
-    
-  </div>
-  
-  <script src="js/gallery-load.js"></script>
-
-  <script>
+  <!-- <script src="js/gallery-load.js"></script> -->
+  <link href="http://vjs.zencdn.net/4.12/video-js.css" rel="stylesheet">
+  <script src="http://vjs.zencdn.net/4.12/video.js"></script>
+  <!-- <script>
       function getMess(){
            //var str = getQueryVariable('gallery');
            alert('Civic Art');
       }
-  </script>
+  </script> -->
   <script src="js/getQueryVariable.js"></script>
   <script src="js/jquery-3.3.1.min.js"></script>
   <script src="js/jquery-migrate-3.0.1.min.js"></script>
@@ -112,12 +132,19 @@
   <script src="js/jquery.mousewheel.min.js"></script>
 
   <script src="js/main.js"></script>
-  
+
   <script>
-    $(document).ready(function(){
+    $(document).ready(function () {
       $('#lightgallery').lightGallery();
     });
+
+    $('#lightgallery').lightGallery({
+      videojs: true
+    }); 
   </script>
-    
-  </body>
+
+
+
+</body>
+
 </html>

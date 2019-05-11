@@ -1,0 +1,78 @@
+{% extends 'guideXP_admin/base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+    <div class="row">
+        {% if messages %}
+            {% for message in messages %}
+                <div class="alert alert-{{ message.tags }}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endif %}
+    </div>
+
+
+
+    <form method = "POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <fieldset class="form-group">
+            <legend class="border-bottom mb-4">Upload art</legend>
+            {{form|crispy}}
+        </fieldset>
+
+
+       <div class="form-group">
+           <button class="btn btn-outline-secondary btn-lg btn-block" data-toggle="collapse" data-target="#showArtistForm" type="button">Add Artist</button>
+           <div class="collapse" id="showArtistForm">
+            <div class="card card-body">
+                <select class="custom-select" id="artist-select" autocomplete="off">
+                  <option value="ignore" selected>Select stored artist...</option>
+                    {% for artist in artists %}
+                        <option value="{{artist.id}}" id="artist-select-{{artist.id}}">{{artist.artist_name}}</option>
+                    {% endfor %}
+                </select>
+                <div class="form-group mt-5" id="artist-form">
+                    {{form1|crispy}}
+                </div>
+                {% for artist in artists %}
+                    <div id="artist-details-{{artist.id}}" style="display: none" class="mt-4 text-center">
+                        <img id="artist-details-img" src="{{artist.artist_img.url}}" class="rounded-circle img-fluid w-50">
+                        <p id="artist-detail-name" class="text-black font-weight-bold mt-3 text-uppercase artist-name" >{{artist.artist_name}}</p>
+                    </div>
+                {% endfor %}
+            </div>
+           </div>
+        </div>
+
+       <div class="form-group">
+           <button class="btn btn-outline-secondary btn-lg btn-block" data-toggle="collapse" data-target="#showExhibitionForm" type="button">Add Exhibition</button>
+           <div class="collapse" id="showExhibitionForm">
+               <div class="card card-body">
+                   <select class="custom-select" id="exhibition-select" autocomplete="off">
+                       <option value="ignore" selected>Select stored exhibitions...</option>
+                        {% for exhibition in exhibitions %}
+                            <option value="{{exhibition.id}}" id="exhibition-select-{{exhibition.id}}">{{exhibition.exhibition_name}}</option>
+                        {% endfor %}
+                   </select>
+                   <div class="form-group mt-5" id="exhibition-form">
+                        {{form2|crispy}}
+                   </div>
+                   {% for artist in artists %}
+                       <div id="exhibition-details-{{exhibition.id}}" style="display: none" class="mt-4 text-center">
+                            <p id="exhibition-detail-name" class="text-black font-weight-bold mt-3 text-uppercase artist-name" >{{exhibition.exhibition_name}}</p>
+                       </div>
+                   {% endfor %}
+               </div>
+           </div>
+        </div>
+
+
+        <div class="form-group">
+            <button class="btn btn-outline-secondary btn-lg btn-block" type="submit">Upload</button>
+        </div>
+    </form>
+
+
+
+{% endblock %}

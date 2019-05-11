@@ -46,5 +46,3 @@ class Artimage(models.Model):
     art_authorised_by = models.ForeignKey(Guidexpuser, models.CASCADE, related_name='authorise_art', null=True, blank=True)
 
 
-
-

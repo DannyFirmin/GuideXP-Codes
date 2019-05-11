@@ -29,7 +29,7 @@ def createArt(request):
         form1              = UploadArtForm(request.POST , request.FILES)
         artist_name        = request.POST.get('artist_name')
         artist_description = request.POST.get('artist_description')
-        artist_img         = request.POST.get('artist_img')
+        # artist_img         = request.POST.get('artist_img')
         exhibition_name    = request.POST.get('exhibition_name')
         artist             = None
         exhibition         = None
@@ -43,7 +43,7 @@ def createArt(request):
         if form1.is_valid():
             cleaned_data = form1.cleaned_data;
             if artist is None:
-                artist = Artist.objects.create(artist_img = artist_img, artist_name=artist_name, artist_description=artist_description, artist_uploaded_by=request.user.guidexpuser)
+                artist = Artist.objects.create(artist_name=artist_name, artist_description=artist_description, artist_uploaded_by=request.user.guidexpuser)
                 artist.save()
             if exhibition is None:
                 exhibition = Exhibition.objects.create(exhibition_name=exhibition_name, exhibition_uploaded_by=request.user.guidexpuser)

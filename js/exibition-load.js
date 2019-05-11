@@ -1,8 +1,8 @@
 
 var now=new Date();
-var resultCount = now.getSeconds()%11;
+var resultCount = now.getSeconds()%11 + 1;
 
-for(var i = 0;resultCount-1>i;i++){
+for(var i = 0;resultCount>i;i++){
 var lightGalleryDiv = document.getElementById('lightgallery');
     var imageCardDiv = document.createElement("div");
     imageCardDiv.className="col-sm-6 col-md-4 col-lg-3 col-xl-2 item";

@@ -13,7 +13,7 @@ function insert(){
     for(var i = 0; i < exbi.length;i++){
         
         var data=exbi[i];
-        var url = "gallery.html?gallery=" + data;
+        var url = "exibition.html?exibition=" + data;
         str= str + "<a href='"+ url + "'>"+data+"</a>";
    
         var li = document.createElement('li');

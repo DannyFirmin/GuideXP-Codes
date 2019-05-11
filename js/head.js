@@ -12,7 +12,7 @@ document.writeln("");
 document.writeln("            <ul class=\'site-menu js-clone-nav mx-auto d-none d-lg-block\'>");
 document.writeln("              <li><a href=\'index.html\'>Home</a></li>");
 document.writeln("              <li class=\'has-children active\'>");
-document.writeln("                <a>Gallery</a>");
+document.writeln("                <a>Exibition</a>");
 document.writeln("                <ul class=\'dropdown\' id=\'dropdowncontent\'>");
 document.writeln("                  <body onload=\'insert()\'>");
 document.writeln("                      </body>");

@@ -33,10 +33,10 @@ document.writeln("      <div class=\'col-6 col-xl-2 text-right\' data-aos=\'fade
 document.writeln("        <div class=\'d-none d-xl-inline-block\'>");
 document.writeln("          <ul class=\'site-menu js-clone-nav ml-auto list-unstyled d-flex text-right mb-0\' data-class=\'social\'>");
 document.writeln("            <li>");
-document.writeln("              <a href=\'#\' class=\'pl-3 pr-3\'><span class=\'icon-cloud-upload\'></span></a>");
+document.writeln("              <a href=\'http://admin.guidexp.me/upload/art/\' class=\'pl-3 pr-3\'><span class=\'icon-cloud-upload\'></span></a>");
 document.writeln("            </li>");
 document.writeln("            <li>");
-document.writeln("              <a href=\'#\' class=\'pl-3 pr-3\'><span class=\'icon-user\'></span></a>");
+document.writeln("              <a href=\'http://admin.guidexp.me/\' class=\'pl-3 pr-3\'><span class=\'icon-user\'></span></a>");
 document.writeln("            </li>");
 document.writeln("          </ul>");
 document.writeln("        </div>");

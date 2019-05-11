@@ -1,97 +1,55 @@
 <header class='site-navbar py-3 border-bottom' role='banner'>
 
-    <div class='container-fluid'>
-      <div class='row align-items-center'>
-        
-        <div class='col-6 col-xl-2' data-aos='fade-down'>
-          <h1 class='mb-0'><a href='index.html' class='text-black h2 mb-0'>GuideXP</a></h1>
+  <div class='container-fluid'>
+    <div class='row align-items-center'>
+
+      <div class='col-6 col-xl-2' data-aos='fade-down'>
+        <h1 class='mb-0'><a href='index.html' class='text-black h2 mb-0'>GuideXP</a></h1>
+      </div>
+      <div class='col-10 col-md-8 d-none d-xl-block' data-aos='fade-down'>
+        <nav class='site-navigation position-relative text-right text-lg-center' role='navigation'>
+
+          <ul class='site-menu js-clone-nav mx-auto d-none d-lg-block'>
+            <li><a href='index.html'>Home</a></li>
+            <li class='has-children active'>
+              <a>Gallery</a>
+              <ul class='dropdown' id='dropdowncontent'>
+
+                <body onload='insert()'>
+                </body>
+
+              </ul>
+
+            </li>
+
+            <li><a href='artists.html'>Artists</a></li>
+            <li><a href='about.html'>About</a></li>
+            <li><a href='contact.html'>Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+
+      <div class='col-6 col-xl-2 text-right' data-aos='fade-down'>
+        <div class='d-none d-xl-inline-block'>
+          <ul class='site-menu js-clone-nav ml-auto list-unstyled d-flex text-right mb-0' data-class='social'>
+            <li>
+              <a href='#' class='pl-3 pr-3'><span class='icon-cloud-upload'></span></a>
+            </li>
+            <li>
+              <a href='#' class='pl-3 pr-3'><span class='icon-user'></span></a>
+            </li>
+          </ul>
         </div>
-        <div class='col-10 col-md-8 d-none d-xl-block' data-aos='fade-down'>
-          <nav class='site-navigation position-relative text-right text-lg-center' role='navigation'>
 
-            <ul class='site-menu js-clone-nav mx-auto d-none d-lg-block'>
-              <li><a href='index.html'>Home</a></li>
-              <li class='has-children active'>
-                <a>Gallery</a>
-                <ul class='dropdown' id='dropdowncontent'>
-                  <body onload='insert()'>
-                      </body>
-                  
-                </ul>
-
-              </li>
-
-
-
-              <li><a href='artists.html'>Artists</a></li>
-              <li><a href='about.html'>About</a></li>
-              <li><a href='contact.html'>Contact</a></li>
-            </ul>
-          </nav>
-        </div>
-
-        <div class='col-6 col-xl-2 text-right' data-aos='fade-down'>
-          <div class='d-none d-xl-inline-block'>
-            <ul class='site-menu js-clone-nav ml-auto list-unstyled d-flex text-right mb-0' data-class='social'>
-              <li>
-                <a href='#' class='pl-3 pr-3'><span class='icon-cloud-upload'></span></a>
-              </li>
-              <li>
-                <a href='#' class='pl-3 pr-3'><span class='icon-user'></span></a>
-              </li>
-            </ul>
-          </div>
-
-          <div class='d-inline-block d-xl-none ml-md-0 mr-auto py-3' style='position: relative; top: 3px;'><a href='#' class='site-menu-toggle js-menu-toggle text-black'><span class='icon-menu h3'></span></a></div>
-
-        </div>
+        <div class='d-inline-block d-xl-none ml-md-0 mr-auto py-3' style='position: relative; top: 3px;'><a href='#'
+            class='site-menu-toggle js-menu-toggle text-black'><span class='icon-menu h3'></span></a></div>
 
       </div>
+
     </div>
-
-    <script src="js/vue.min.js"></script>
-    <script src="js/jquery-3.3.1.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/getExhibtion.js"></script>
-    <script>
-            new Vue({
-                el: '#app',
-                data: {
-                    msg: 'msg',
-                    myData: 'myData',
-                    url: 'explore.html'
-                },
-                methods: {
-                    getData() { //定义一个函数getData() , 里面放置$ajax方法
-                        let self = this;
-
-                        //从服务器拿数据回本地
-                        $.ajax({
-                            type: "GET", //GET还是POST,不是必须
-                            url: "https://api.douban.com/v2/movie/top250", //api
-                            dataType: "jsonp",//要求服务端返回的数据类型,不是必须
-                            //async: true,//同步还是异步,不是必须
-                            success: function(data) {
-                                console.log(data);
-                                //将拿到的数据赋值给vue实例的数据里的变量
-                                self.myData = data.subjects;
-                                console.log(self.myData);
-                            }
-                        });
-
-                    },
-                    
-                    //使用open方法操控location.href使得页面跳转,并在href末尾追加参数字符串
-                    cctz (goesto) { //goesto是形参,在实际调用里实参是cctz(item.desc)里的item.desc
-                        // escape将字符串转化成编码格式,接收页面到时候再转回来
-                        var url = 'explore.html' + '?gallery=' + escape(goesto);
-                        window.open(url);
-                    }
-                },
-                created: function() { //vue的生命周期函数 , 里面执行函数getData()
-                    this.getData();
-                }
-            })
-    </script>
+  </div>
+  <script src="js/jquery-3.3.1.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/getExhibtion.js"></script>
 
 </header>

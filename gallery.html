@@ -43,10 +43,7 @@
     </div>
 
 
-
-
     <script language="javascript" type="text/javascript" src="js/head.js"></script>
-
 
 
     <div class="site-section" data-aos="fade">
@@ -92,72 +89,20 @@
   </div>
   <!-- <script src="js/gallery-load.js"></script> -->
 
-
-
   <script>
-      /*-- start 从location.secrch拿到一段来自前一个页面传递的参数字符串,
-               * 并将这段参数字符串处理成一个键值对的对象obj start --*/
-  
-               var url = location.search,
-                  obj = {};
-  
-              if(url.indexOf("?") != -1) {　　
-                  var str = url.substr(1);
-                  strs = str.split("&");　　
-                  for(var i = 0; i < strs.length; i++) {　　　
-                      obj[strs[i].split("=")[0]] = unescape(strs[i].split("=")[1]);　　
-                  }
-  
-              }
-  
-              console.log('传过来的参数是:', obj.gallery);
-  
-              /*-- end --*/
-  
-  
-              /*--start 使用vue,在vue里使用jq的ajax请求数据,把数据显示到页面  --*/
-              new Vue({
-                  el: '.container',
-                  data: {
-                      msg: 'msg',
-                      vueData: ''
-                  },
-                  methods: {
-                      getData() { //定义一个函数getData() , 里面放置$ajax方法
-                          let self = this;
-  
-                          /*-- start 拼接url --*/
-                          var urlApi = 'https://douban.uieee.com/v2/movie/subject/';
-                          var url = urlApi + obj.gallery;
-                          /*-- end --*/
-  
-                          /*-- 根据参数从服务器请求数据回本地 --*/
-                          $.ajax({
-                              type: "GET", //GET还是POST,不是必须
-                              url: url,
-                              dataType: "jsonp", //要求服务端返回的数据类型,不是必须
-                              //async: true,//同步还是异步,不是必须
-                              success: function(data) {
-                                  console.log(data);
-                                  self.vueData = data;
-                                  console.log('self.vueData是', self.vueData);
-                              }
-                          });
-              /*-- end --*/
-  
-                      }
-                  },
-                  created: function() { //vue的生命周期函数 , 里面执行函数getData()
-                      this.getData();
-                  }
-              })
-              /*-- end --*/
-    
-    
-    
-    </script>
-<!--
--->
+    /*- Get the parameter in the url-*/
+    var url = location.search,
+      obj = {};
+
+    if (url.indexOf("?") != -1) {
+      var str = url.substr(1);
+      strs = str.split("&");
+      for (var i = 0; i < strs.length; i++) {
+        obj[strs[i].split("=")[0]] = unescape(strs[i].split("=")[1]);
+      }
+    }
+    console.log('the parameter is:', obj.gallery);
+  </script>
 
   <script src="js/gallery-load.js"></script>
   <link href="http://vjs.zencdn.net/4.12/video-js.css" rel="stylesheet">
@@ -197,8 +142,6 @@
       videojs: true
     }); 
   </script>
-
-
 
 </body>
 

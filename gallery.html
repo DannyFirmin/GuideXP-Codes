@@ -79,7 +79,7 @@
     </div>
 
     <div style="display:none;" id="audio1">
-      <audio class="lg-video-object lg-html5" controls preload="none">
+      <audio class="lg-video-object lg-html5 video-js vjs-default-skin" poster="images/nature_small_1.jpg" controls preload="none">
         <source
           src="https://cs.anu.edu.au/courses/comp2300/v_media/lecture-recordings/01_COPE_Part_0__Organisation_&_Contents.mp3"
           type="audio/mpeg">
@@ -88,7 +88,7 @@
     </div>
 
     <div style="display:none;" id="audio2">
-      <audio class="lg-video-object lg-html5" controls preload="none">
+      <audio class="lg-video-object lg-html5 video-js vjs-default-skin" poster="images/nature_small_2.jpg" controls preload="none">
         <source
           src="https://cs.anu.edu.au/courses/comp2300/v_media/lecture-recordings/06_COPE_Part_2__Hardware_Software_Interface_I.mp3"
           type="audio/mpeg">
@@ -105,6 +105,8 @@
     </div>
   </div>
   <!-- <script src="js/gallery-load.js"></script> -->
+  <link href="http://vjs.zencdn.net/4.12/video-js.css" rel="stylesheet">
+  <script src="http://vjs.zencdn.net/4.12/video.js"></script>
   <!-- <script>
       function getMess(){
            //var str = getQueryVariable('gallery');
@@ -135,7 +137,13 @@
     $(document).ready(function () {
       $('#lightgallery').lightGallery();
     });
+
+    $('#lightgallery').lightGallery({
+      videojs: true
+    }); 
   </script>
+
+
 
 </body>
 

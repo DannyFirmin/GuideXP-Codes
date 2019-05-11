@@ -134,19 +134,16 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-
-MEDIA_URL = '/media/'
-
-STATIC_URL = '/static/'
-
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
-#list of folders where Django will search for additional
-#static files aside from the static folder of each app installed
+STATIC_ROOT = "/var/www/guidexp.django/src/django/static/"
+
+STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
 ]
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
 
 LOGIN_REDIRECT_URL = 'admin-home'
 LOGIN_URL = 'admin-login'

@@ -34,8 +34,6 @@ def createArt(request):
         artist             = None
         exhibition         = None
 
-        print(form1.errors)
-
         if artist_name.isdigit():
             artist = Artist.objects.get(pk=int(artist_name))
         if exhibition_name.isdigit():
@@ -45,11 +43,11 @@ def createArt(request):
         if form1.is_valid():
             cleaned_data = form1.cleaned_data;
             if artist is None:
-                artist = Artist.objects.create_artist(artist_img = artist_img, artist_name=artist_name, artist_description=artist_description)
-
+                artist = Artist.objects.create(artist_img = artist_img, artist_name=artist_name, artist_description=artist_description, artist_uploaded_by=request.user.guidexpuser)
+                artist.save()
             if exhibition is None:
-                exhibition = Exhibition.objects.create_exhibition(exhibition_name=exhibition_name)
-
+                exhibition = Exhibition.objects.create(exhibition_name=exhibition_name, exhibition_uploaded_by=request.user.guidexpuser)
+                exhibition.save()
 
             a = Artimage.objects.create(art_name=cleaned_data.get('art_name'), art_description=cleaned_data.get('art_description'),
                                                  art_img = cleaned_data.get('art_img'),art_audio=cleaned_data.get('art_audio'),

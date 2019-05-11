@@ -13,6 +13,11 @@ class UploadArtist(forms.ModelForm):
         model = Artist
         exclude = ['artist_uploaded_by','artist_authorised_by']
 
+class UploadExhibition(forms.ModelForm):
+    class Meta:
+        model = Exhibition
+        exclude = ['exhibition_uploaded_by','exhibition_authorised_by']
+
 
 class UserUpdate(forms.ModelForm):
     class Meta:

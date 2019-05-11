@@ -3,7 +3,7 @@ from .models import *
 
 admin.site.register(Guidexpuser)
 admin.site.register(Artimage)
-admin.site.register(Gallery)
+# admin.site.register(Gallery)
 admin.site.register(Artist)
 admin.site.register(Exhibition)
 

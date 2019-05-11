@@ -9,14 +9,14 @@ class Guidexpuser(models.Model):
     # username,password, email.
     user       = models.OneToOneField(User, on_delete=models.CASCADE)
 
-class Gallery(models.Model):
-    gallery_name          = models.CharField(max_length=50)
-    gallery_address       = models.CharField(max_length=95)
-    gallery_city          = models.CharField(max_length=20)
-    gallery_state         = models.CharField(max_length=3)
-    gallery_zip           = models.CharField(max_length=4)
-    Gallery_uploaded_by   = models.ForeignKey(Guidexpuser, models.CASCADE, related_name='upload_gallery')
-    Gallery_authorised_by = models.ForeignKey(Guidexpuser, models.CASCADE, related_name='authorise_gallery', null=True, blank=True)
+# class Gallery(models.Model):
+#     gallery_name          = models.CharField(max_length=50)
+#     gallery_address       = models.CharField(max_length=95)
+#     gallery_city          = models.CharField(max_length=20)
+#     gallery_state         = models.CharField(max_length=3)
+#     gallery_zip           = models.CharField(max_length=4)
+#     gallery_uploaded_by   = models.ForeignKey(Guidexpuser, models.CASCADE, related_name='upload_gallery')
+#     gallery_authorised_by = models.ForeignKey(Guidexpuser, models.CASCADE, related_name='authorise_gallery', null=True, blank=True)
 
 class Artist(models.Model):
     artist_img           = models.ImageField(upload_to="artist_images/")
@@ -26,20 +26,20 @@ class Artist(models.Model):
     artist_authorised_by = models.ForeignKey(Guidexpuser, models.CASCADE, related_name='authorise_artist', null=True, blank=True)
 
 class Exhibition(models.Model):
-    exhibition_name       = models.CharField(max_length=50)
-    exhibition_descrip    = models.TextField()
-    exhibition_start      = models.DateField()
-    exhibition_end        = models.DateField()
-    exhibition_gallery    = models.ForeignKey(Gallery, models.CASCADE)
-    Gallery_uploaded_by   = models.ForeignKey(Guidexpuser, models.CASCADE, related_name='upload_exhibition')
-    Gallery_authorised_by = models.ForeignKey(Guidexpuser, models.CASCADE, related_name='authorise_exhibition', null=True,blank=True)
+    exhibition_name           = models.CharField(max_length=50)
+    #exhibition_description    = models.TextField()
+    #exhibition_start          = models.DateField()
+    #exhibition_end            = models.DateField()
+    #exhibition_gallery        = models.ForeignKey(Gallery, models.CASCADE)
+    exhibition_uploaded_by    = models.ForeignKey(Guidexpuser, models.CASCADE, related_name='upload_exhibition')
+    exhibition_authorised_by  = models.ForeignKey(Guidexpuser, models.CASCADE, related_name='authorise_exhibition', null=True,blank=True)
 
 class Artimage(models.Model):
     art_name          = models.CharField(max_length=255)
     art_description   = models.TextField()
     art_img           = models.ImageField(upload_to="art_images/")
     art_audio         = models.FileField(upload_to="art_audios/")
-    art_in_gallery    = models.ForeignKey(Gallery, models.CASCADE, blank=True, null=True)
+    #art_in_gallery    = models.ForeignKey(Gallery, models.CASCADE, blank=True, null=True)
     art_in_exhibition = models.ForeignKey(Exhibition, models.CASCADE, blank=True, null=True)
     art_from_artist   = models.ForeignKey(Artist, models.CASCADE, blank=True, null=True)
     art_uploaded_by   = models.ForeignKey(Guidexpuser, models.CASCADE, related_name='upload_art')

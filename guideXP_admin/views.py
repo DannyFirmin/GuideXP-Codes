@@ -2,8 +2,8 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.contrib import messages
-from .forms import (UserUpdate,UserprofileUpdate,UploadArtForm,UploadArtist,createUserForm,createGuideXPUserForm)
-from .models import Guidexpuser,Artist
+from .forms import (UserUpdate,UserprofileUpdate,UploadArtForm,UploadArtist,createUserForm,createGuideXPUserForm,UploadExhibition)
+from .models import Guidexpuser,Artist, Exhibition
 
 # def login(request):
 #     form = UserCreationForm()
@@ -25,10 +25,22 @@ def profile(request):
 
 @login_required
 def createArt(request):
-    art_form = UploadArtForm()
-    artistForm = UploadArtist()
-    artists = Artist.objects.filter(artist_uploaded_by = request.user.guidexpuser)
-    return render(request,"guideXP_admin/create_art.html", {'form':art_form, 'form1':artistForm, 'artists':artists, })
+    if request.method == 'POST':
+        pass
+
+
+
+    art_form          = UploadArtForm()
+    artistForm        = UploadArtist()
+    exhibitionForm    = UploadExhibition()
+    artists           = Artist.objects.filter(artist_uploaded_by = request.user.guidexpuser)
+    exhibitions       = Exhibition.objects.filter(exhibition_uploaded_by = request.user.guidexpuser)
+    context_variables = {'form':art_form, 'form1':artistForm, 'form2':exhibitionForm, 'artists':artists, 'exhibitions':exhibitions}
+    return render(request,"guideXP_admin/create_art.html", context_variables)
+
+
+
+
 
 @login_required
 def createArtist(request):

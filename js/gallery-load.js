@@ -1,8 +1,8 @@
 
-// var now=new Date();
-// var resultCount = now.getSeconds()%11;
+var now=new Date();
+var resultCount = now.getSeconds()%11;
  
-// for(var i = 0;resultCount-1>i;i++){
+for(var i = 0;resultCount-1>i;i++){
 var lightGalleryDiv = document.getElementById('lightgallery');
     var imageCardDiv = document.createElement("div");
     imageCardDiv.className="col-sm-6 col-md-4 col-lg-3 col-xl-2 item";
@@ -18,8 +18,6 @@ var lightGalleryDiv = document.getElementById('lightgallery');
     a.appendChild(img);
     imageCardDiv.appendChild(a);
     lightGalleryDiv.appendChild(imageCardDiv);
-
-
 
     // var audioResDiv = document.createElement("div");
 
@@ -39,7 +37,7 @@ var lightGalleryDiv = document.getElementById('lightgallery');
     // audioTag.appendChild(audioSource);
     // audioResDiv.appendChild(audioTag);
     // document.appendChild(audioResDiv);
-    document.write( '    <div style=\"display:none;\" id=\"audio1\">\n' );
+document.write( '    <div style=\"display:none;\" id=\"audio1\">\n' );
 document.write( '      <audio class=\"lg-video-object lg-html5 video-js vjs-default-skin\" poster=\"images/nature_small_1.jpg\" controls preload=\"none\">\n' );
 document.write( '        <source\n' );
 document.write( '          src=\"https://cs.anu.edu.au/courses/comp2300/v_media/lecture-recordings/01_COPE_Part_0__Organisation_&_Contents.mp3\"\n' );
@@ -50,8 +48,4 @@ document.write( '    </div>' );
 
 
 
-
-
-
-
-// }
+}

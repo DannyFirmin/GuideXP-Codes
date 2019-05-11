@@ -11,7 +11,7 @@ document.writeln("        <nav class=\'site-navigation position-relative text-ri
 document.writeln("");
 document.writeln("          <ul class=\'site-menu js-clone-nav mx-auto d-none d-lg-block\'>");
 document.writeln("            <li><a href=\'index.html\'>Home</a></li>");
-document.writeln("            <li class=\'has-children active\'>");
+document.writeln("            <li class=\'has-children\'>");
 document.writeln("              <a>Exibitions</a>");
 document.writeln("              <ul class=\'dropdown\' id=\'dropdowncontent\'>");
 document.writeln("");

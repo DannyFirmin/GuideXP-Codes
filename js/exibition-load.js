@@ -1,7 +1,7 @@
 
 var now=new Date();
 var resultCount = now.getSeconds()%11;
- 
+
 for(var i = 0;resultCount-1>i;i++){
 var lightGalleryDiv = document.getElementById('lightgallery');
     var imageCardDiv = document.createElement("div");

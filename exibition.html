@@ -54,7 +54,7 @@
           <div class="col-md-7">
             <div class="row mb-5">
               <div class="col-12 ">
-                <h2 class="site-section-heading text-center">Exibition</h2>
+                <h2 class="site-section-heading text-center" id="exb-title">Exibition</h2>
               </div>
             </div>
           </div>
@@ -102,6 +102,11 @@
       }
     }
     console.log('the parameter is:', obj.exibition);
+
+    // Set title
+    var exibitionTitle = document.getElementById('exb-title');
+    exibitionTitle.innerText = obj.exibition;
+
   </script>
 
   <script src="js/exibition-load.js"></script>

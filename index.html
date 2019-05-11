@@ -1,34 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>GuideXP</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:300i,400,700" rel="stylesheet">
-    <link rel="stylesheet" href="fonts/icomoon/style.css">
+<head>
+  <title>GuideXP</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/magnific-popup.css">
-    <link rel="stylesheet" href="css/jquery-ui.css">
-    <link rel="stylesheet" href="css/owl.carousel.min.css">
-    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:300i,400,700" rel="stylesheet">
+  <link rel="stylesheet" href="fonts/icomoon/style.css">
 
-    <link rel="stylesheet" href="css/lightgallery.min.css">    
-    
-    <link rel="stylesheet" href="css/bootstrap-datepicker.css">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/magnific-popup.css">
+  <link rel="stylesheet" href="css/jquery-ui.css">
+  <link rel="stylesheet" href="css/owl.carousel.min.css">
+  <link rel="stylesheet" href="css/owl.theme.default.min.css">
 
-    <link rel="stylesheet" href="fonts/flaticon/font/flaticon.css">
-    
-    <link rel="stylesheet" href="css/swiper.css">
+  <link rel="stylesheet" href="css/lightgallery.min.css">
 
-    <link rel="stylesheet" href="css/aos.css">
+  <link rel="stylesheet" href="css/bootstrap-datepicker.css">
 
-    <link rel="stylesheet" href="css/style.css">
-    
-  </head>
-  <body>
-  
+  <link rel="stylesheet" href="fonts/flaticon/font/flaticon.css">
+
+  <link rel="stylesheet" href="css/swiper.css">
+
+  <link rel="stylesheet" href="css/aos.css">
+
+  <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+
   <div class="site-wrap">
 
     <div class="site-mobile-menu">
@@ -39,40 +41,90 @@
       </div>
       <div class="site-mobile-menu-body"></div>
     </div>
-    
+
 
 
 
     <script language="javascript" type="text/javascript" src="js/head.js"></script>
 
 
-  <div class="container-fluid" data-aos="fade" data-aos-delay="500">
-    <div class="swiper-container images-carousel">
+    <div class="container-fluid" data-aos="fade" data-aos-delay="500">
+      <div class="swiper-container images-carousel">
         <div class="swiper-wrapper">
-        
-           <script>
-
+          <!-- Uncomment BELOW if API is ready -->
+          <!-- <script>
             var exbi = new Array();
-            exbi[0] = "Civic Art";
-            exbi[1] = "Makers in Resdience"; 
-            exbi[2] = "Makers";
-            exbi[3] = "National";
-            
+            // exbi[0] = "Civic Art";
+            // exbi[1] = "Makers in Resdience";
+            // exbi[2] = "From the Hearts";
+            // exbi[3] = "Building Arts";
 
-            for(var i = 0; i < exbi.length;i++){
-            document.writeln("            <div class=\'swiper-slide\'>");
-            document.writeln("              <div class=\'image-wrap\'>");
-            document.writeln("                <div class=\'image-info\'>");
-            document.writeln("                  <h2 class=\'mb-3\'>"+exbi[i]+"</h2>");
-            document.writeln("                  <a href=\'exibition.html?exibition="+exbi[i]+"\' class=\'btn btn-outline-white py-2 px-4\'>Start this Guide</a>");
-            document.writeln("                </div>");
-            document.writeln("                <img id = \'card"+i+"-img\' src=\'images/img_"+i+".jpg\' alt=\'Image\'>");
-            document.writeln("              </div>");
-            document.writeln("            </div>");
+            //  Fetch from API to get the list of all exibitions
+            const url = 'http://admin.guidexp.me/api/exhibition/'
+            fetch(url)
+              .then(response => response.json())
+              .then(data => {
+                exbi = data.exhibition_name;
+              })
+
+            for (var i = 0; i < exbi.length; i++) {
+              document.writeln("            <div class=\'swiper-slide\'>");
+              document.writeln("              <div class=\'image-wrap\'>");
+              document.writeln("                <div class=\'image-info\'>");
+              document.writeln("                  <h2 class=\'mb-3\'>" + exbi[i] + "</h2>");
+              document.writeln("                  <a href=\'exibition.html?exibition=" + exbi[i] + "\' class=\'btn btn-outline-white py-2 px-4\'>Start this Guide</a>");
+              document.writeln("                </div>");
+              //  Fetch a cover image from a exibition
+              const url = 'http://admin.guidexp.me/api/exhibition/'+ exbi[i]
+              fetch(url)
+                .then(response => response.json())
+                .then(data => {
+                  var imgPath = data[0].art_img;
+                })
+              document.writeln("                <img src=" + imgPath + " alt=\'Image\'>");
+              document.writeln("              </div>");
+              document.writeln("            </div>");
             }
-            
-          </script>
-
+          </script> -->
+          <!-- Uncomment ABOVE if API is ready -->
+          <!-- Delete BELOW if API is ready -->
+          <div class="swiper-slide">
+            <div class="image-wrap">
+              <div class="image-info">
+                <h2 class="mb-3">Civic Art</h2>
+                <a href="exibition.html?exibition=Civic Art" class="btn btn-outline-white py-2 px-4">Start this Guide</a>
+              </div>
+              <img id="card1-img" src="images/img_1.jpg" alt="Image">
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="image-wrap">
+              <div class="image-info">
+                <h2 class="mb-3">Makers in Residence</h2>
+                <a href="exibition.html?exibition=Makers in Resdience" class="btn btn-outline-white py-2 px-4">Start this Guide</a>
+              </div>
+              <img id="card2-img" src="images/img_2.jpg" alt="Image">
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="image-wrap">
+              <div class="image-info">
+                <h2 class="mb-3">From the Hearts</h2>
+                <a href="exibition.html?exibition=From the Hearts" class="btn btn-outline-white py-2 px-4">Start this Guide</a>
+              </div>
+              <img id="card3-img" src="images/img_3.jpg" alt="Image">
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="image-wrap">
+              <div class="image-info">
+                <h2 class="mb-3">Building Arts</h2>
+                <a href="exibition.html?exibition=Building Arts" class="btn btn-outline-white py-2 px-4">Start this Guide</a>
+              </div>
+              <img id="card4-img" src="images/img_4.jpg" alt="Image">
+            </div>
+          </div>
+          <!-- Delete ABOVE if API is ready -->
 
         </div>
 
@@ -80,23 +132,22 @@
         <div class="swiper-button-prev"></div>
         <div class="swiper-button-next"></div>
         <div class="swiper-scrollbar"></div>
+      </div>
     </div>
-  </div>
 
-  <div class="footer py-4">
-    <div class="container-fluid">
-      <p>
-      GuideXP - Create a guided tour for anything
-      </p>
+    <div class="footer py-4">
+      <div class="container-fluid">
+        <p>
+          GuideXP - Create a guided tour for anything
+        </p>
+      </div>
     </div>
-  </div>
 
-    
 
-    
-    
+
+
+
   </div>
-  <!-- <script src="js/fetch-api-index.js"></script> -->
 
   <script src="js/jquery-3.3.1.min.js"></script>
   <script src="js/jquery-migrate-3.0.1.min.js"></script>
@@ -116,12 +167,13 @@
   <script src="js/jquery.mousewheel.min.js"></script>
 
   <script src="js/main.js"></script>
-  
+
   <script>
-    $(document).ready(function(){
+    $(document).ready(function () {
       $('#lightgallery').lightGallery();
     });
   </script>
-    
-  </body>
+
+</body>
+
 </html>

@@ -17,16 +17,12 @@ fetch(apiurl)
     .then(response => response.json())
     .then(data => {
         for (i = 0; i < data.length; i++) {
-        //     <div class="row">
         //     <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2 item" data-aos="fade" data-html="#audio0"
-        //       data-sub-html="<h4>Fading Light</h4><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor doloremque hic excepturi fugit, sunt impedit fuga tempora, ad amet aliquid?</p>">
-        //       <a href="#"><img src="images/nature_small_1.jpg" alt="IMage" class="img-fluid"></a>
-        //     </div>
+        //     data-sub-html="<h4>Fading Light</h4><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor doloremque hic excepturi fugit, sunt impedit fuga tempora, ad amet aliquid?</p>">
+        //     <a href="#"><img src="images/nature_small_1.jpg" alt="IMage" class="img-fluid"></a>
         //   </div>
             // load gui
-            var container = document.getElementById('container');
-            var row = document.createElement('div');
-            row.className = "row";
+            var lightGalleryDiv = document.getElementById('lightgallery');
             var imageCardDiv = document.createElement("div");
             imageCardDiv.className = "col-sm-6 col-md-4 col-lg-3 col-xl-2 item";
             imageCardDiv.setAttribute('data-aos', 'fade');
@@ -40,8 +36,7 @@ fetch(apiurl)
             img.className = "img-fluid";
             a.appendChild(img);
             imageCardDiv.appendChild(a);
-            row.appendChild(imageCardDiv);
-            container.appendChild(row);
+            lightGalleryDiv.appendChild(imageCardDiv);
 
             // load audio resource
             var audioResDiv = document.createElement("div");

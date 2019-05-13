@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="dac3c5e0-da81-4cce-8e1e-a2c6419fccd8" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/guideXP/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/guideXP/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/guideXP_admin/templates/guideXP_admin/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/guideXP_admin/templates/guideXP_admin/base.html" afterDir="false" />
-    </list>
+    <list default="true" id="dac3c5e0-da81-4cce-8e1e-a2c6419fccd8" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,8 +60,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/guideXP/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="798">
-              <caret line="152" column="14" selection-start-line="152" selection-start-column="14" selection-end-line="152" selection-end-column="14" />
+            <state relative-caret-position="949">
+              <caret line="153" selection-start-line="153" selection-end-line="153" />
             </state>
           </provider>
         </entry>
@@ -222,12 +219,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1555568228033</updated>
-      <workItem from="1557726961720" duration="1244000" />
+      <workItem from="1557726961720" duration="1586000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1244000" />
+    <option name="totallyTimeSpent" value="1586000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -239,7 +236,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="24" y="88" width="1680" height="1027" extended-state="0" />
+    <frame x="24" y="88" width="1680" height="1027" extended-state="1" />
     <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2771673" />
@@ -365,8 +362,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/guideXP/settings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="798">
-          <caret line="152" column="14" selection-start-line="152" selection-start-column="14" selection-end-line="152" selection-end-column="14" />
+        <state relative-caret-position="949">
+          <caret line="153" selection-start-line="153" selection-end-line="153" />
         </state>
       </provider>
     </entry>

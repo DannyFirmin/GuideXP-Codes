@@ -149,3 +149,5 @@ LOGIN_REDIRECT_URL = 'admin-home'
 LOGIN_URL = 'admin-login'
 
 CORS_ORIGIN_ALLOW_ALL = True
+
+STATIC_ROOT = os.path.join(BASE_DIR, "static")

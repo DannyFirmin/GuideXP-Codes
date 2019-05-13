@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dac3c5e0-da81-4cce-8e1e-a2c6419fccd8" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/guideXP_admin/templates/guideXP_admin/create_art.html" beforeDir="false" afterPath="$PROJECT_DIR$/guideXP_admin/templates/guideXP_admin/create_art.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/guideXP/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/guideXP/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/guideXP_admin/templates/guideXP_admin/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/guideXP_admin/templates/guideXP_admin/base.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -41,20 +42,29 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/guideXP_admin/templates/guideXP_admin/create_art.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="441">
-              <caret line="38" column="106" selection-start-line="38" selection-start-column="106" selection-end-line="38" selection-end-column="106" />
+            <state relative-caret-position="450">
+              <caret line="30" column="34" lean-forward="true" selection-start-line="30" selection-start-column="34" selection-end-line="30" selection-end-column="34" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/guideXP_admin/templates/guideXP_admin/base.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="342">
+              <caret line="38" column="43" lean-forward="true" selection-start-line="38" selection-start-column="43" selection-end-line="38" selection-end-column="43" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/guideXP/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="393">
-              <caret line="57" column="44" lean-forward="true" selection-start-line="57" selection-start-column="44" selection-end-line="57" selection-end-column="44" />
+            <state relative-caret-position="798">
+              <caret line="152" column="14" selection-start-line="152" selection-start-column="14" selection-end-line="152" selection-end-column="14" />
             </state>
           </provider>
         </entry>
@@ -94,9 +104,10 @@
         <option value="$PROJECT_DIR$/login/views.py" />
         <option value="$PROJECT_DIR$/untitled/settings.py" />
         <option value="$PROJECT_DIR$/guideXP_admin/views.py" />
-        <option value="$PROJECT_DIR$/guideXP/settings.py" />
         <option value="$PROJECT_DIR$/api/views.py" />
         <option value="$PROJECT_DIR$/guideXP_admin/templates/guideXP_admin/create_art.html" />
+        <option value="$PROJECT_DIR$/guideXP_admin/templates/guideXP_admin/base.html" />
+        <option value="$PROJECT_DIR$/guideXP/settings.py" />
       </list>
     </option>
   </component>
@@ -211,12 +222,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1555568228033</updated>
-      <workItem from="1557726961720" duration="1077000" />
+      <workItem from="1557726961720" duration="1244000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1077000" />
+    <option name="totallyTimeSpent" value="1244000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -328,10 +339,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/guideXP/settings.py">
+    <entry file="file://$PROJECT_DIR$/guideXP_admin/templates/guideXP_admin/create_art.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="393">
-          <caret line="57" column="44" lean-forward="true" selection-start-line="57" selection-start-column="44" selection-end-line="57" selection-end-column="44" />
+        <state relative-caret-position="450">
+          <caret line="30" column="34" lean-forward="true" selection-start-line="30" selection-start-column="34" selection-end-line="30" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/guideXP_admin/templates/guideXP_admin/base.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="38" column="43" lean-forward="true" selection-start-line="38" selection-start-column="43" selection-end-line="38" selection-end-column="43" />
         </state>
       </provider>
     </entry>
@@ -345,10 +363,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/guideXP_admin/templates/guideXP_admin/create_art.html">
+    <entry file="file://$PROJECT_DIR$/guideXP/settings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="441">
-          <caret line="38" column="106" selection-start-line="38" selection-start-column="106" selection-end-line="38" selection-end-column="106" />
+        <state relative-caret-position="798">
+          <caret line="152" column="14" selection-start-line="152" selection-start-column="14" selection-end-line="152" selection-end-column="14" />
         </state>
       </provider>
     </entry>

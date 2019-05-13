@@ -1,28 +1,31 @@
 
-
-
+//  Fetch from API to get the list of all exibitions
 var exbi = new Array();
-exbi[0] = "Civic Art";
-exbi[1] = "Makers in Resdience"; 
-exbi[2] = "From the Hearts";
-exbi[3] = "Building Arts";
 
+const url_head = 'http://admin.guidexp.me/api/exhibition/'
+fetch(url_head)
+    .then(response => response.json())
+    .then(data => {
+        for (i = 0; i < data.length; i++) {
+            exbi[i] = data[i].exhibition_name;
+        }
+    })
 
-function insert(){
+function insert() {
     var str = "";
     var ul = document.getElementById("dropdowncontent");
 
-    for(var i = 0; i < exbi.length;i++){
-        var data=exbi[i];
+    for (var i = 0; i < exbi.length; i++) {
+        var data = exbi[i];
         var url = "exibition.html?exibition=" + data;
-        str= str + "<a href='"+ url + "'>"+data+"</a>";
-   
+        str = str + "<a href='" + url + "'>" + data + "</a>";
+
         var li = document.createElement('li');
         li.innerHTML = str;
     }
     ul.appendChild(li);
- }
-                  
+}
+
 
 
 
@@ -78,6 +81,5 @@ document.writeln("    </div>");
 document.writeln("  </div>");
 document.writeln("  <script src=\'js/jquery-3.3.1.min.js\'></script>");
 document.writeln("  <script src=\'js/bootstrap.min.js\'></script>");
-document.writeln("  <script src=\'js/getExhibtion.js\'></script>");
 document.writeln("");
 document.writeln("</header>");

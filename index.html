@@ -42,89 +42,135 @@
       <div class="site-mobile-menu-body"></div>
     </div>
 
-
-
-
     <script language="javascript" type="text/javascript" src="js/head.js"></script>
-
 
     <div class="container-fluid" data-aos="fade" data-aos-delay="500">
       <div class="swiper-container images-carousel">
         <div class="swiper-wrapper">
-          <!-- Uncomment BELOW if API is ready -->
-          <!-- <script>
+          <div class="swiper-slide">
+            <div class="image-wrap">
+              <div class="image-info">
+                <h2 id="card0-name" class="mb-3">Contact us to buy this block</h2>
+                <a id="card0-link" href="contact.html" class="btn btn-outline-white py-2 px-4">Start this
+                  Guide</a>
+              </div>
+              <img id="card0-img" src="images/img_1.jpg" alt="Image">
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="image-wrap">
+              <div class="image-info">
+                <h2 id="card1-name" class="mb-3">Contact us to buy this block</h2>
+                <a id="card1-link" href="contact.html" class="btn btn-outline-white py-2 px-4">Start
+                  this Guide</a>
+              </div>
+              <img id="card1-img" src="images/img_2.jpg" alt="Image">
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="image-wrap">
+              <div class="image-info">
+                <h2 id="card2-name" class="mb-3">Contact us to buy this block</h2>
+                <a id="card2-link" href="contact.html" class="btn btn-outline-white py-2 px-4">Start this
+                  Guide</a>
+              </div>
+              <img id="card2-img" src="images/img_3.jpg" alt="Image">
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="image-wrap">
+              <div class="image-info">
+                <h2 id="card3-name" class="mb-3">Contact us to buy this block</h2>
+                <a id="card3-link" href="contact.html" class="btn btn-outline-white py-2 px-4">Start this
+                  Guide</a>
+              </div>
+              <img id="card3-img" src="images/img_4.jpg" alt="Image">
+            </div>
+          </div>
+
+          <script>
+            const domain = 'http://admin.guidexp.me';
             var exbi = new Array();
-            // exbi[0] = "Civic Art";
-            // exbi[1] = "Makers in Resdience";
-            // exbi[2] = "From the Hearts";
-            // exbi[3] = "Building Arts";
 
-            //  Fetch from API to get the list of all exibitions
-            const url = 'http://admin.guidexp.me/api/exhibition/'
-            fetch(url)
-              .then(response => response.json())
-              .then(data => {
-                exbi = data.exhibition_name;
+            const card0_img = document.getElementById('card0-img');
+            const card0_name = document.getElementById('card0-name');
+            const card0_link = document.getElementById('card0-link');
+            const card1_name = document.getElementById('card1-name');
+            const card1_link = document.getElementById('card1-link');
+            const card2_img = document.getElementById('card2-img');
+            const card2_name = document.getElementById('card2-name');
+            const card2_link = document.getElementById('card2-link');
+            const card3_img = document.getElementById('card3-img');
+            const card3_name = document.getElementById('card3-name');
+            const card3_link = document.getElementById('card3-link');
+            var url = 'http://admin.guidexp.me/api/exhibition/';
+
+            var result = fetch(url, {
+              method: 'get',
+            }).then(function (response) {
+              return response.json(); // pass the data as promise to next then block
+            }).then(function (data) {
+              for (i = 0; i < data.length; i++) {
+                exbi[i] = data[i].exhibition_name;
+              }
+              card0_link.href = "exibition.html?exibition=" + data[0].exhibition_name;
+              card0_name.innerHTML = data[0].exhibition_name;
+              if (data.length >= 2) {
+                card1_link.href = "exibition.html?exibition=" + data[1].exhibition_name;
+                card1_name.innerHTML = data[1].exhibition_name;
+                setImage1(data[1]);
+              }
+              if (data.length >= 3) {
+                card2_link.href = "exibition.html?exibition=" + data[2].exhibition_name;
+                card2_name.innerHTML = data[2].exhibition_name;
+                setImage2(data[2]);
+
+              }
+              if (data.length >= 4) {
+                card3_link.href = "exibition.html?exibition=" + data[3].exhibition_name
+                card3_name.innerHTML = data[3].exhibition_name
+                setImage3(data[3]);
+              }
+              return fetch('http://admin.guidexp.me/api/exhibition/' + exbi[0]); // make a 2nd request and return a promise
+            })
+              .then(function (response) {
+                return response.json();
               })
+              .catch(function (error) {
+                console.log('Request failed', error)
+              })
+            result.then(function (r) {
+              card0_img.src = domain + r[0].art_img;
+            });
 
-            for (var i = 0; i < exbi.length; i++) {
-              document.writeln("            <div class=\'swiper-slide\'>");
-              document.writeln("              <div class=\'image-wrap\'>");
-              document.writeln("                <div class=\'image-info\'>");
-              document.writeln("                  <h2 class=\'mb-3\'>" + exbi[i] + "</h2>");
-              document.writeln("                  <a href=\'exibition.html?exibition=" + exbi[i] + "\' class=\'btn btn-outline-white py-2 px-4\'>Start this Guide</a>");
-              document.writeln("                </div>");
-              //  Fetch a cover image from a exibition
-              const url = 'http://admin.guidexp.me/api/exhibition/'+ exbi[i]
+            function setImage1(data) {
+              const card1_img = document.getElementById('card1-img');
+              const url = 'http://admin.guidexp.me/api/exhibition/' + data.exhibition_name;
               fetch(url)
                 .then(response => response.json())
-                .then(data => {
-                  var imgPath = data[0].art_img;
+                .then(d => {
+                  card1_img.src = domain + d[0].art_img;
                 })
-              document.writeln("                <img src=" + imgPath + " alt=\'Image\'>");
-              document.writeln("              </div>");
-              document.writeln("            </div>");
             }
-          </script> -->
-          <!-- Uncomment ABOVE if API is ready -->
-          <!-- Delete BELOW if API is ready -->
-          <div class="swiper-slide">
-            <div class="image-wrap">
-              <div class="image-info">
-                <h2 class="mb-3">Civic Art</h2>
-                <a href="exibition.html?exibition=Civic Art" class="btn btn-outline-white py-2 px-4">Start this Guide</a>
-              </div>
-              <img id="card1-img" src="images/img_1.jpg" alt="Image">
-            </div>
-          </div>
-          <div class="swiper-slide">
-            <div class="image-wrap">
-              <div class="image-info">
-                <h2 class="mb-3">Makers in Residence</h2>
-                <a href="exibition.html?exibition=Makers in Resdience" class="btn btn-outline-white py-2 px-4">Start this Guide</a>
-              </div>
-              <img id="card2-img" src="images/img_2.jpg" alt="Image">
-            </div>
-          </div>
-          <div class="swiper-slide">
-            <div class="image-wrap">
-              <div class="image-info">
-                <h2 class="mb-3">From the Hearts</h2>
-                <a href="exibition.html?exibition=From the Hearts" class="btn btn-outline-white py-2 px-4">Start this Guide</a>
-              </div>
-              <img id="card3-img" src="images/img_3.jpg" alt="Image">
-            </div>
-          </div>
-          <div class="swiper-slide">
-            <div class="image-wrap">
-              <div class="image-info">
-                <h2 class="mb-3">Building Arts</h2>
-                <a href="exibition.html?exibition=Building Arts" class="btn btn-outline-white py-2 px-4">Start this Guide</a>
-              </div>
-              <img id="card4-img" src="images/img_4.jpg" alt="Image">
-            </div>
-          </div>
-          <!-- Delete ABOVE if API is ready -->
+            function setImage2(data) {
+              const card2_img = document.getElementById('card2-img');
+              const url = 'http://admin.guidexp.me/api/exhibition/' + data.exhibition_name;
+              fetch(url)
+                .then(response => response.json())
+                .then(d => {
+                  card2_img.src = domain + d[0].art_img;
+                })
+            }
+            function setImage3(data) {
+              const card3_img = document.getElementById('card3-img');
+              const url = 'http://admin.guidexp.me/api/exhibition/' + data.exhibition_name;
+              fetch(url)
+                .then(response => response.json())
+                .then(d => {
+                  card3_img.src = domain + d[0].art_img;
+                })
+            }
+          </script>
 
         </div>
 

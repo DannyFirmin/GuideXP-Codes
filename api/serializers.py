@@ -7,4 +7,8 @@ class Artserializer(serializers.ModelSerializer):
         fields = "__all__"
 
 
+class ExhibitionSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Exhibition
+        fields = "__all__"
 

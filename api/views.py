@@ -19,3 +19,9 @@ def getArtByExhibition(request, pk):
         serializer = Artserializer(arts,many=True)
         return  JsonResponse(serializer.data, safe=False)
 
+@csrf_exempt
+def getExhibition(request):
+    if request.method == 'GET':
+        exhibitons = Exhibition.objects.all()
+        serializer = ExhibitionSerializer(exhibitons, many=True)
+        return JsonResponse(serializer.data, safe=False)

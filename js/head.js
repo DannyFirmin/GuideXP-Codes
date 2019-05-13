@@ -26,9 +26,6 @@ function insert() {
     ul.appendChild(li);
 }
 
-
-
-
 document.writeln("<header class=\'site-navbar py-3 border-bottom\' role=\'banner\'>");
 document.writeln("");
 document.writeln("  <div class=\'container-fluid\'>");

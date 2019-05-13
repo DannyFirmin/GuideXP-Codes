@@ -18,6 +18,7 @@ fetch(apiurl)
     .then(data => {
         console.log('hi', data[0])
         for (i = 0; i < data.length; i++) {
+            // load gui
             console.log(data[i]);
             var lightGalleryDiv = document.getElementById('lightgallery');
             var imageCardDiv = document.createElement("div");
@@ -35,14 +36,25 @@ fetch(apiurl)
             imageCardDiv.appendChild(a);
             lightGalleryDiv.appendChild(imageCardDiv);
 
-            // document.write('    <div style=\"display:none;\" id=\"audio' + i + '\">\n');
-            // document.write('      <audio class=\"lg-video-object lg-html5 video-js vjs-default-skin\" poster=\"' + domain + "/" + data[i].art_img + '\" controls preload=\"none\">\n');
-            // document.write('        <source\n');
-            // document.write('          src=\"' + domain + "/" + data[i].art_audio + '\"\n');
-            // document.write('          type=\"audio/mpeg\">\n');
-            // document.write('        Your browser does not support HTML5 video.\n');
-            // document.write('      </audio>\n');
-            // document.write('    </div>');
+            // load audio resource
+            var audioResDiv = document.createElement("div");
+
+            audioResDiv.style = "display:none;";
+            audioResDiv.id = 'audio' + i;
+
+            audioTag = document.createElement('audio');
+            audioTag.className = "lg-video-object lg-html5 video-js vjs-default-skin";
+            audioTag.setAttribute('poster', domain + "/" + data[i].art_img);
+            audioTag.setAttribute('preload', 'none');
+            audioTag.setAttribute('controls', 'none');
+
+            audioSource = document.createElement('source');
+            audioSource.src = domain + "/" + data[i].art_audio;
+            audioSource.setAttribute('type', 'audio/mpeg');
+            audioTag.appendChild(audioSource);
+            audioResDiv.appendChild(audioTag);
+            var res = document.getElementById('res');
+            res.appendChild(audioResDiv);
         }
     })
 

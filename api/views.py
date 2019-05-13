@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.views.decorators.csrf import csrf_exempt
-from .serializers import Artserializer
+from .serializers import Artserializer, ExhibitionSerializer
 from guideXP_admin.models import Artimage, Exhibition
 from django.http import HttpResponse, JsonResponse
 

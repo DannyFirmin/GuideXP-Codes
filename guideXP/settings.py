@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'crispy_forms',
     'guideXP_admin.apps.GuidexpAdminConfig',
     'api.apps.ApiConfig',
+    'corsheaders',
 
 ]
 
@@ -54,6 +55,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
 ]
 
 ROOT_URLCONF = 'guideXP.urls'
@@ -145,3 +147,5 @@ MEDIA_URL = '/media/'
 
 LOGIN_REDIRECT_URL = 'admin-home'
 LOGIN_URL = 'admin-login'
+
+CORS_ORIGIN_ALLOW_ALL = True

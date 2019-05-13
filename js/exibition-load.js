@@ -37,24 +37,24 @@ fetch(apiurl)
             lightGalleryDiv.appendChild(imageCardDiv);
 
             // load audio resource
-            var audioResDiv = document.createElement("div");
+            // var audioResDiv = document.createElement("div");
 
-            audioResDiv.style = "display:none;";
-            audioResDiv.id = 'audio' + i;
+            // audioResDiv.style = "display:none;";
+            // audioResDiv.id = 'audio' + i;
 
-            audioTag = document.createElement('audio');
-            audioTag.className = "lg-video-object lg-html5 video-js vjs-default-skin";
-            audioTag.setAttribute('poster', domain + "/" + data[i].art_img);
-            audioTag.setAttribute('preload', 'none');
-            audioTag.setAttribute('controls', 'none');
+            // audioTag = document.createElement('audio');
+            // audioTag.className = "lg-video-object lg-html5 video-js vjs-default-skin";
+            // audioTag.setAttribute('poster', domain + "/" + data[i].art_img);
+            // audioTag.setAttribute('preload', 'none');
+            // audioTag.setAttribute('controls', 'none');
 
-            audioSource = document.createElement('source');
-            audioSource.src = domain + "/" + data[i].art_audio;
-            audioSource.setAttribute('type', 'audio/mpeg');
-            audioTag.appendChild(audioSource);
-            audioResDiv.appendChild(audioTag);
-            var res = document.getElementById('res');
-            res.appendChild(audioResDiv);
+            // audioSource = document.createElement('source');
+            // audioSource.src = domain + "/" + data[i].art_audio;
+            // audioSource.setAttribute('type', 'audio/mpeg');
+            // audioTag.appendChild(audioSource);
+            // audioResDiv.appendChild(audioTag);
+            // var res = document.getElementById('res');
+            // res.appendChild(audioResDiv);
         }
     })
 

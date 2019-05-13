@@ -26,10 +26,11 @@ def profile(request):
 @login_required
 def createArt(request):
     if request.method == 'POST':
-        form1              = UploadArtForm(request.POST , request.FILES)
+        form               = UploadArtForm(request.POST , request.FILES)
+        form1              = UploadArtist(request.POST, request.FILES)
         artist_name        = request.POST.get('artist_name')
         artist_description = request.POST.get('artist_description')
-        # artist_img         = request.POST.get('artist_img')
+        artist_img         = request.POST.get('artist_img')
         exhibition_name    = request.POST.get('exhibition_name')
         artist             = None
         exhibition         = None
@@ -40,11 +41,14 @@ def createArt(request):
             exhibition = Exhibition.objects.get(pk=int(exhibition_name))
 
 
-        if form1.is_valid():
-            cleaned_data = form1.cleaned_data;
+        if form.is_valid():
+            cleaned_data = form.cleaned_data;
             if artist is None:
-                artist = Artist.objects.create(artist_name=artist_name, artist_description=artist_description, artist_uploaded_by=request.user.guidexpuser)
-                artist.save()
+                if form1.is_valid():
+                    cleaned_data_1 = form1.cleaned_data;
+                    artist = Artist.objects.create(artist_name=cleaned_data_1.get('artist_name'), artist_img=cleaned_data_1.get('artist_img'),
+                                                   artist_description=cleaned_data_1.get('artist_description'), artist_uploaded_by=request.user.guidexpuser)
+                    artist.save()
             if exhibition is None:
                 exhibition = Exhibition.objects.create(exhibition_name=exhibition_name, exhibition_uploaded_by=request.user.guidexpuser)
                 exhibition.save()
@@ -65,6 +69,7 @@ def createArt(request):
     exhibitions       = Exhibition.objects.filter(exhibition_uploaded_by = request.user.guidexpuser)
     context_variables = {'form':art_form, 'form1':artistForm, 'form2':exhibitionForm, 'artists':artists, 'exhibitions':exhibitions}
     return render(request,"guideXP_admin/create_art.html", context_variables)
+
 
 
 

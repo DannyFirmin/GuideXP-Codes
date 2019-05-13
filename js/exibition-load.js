@@ -11,15 +11,14 @@ if (url.indexOf("?") != -1) {
         obj[strs[i].split("=")[0]] = unescape(strs[i].split("=")[1]);
     }
 }
-const apiurl = 'http://admin.guidexp.me/api/exhibition/' + obj.exibition + '/'
 
-fetch(apiurl)
-    .then(response => response.json())
-    .then(data => {
-        console.log('hi', data[0])
-        for (i = 0; i < data.length; i++) {
-            // load gui
-            console.log(data[i]);
+// Create GUI from API, Synchronous method
+var request = new XMLHttpRequest();
+request.open('GET', 'http://admin.guidexp.me/api/exhibition/' + obj.exibition + '/', false); 
+request.send(null);
+if (request.status === 200) {
+    var data = JSON.parse(request.responseText);
+    for (i = 0; i < data.length; i++) {
             var lightGalleryDiv = document.getElementById('lightgallery');
             var imageCardDiv = document.createElement("div");
             imageCardDiv.className = "col-sm-6 col-md-4 col-lg-3 col-xl-2 item";
@@ -35,7 +34,14 @@ fetch(apiurl)
             a.appendChild(img);
             imageCardDiv.appendChild(a);
             lightGalleryDiv.appendChild(imageCardDiv);
-
+        }
+}
+// Create resource from API, Asynchronous method
+const apiurl = 'http://admin.guidexp.me/api/exhibition/' + obj.exibition + '/'
+fetch(apiurl)
+    .then(response => response.json())
+    .then(data => {
+        for (i = 0; i < data.length; i++) {
             // load audio resource
             var audioResDiv = document.createElement("div");
 

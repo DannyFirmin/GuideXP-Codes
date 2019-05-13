@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>GuideXP</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:300i,400,700" rel="stylesheet">
+  <link rel="stylesheet" href="fonts/icomoon/style.css">
+
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/magnific-popup.css">
+  <link rel="stylesheet" href="css/jquery-ui.css">
+  <link rel="stylesheet" href="css/owl.carousel.min.css">
+  <link rel="stylesheet" href="css/owl.theme.default.min.css">
+
+  <link rel="stylesheet" href="css/lightgallery.min.css">
+
+  <link rel="stylesheet" href="css/bootstrap-datepicker.css">
+
+  <link rel="stylesheet" href="fonts/flaticon/font/flaticon.css">
+
+  <link rel="stylesheet" href="css/swiper.css">
+
+  <link rel="stylesheet" href="css/aos.css">
+
+  <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+
+  <div class="site-wrap">
+
+    <div class="site-mobile-menu">
+      <div class="site-mobile-menu-header">
+        <div class="site-mobile-menu-close mt-3">
+          <span class="icon-close2 js-menu-toggle"></span>
+        </div>
+      </div>
+      <div class="site-mobile-menu-body"></div>
+    </div>
+
+
+    <script language="javascript" type="text/javascript" src="js/head.js"></script>
+
+
+    <div class="site-section" data-aos="fade">
+      <div class="container-fluid">
+
+        <div class="row justify-content-center">
+
+          <div class="col-md-7">
+            <div class="row mb-5">
+              <div class="col-12 ">
+                <h2 class="site-section-heading text-center" id="exb-title">Exibition</h2>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <div class="row" id="lightgallery">
+          <!-- Load GUI -->
+          <!-- <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2 item" data-aos="fade" data-html="#audio1"
+            data-sub-html="<h4>Fading Light</h4><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor doloremque hic excepturi fugit, sunt impedit fuga tempora, ad amet aliquid?</p>">
+            <a href="#"><img src="images/nature_small_1.jpg" alt="IMage" class="img-fluid"></a>
+          </div> -->
+
+        </div>
+      </div>
+    </div>
+    <script src="js/exibition-load.js"></script>
+
+    <div id="res">
+      <!-- Load Resource -->
+      <!-- <div style="display:none;" id="audio0">
+      <audio class="lg-video-object lg-html5 video-js vjs-default-skin" poster="images/nature_small_1.jpg" preload="none" controls="none">
+        <source
+          src="https://cs.anu.edu.au/courses/comp2300/v_media/lecture-recordings/01_COPE_Part_0__Organisation_&_Contents.mp3"
+          type="audio/mpeg">
+        Your browser does not support HTML5 video.
+      </audio>
+    </div> -->
+    </div>
+
+    <div class="footer py-4">
+      <div class="container-fluid text-center">
+        <p>
+          GuideXP - Create a guided tour for anything
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    /*- Get the parameter in the url-*/
+    var url = location.search,
+      obj = {};
+
+    if (url.indexOf("?") != -1) {
+      var str = url.substr(1);
+      strs = str.split("&");
+      for (var i = 0; i < strs.length; i++) {
+        obj[strs[i].split("=")[0]] = unescape(strs[i].split("=")[1]);
+      }
+    }
+    console.log('the parameter is:', obj.exibition);
+
+    // Set title
+    var exibitionTitle = document.getElementById('exb-title');
+    exibitionTitle.innerText = obj.exibition;
+
+  </script>
+
+  <!-- <script src="js/exibition-load.js"></script> -->
+  <link href="http://vjs.zencdn.net/4.12/video-js.css" rel="stylesheet">
+  <script src="http://vjs.zencdn.net/4.12/video.js"></script>
+
+  <script src="js/getQueryVariable.js"></script>
+  <script src="js/jquery-3.3.1.min.js"></script>
+  <script src="js/jquery-migrate-3.0.1.min.js"></script>
+  <script src="js/jquery-ui.js"></script>
+  <script src="js/popper.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/owl.carousel.min.js"></script>
+  <script src="js/jquery.stellar.min.js"></script>
+  <script src="js/jquery.countdown.min.js"></script>
+  <script src="js/jquery.magnific-popup.min.js"></script>
+  <script src="js/bootstrap-datepicker.min.js"></script>
+  <script src="js/swiper.min.js"></script>
+  <script src="js/aos.js"></script>
+
+  <script src="js/picturefill.min.js"></script>
+  <script src="js/lightgallery-all.min.js"></script>
+  <script src="js/jquery.mousewheel.min.js"></script>
+
+  <script src="js/main.js"></script>
+
+  <script>
+    $(document).ready(function () {
+      $('#lightgallery').lightGallery();
+    });
+
+    $('#lightgallery').lightGallery({
+      videojs: true
+    }); 
+  </script>
+
+</body>
+
+</html>

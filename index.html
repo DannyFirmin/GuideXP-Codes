@@ -71,11 +71,8 @@
                       var data = JSON.parse(request.responseText);
                       for(i = 0;i <data.length;i++){
                         exbi[i] = data[i].exhibition_name;
-                        console.log("done dropdown")
                       }
                       insert();
-                    } else {
-                      console.log(request)
                     }
                    /* const url_head = 'http://admin.guidexp.me/api/exhibition/'
                     fetch(url_head)
@@ -86,7 +83,6 @@
                         }
                        })*/
                   
-
                       function insert() {
                         var str = "";
                         var ul = document.getElementById("dropdowncontent");
@@ -100,7 +96,6 @@
                         li.innerHTML = str;
                         }
                         ul.appendChild(li);
-                        console.log("done dropdown")
                       }                    
                     
                     </script>

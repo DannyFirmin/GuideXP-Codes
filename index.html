@@ -62,20 +62,21 @@
                 <body>
 
                   <script>
-                    
                     //  Fetch from API to get the list of all exibitions
                     var exbi = new Array();
                     var request = new XMLHttpRequest();
                     request.open('GET','http://admin.guidexp.me/api/exhibition/',false);
                     request.send(null);
-                    if (request === 200){
-                      var data = JSON.parse(request,responseText);
+                    if (request.status === 200){
+                      var data = JSON.parse(request.responseText);
                       for(i = 0;i <data.length;i++){
                         exbi[i] = data[i].exhibition_name;
+                        console.log("done dropdown")
                       }
                       insert();
+                    } else {
+                      console.log(request)
                     }
-
                    /* const url_head = 'http://admin.guidexp.me/api/exhibition/'
                     fetch(url_head)
                      .then(response => response.json())
@@ -84,8 +85,7 @@
                         exbi[i] = data[i].exhibition_name;
                         }
                        })*/
-
-                    
+                  
 
                       function insert() {
                         var str = "";
@@ -100,6 +100,7 @@
                         li.innerHTML = str;
                         }
                         ul.appendChild(li);
+                        console.log("done dropdown")
                       }                    
                     
                     </script>

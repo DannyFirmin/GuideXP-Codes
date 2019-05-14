@@ -16,6 +16,49 @@
               <ul class='dropdown' id='dropdowncontent'>
 
                 <body onload='insert()'>
+
+                  <script>
+                    
+                    //  Fetch from API to get the list of all exibitions
+                    var exbi = new Array();
+                    var request = new XMLHttpRequest();
+                    request.open('GET','http://admin.guidexp.me/api/exhibition/',false);
+                    request.send(null);
+                    if (request === 200){
+                      var data = JSON.parse(request,responseText);
+                      for(i = 0;i <data.length;i++){
+                        exbi[i] = data[i].exhibition_name;
+                      }
+                    }
+
+                   /* const url_head = 'http://admin.guidexp.me/api/exhibition/'
+                    fetch(url_head)
+                     .then(response => response.json())
+                     .then(data => {
+                        for (i = 0; i < data.length; i++) {
+                        exbi[i] = data[i].exhibition_name;
+                        }
+                       })*/
+
+                    
+
+                    function insert() {
+                      var str = "";
+                      var ul = document.getElementById("dropdowncontent");
+
+                      for (var i = 0; i < exbi.length; i++) {
+                       var data = exbi[i];
+                       var url = "exibition.html?exibition=" + data;
+                        str = str + "<a href='" + url + "'>" + data + "</a>";
+
+                        var li = document.createElement('li');
+                       li.innerHTML = str;
+                      }
+                      ul.appendChild(li);
+                    }                    
+                    
+                    </script>
+
                 </body>
 
               </ul>

@@ -1,32 +1,4 @@
-
-//  Fetch from API to get the list of all exibitions
-var exbi = new Array();
-
-const url_head = 'http://admin.guidexp.me/api/exhibition/'
-fetch(url_head)
-    .then(response => response.json())
-    .then(data => {
-        for (i = 0; i < data.length; i++) {
-            exbi[i] = data[i].exhibition_name;
-        }
-    })
-
-function insert() {
-    var str = "";
-    var ul = document.getElementById("dropdowncontent");
-
-    for (var i = 0; i < exbi.length; i++) {
-        var data = exbi[i];
-        var url = "exibition.html?exibition=" + data;
-        str = str + "<a href='" + url + "'>" + data + "</a>";
-
-        var li = document.createElement('li');
-        li.innerHTML = str;
-    }
-    ul.appendChild(li);
-}
-
-document.writeln("<header class=\'site-navbar py-3 border-bottom\' role=\'banner\'>");
+document.writeln("    <header class=\'site-navbar py-3 border-bottom\' role=\'banner\'>");
 document.writeln("");
 document.writeln("  <div class=\'container-fluid\'>");
 document.writeln("    <div class=\'row align-items-center\'>");
@@ -43,7 +15,46 @@ document.writeln("            <li class=\'has-children\'>");
 document.writeln("              <a>Exibitions</a>");
 document.writeln("              <ul class=\'dropdown\' id=\'dropdowncontent\'>");
 document.writeln("");
-document.writeln("                <body onload=\'insert()\'>");
+document.writeln("                <body>");
+document.writeln("");
+
+ //  Fetch from API to get the list of all exibitions
+ var exbi = new Array();
+ var request = new XMLHttpRequest();
+ request.open('GET','http://admin.guidexp.me/api/exhibition/',false);
+ request.send(null);
+ if (request.status === 200){
+   var data = JSON.parse(request.responseText);
+   for(i = 0;i <data.length;i++){
+     exbi[i] = data[i].exhibition_name;
+   }
+   insert();
+ }
+/* const url_head = 'http://admin.guidexp.me/api/exhibition/'
+ fetch(url_head)
+  .then(response => response.json())
+  .then(data => {
+     for (i = 0; i < data.length; i++) {
+     exbi[i] = data[i].exhibition_name;
+     }
+    })*/
+
+   function insert() {
+     var str = "";
+     var ul = document.getElementById("dropdowncontent");
+
+     for (var i = 0; i < exbi.length; i++) {
+     var data = exbi[i];
+     var url = "exibition.html?exibition=" + data;
+       str = str + "<a href='" + url + "'>" + data + "</a>";
+
+       var li = document.createElement('li');
+     li.innerHTML = str;
+     }
+     ul.appendChild(li);
+   }                    
+
+document.writeln("");
 document.writeln("                </body>");
 document.writeln("");
 document.writeln("              </ul>");

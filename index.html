@@ -59,7 +59,7 @@
               <a>Exibitions</a>
               <ul class='dropdown' id='dropdowncontent'>
 
-                <body onload='insert()'>
+                <body>
 
                   <script>
                     
@@ -73,6 +73,7 @@
                       for(i = 0;i <data.length;i++){
                         exbi[i] = data[i].exhibition_name;
                       }
+                      insert();
                     }
 
                    /* const url_head = 'http://admin.guidexp.me/api/exhibition/'

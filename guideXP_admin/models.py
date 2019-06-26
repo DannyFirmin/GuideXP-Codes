@@ -19,7 +19,7 @@ class Guidexpuser(models.Model):
 #     gallery_authorised_by = models.ForeignKey(Guidexpuser, models.CASCADE, related_name='authorise_gallery', null=True, blank=True)
 
 class Artist(models.Model):
-    artist_img           = models.ImageField(upload_to="artist_images/")
+    artist_img           = models.ImageField(upload_to="artist_images/",null=True, blank=True)
     artist_name          = models.CharField(max_length=70)
     artist_description   = models.TextField(blank=True, null=True)
     artist_uploaded_by   = models.ForeignKey(Guidexpuser, models.CASCADE, related_name='upload_artist')

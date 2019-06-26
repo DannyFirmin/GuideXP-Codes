@@ -95,7 +95,7 @@ DATABASES = {
         'NAME': 'guidedb',
         'USER': 'root',
         'PASSWORD': 'GuideXP123',
-        'HOST': '13.237.187.205',
+        'HOST': '3.105.199.222',
         'PORT': '3306',
     }
 }

@@ -28,7 +28,7 @@
         die("connect error: " . mysqli_error($conn));
     }
     mysqli_select_db($conn, 'audit_markers');
-    $sql = "INSERT INTO person (name, email, github_account, role)
+    $sql = "INSERT INTO persons (name, email, github_account, role)
 			VALUES
 			('$_POST[name]','$_POST[email]','$_POST[github]','$_POST[role]')";
     $retval = mysqli_query($conn, $sql);

@@ -7,9 +7,10 @@
 </head>
 
 <body>
-    Thanks, <?php echo $_POST["role"]; ?> <?php echo $_POST["name"]; ?><br>
-    Your submission has been recorded in our GuideXP Server. <br>
-    If you want to delete or edit it, please email to u6611178@anu.edu.au
+    <h1>  you, <?php echo $_POST["name"]; ?><br> </h1>
+    Your application has been recorded in the GuideXP Server. <br>
+    If you want to delete or edit it, please email to u6611178@anu.edu.au <br>
+    Have a nice day!
     <?php
     $file_path = "submission.txt";
     if (file_exists($file_path)) {

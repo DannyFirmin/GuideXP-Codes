@@ -7,7 +7,7 @@
 </head>
 
 <body>
-    <h1>  you, <?php echo $_POST["name"]; ?><br> </h1>
+    <h1>Thank you, <?php echo $_POST["name"]; ?><br>! </h1>
     Your application has been recorded in the GuideXP Server. <br>
     If you want to delete or edit it, please email to u6611178@anu.edu.au <br>
     Have a nice day!

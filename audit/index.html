@@ -1,0 +1,63 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width,user-scalable=no" name="viewport">
+    <title>GuideXP Internal Files Access Application</title>
+    <style type="text/css">
+        .p1 {
+            color: black;
+            font-size: 30px;
+        }
+
+        #box1 {
+            background-color: #84f11e;
+            width: 75%;
+            height: 60%;
+            float: 0 auto;
+            text-align: center;
+        }
+
+        #input1 {
+            width: 100px;
+            height: 50px;
+            margin: 20px;
+        }
+
+        #input0 {
+            width: 200px;
+            height: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>GuideXP Internal Files Access Application</h1>
+    <div style="text-align: center;">
+        <div id="box1">
+            <form action="submit.php" method="post">
+                <b class="p1">Name: </b><input type="text" name="name" id="input0"><br>
+                <b class="p1">Email: </b><input type="text" name="email" id="input0"><br>
+                <b class="p1">Github account:</b><input type="text" name="github" id="input0"><br>
+                <label><b class="p1">Your role：</b></label>
+                <select name="role">
+                    <option value="tutor">Tutor</option>
+                    <option value="shadow_team" selected="selected">Shadow Team</option>
+                    <option value="examiner">Examiner</option>
+                    <option value="client">Client</option>
+                    <option value="others">Others</option>
+                </select>
+                <br>
+                We will gain GuideXP souce code read only premission to your Github account and Trello Agile Board read
+                only premission to your email.<br>
+                You might need to email u6611178@anu.edu.au if you still cannot access our internal files after
+                submission <br>
+                <input type="submit" value="Submit" id="input1">
+            </form>
+        </div>
+    </div>
+
+
+</body>
+
+</html>

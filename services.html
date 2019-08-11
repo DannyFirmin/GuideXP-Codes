@@ -57,13 +57,13 @@
                 <ul class='site-menu js-clone-nav mx-auto d-none d-lg-block'>
                   <li><a href='index.html'>Home</a></li>
                   <li class='has-children'>
-                    <a>Exibitions</a>
+                    <a>Exhibitions</a>
                     <ul class='dropdown' id='dropdowncontent'>
       
                       <body>
       
                         <script>
-                          //  Fetch from API to get the list of all exibitions
+                          //  Fetch from API to get the list of all exhibitions
                           var exbi = new Array();
                           var request = new XMLHttpRequest();
                           request.open('GET','http://admin.guidexp.me/api/exhibition/',false);
@@ -90,7 +90,7 @@
       
                               for (var i = 0; i < exbi.length; i++) {
                               var data = exbi[i];
-                              var url = "exibition.html?exibition=" + data;
+                              var url = "exhibition.html?exhibition=" + data;
                                 str = str + "<a href='" + url + "'>" + data + "</a>";
       
                                 var li = document.createElement('li');

@@ -56,51 +56,10 @@
           <ul class='site-menu js-clone-nav mx-auto d-none d-lg-block'>
             <li><a href='index.html'>Home</a></li>
             <li class='has-children'>
-              <a>Exibitions</a>
-              <ul class='dropdown' id='dropdowncontent'>
+              <a>Exhibitions</a>
+              <ul class='dropdown' id='testdown'>
 
-                <body>
-
-                  <script>
-                    //  Fetch from API to get the list of all exibitions
-                    var exbi = new Array();
-                    var request = new XMLHttpRequest();
-                    request.open('GET','http://admin.guidexp.me/api/exhibition/',false);
-                    request.send(null);
-                    if (request.status === 200){
-                      var data = JSON.parse(request.responseText);
-                      for(i = 0;i <data.length;i++){
-                        exbi[i] = data[i].exhibition_name;
-                      }
-                      insert();
-                    }
-                   /* const url_head = 'http://admin.guidexp.me/api/exhibition/'
-                    fetch(url_head)
-                     .then(response => response.json())
-                     .then(data => {
-                        for (i = 0; i < data.length; i++) {
-                        exbi[i] = data[i].exhibition_name;
-                        }
-                       })*/
-                  
-                      function insert() {
-                        var str = "";
-                        var ul = document.getElementById("dropdowncontent");
-
-                        for (var i = 0; i < exbi.length; i++) {
-                        var data = exbi[i];
-                        var url = "exibition.html?exibition=" + data;
-                          str = str + "<a href='" + url + "'>" + data + "</a>";
-
-                          var li = document.createElement('li');
-                        li.innerHTML = str;
-                        }
-                        ul.appendChild(li);
-                      }                    
-                    
-                    </script>
-
-                </body>
+           
 
               </ul>
 
@@ -206,21 +165,21 @@
               for (i = 0; i < data.length; i++) {
                 exbi[i] = data[i].exhibition_name;
               }
-              card0_link.href = "exibition.html?exibition=" + data[0].exhibition_name;
+              card0_link.href = "exhibition.html?exhibition=" + data[0].exhibition_name;
               card0_name.innerHTML = data[0].exhibition_name;
               if (data.length >= 2) {
-                card1_link.href = "exibition.html?exibition=" + data[1].exhibition_name;
+                card1_link.href = "exhibition.html?exhibition=" + data[1].exhibition_name;
                 card1_name.innerHTML = data[1].exhibition_name;
                 setImage1(data[1]);
               }
               if (data.length >= 3) {
-                card2_link.href = "exibition.html?exibition=" + data[2].exhibition_name;
+                card2_link.href = "exhibition.html?exhibition=" + data[2].exhibition_name;
                 card2_name.innerHTML = data[2].exhibition_name;
                 setImage2(data[2]);
 
               }
               if (data.length >= 4) {
-                card3_link.href = "exibition.html?exibition=" + data[3].exhibition_name
+                card3_link.href = "exhibition.html?exhibition=" + data[3].exhibition_name
                 card3_name.innerHTML = data[3].exhibition_name
                 setImage3(data[3]);
               }
@@ -311,6 +270,53 @@
     $(document).ready(function () {
       $('#lightgallery').lightGallery();
     });
+  </script>
+
+<script>
+  //  Fetch from API to get the list of all exhibitions
+  // var exbi = new Array();
+  // var request = new XMLHttpRequest();
+  // request.open('GET','http://admin.guidexp.me/api/exhibition/',false);
+  // request.send(null);
+  // if (request.status === 200){
+  //   var data = JSON.parse(request.responseText);
+  //   for(i = 0;i <data.length;i++){
+  //     exbi[i] = data[i].exhibition_name;
+  //   }
+  //   insert();
+  // }
+  const url_head = 'http://admin.guidexp.me/api/exhibition/'
+  fetch(url_head)
+   .then(response => response.json())
+   .then(data => {
+      for (i = 0; i < data.length; i++) {
+      exbi[i] = data[i].exhibition_name;
+      }
+      console.log(exbi);
+      insert();
+      console.log('this should be last');
+     });
+
+
+    function insert() {
+      var str = "";
+      var ul = document.getElementById("testdown");
+      console.log(exbi);
+      console.log(ul);
+      for (var i = 0; i < exbi.length; i++) {
+      var data = exbi[i];
+      var url = "exhibition.html?exhibition=" + data;
+        str = str + "<a href='" + url + "'>" + data + "</a>";
+
+        var li = document.createElement('li');
+      li.innerHTML = str;
+      }
+      ul.appendChild(li);
+    }                    
+  
+
+    var ul = document.getElementById("testdown");
+    console.log(ul);
   </script>
 
 </body>

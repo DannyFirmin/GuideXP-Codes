@@ -14,7 +14,7 @@ if (url.indexOf("?") != -1) {
 
 // Create GUI from API, Synchronous method
 var request = new XMLHttpRequest();
-request.open('GET', 'http://admin.guidexp.me/api/exhibition/' + obj.exibition + '/', false); 
+request.open('GET', 'http://admin.guidexp.me/api/exhibition/' + obj.exhibition + '/', false); 
 request.send(null);
 if (request.status === 200) {
     var data = JSON.parse(request.responseText);
@@ -37,7 +37,7 @@ if (request.status === 200) {
         }
 }
 // Create resource from API, Asynchronous method
-const apiurl = 'http://admin.guidexp.me/api/exhibition/' + obj.exibition + '/'
+const apiurl = 'http://admin.guidexp.me/api/exhibition/' + obj.exhibition + '/'
 fetch(apiurl)
     .then(response => response.json())
     .then(data => {

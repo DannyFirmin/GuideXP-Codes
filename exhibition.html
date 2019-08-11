@@ -56,13 +56,13 @@
                 <ul class='site-menu js-clone-nav mx-auto d-none d-lg-block'>
                   <li><a href='index.html'>Home</a></li>
                   <li class='has-children'>
-                    <a>Exibitions</a>
+                    <a>Exhibitions</a>
                     <ul class='dropdown' id='dropdowncontent'>
       
                       <body>
       
                         <script>
-                          //  Fetch from API to get the list of all exibitions
+                          //  Fetch from API to get the list of all exhibitions
                           var exbi = new Array();
                           var request = new XMLHttpRequest();
                           request.open('GET','http://admin.guidexp.me/api/exhibition/',false);
@@ -89,7 +89,7 @@
       
                               for (var i = 0; i < exbi.length; i++) {
                               var data = exbi[i];
-                              var url = "exibition.html?exibition=" + data;
+                              var url = "exhibition.html?exhibition=" + data;
                                 str = str + "<a href='" + url + "'>" + data + "</a>";
       
                                 var li = document.createElement('li');
@@ -145,14 +145,14 @@
           <div class="col-md-7">
             <div class="row mb-5">
               <div class="col-12 ">
-                <h2 class="site-section-heading text-center" id="exb-title">Exibition</h2>
+                <h2 class="site-section-heading text-center" id="exb-title">Exhibition</h2>
               </div>
             </div>
           </div>
         </div>
         <div class="row" id="lightgallery">
 
-          <script src="js/GuideXP/exibition-load.js"></script>
+          <script src="js/GuideXP/exhibition-load.js"></script>
 
           <!-- Load GUI -->
           <!-- <div id="art0" class="col-sm-6 col-md-4 col-lg-3 col-xl-2 item" data-aos="fade" data-html="#audio0"
@@ -199,8 +199,8 @@
     }
 
     // Set title
-    var exibitionTitle = document.getElementById('exb-title');
-    exibitionTitle.innerText = obj.exibition;
+    var exhibitionTitle = document.getElementById('exb-title');
+    exhibitionTitle.innerText = obj.exhibition;
 
   </script>
 

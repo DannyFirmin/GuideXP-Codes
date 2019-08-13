@@ -2,6 +2,7 @@ from django.urls import path
 from django.contrib.auth import views as auth_views
 from . import views
 
+'''set the url path to the different options'''
 urlpatterns = [
     path('', auth_views.LoginView.as_view(template_name='guideXP_admin/login.html',redirect_authenticated_user=True), name='admin-login'),
     path('logout/', auth_views.LogoutView.as_view(template_name='guideXP_admin/logout.html'), name='admin-logout'),

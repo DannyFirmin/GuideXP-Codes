@@ -4,6 +4,8 @@ from .serializers import Artserializer, ExhibitionSerializer
 from guideXP_admin.models import Artimage, Exhibition
 from django.http import HttpResponse, JsonResponse
 
+
+'''Set request and response functions'''
 @csrf_exempt
 def getArtByExhibition(request, pk):
 

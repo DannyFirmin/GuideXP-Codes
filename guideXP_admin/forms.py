@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 from .models import *
 
-'''Create the upload functions (this is the original idea)'''
+'''Create the upload functions (this is the original idea, we may change some functions)'''
 class UploadArtForm(forms.ModelForm):
     class Meta:
         model = Artimage

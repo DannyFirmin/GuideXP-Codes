@@ -2,6 +2,8 @@ from django.db import models
 from django.contrib.auth.models import User
 User._meta.get_field('email').blank = False
 
+'''This is the original database in the last semester, and we will change this in this semester, such as deleting
+some useless tables and create new relations about languages'''
 class Guidexpuser(models.Model):
     USER_TYPES = (('1', 'Superuser'),('2', 'Admin'),('3', 'Worker'))
     user_type  = models.CharField(max_length=1, choices=USER_TYPES)

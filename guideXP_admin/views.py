@@ -13,6 +13,9 @@ from .models import Guidexpuser,Artist, Exhibition, Artimage
 def home(request):
     return render(request, "guideXP_admin/base.html", {})
 
+
+'''The forms for the website can be built by dlango automatically, so we just import the libraries that inside 
+the Django'''
 @login_required
 def profile(request):
     u_form = UserUpdate
@@ -23,6 +26,8 @@ def profile(request):
     }
     return render(request, "guideXP_admin/profile.html", context)
 
+
+'''Creators can create arts after they login'''
 @login_required
 def createArt(request):
     if request.method == 'POST':
@@ -71,15 +76,14 @@ def createArt(request):
     return render(request,"guideXP_admin/create_art.html", context_variables)
 
 
-
-
-
-
+'''Create login function for artists'''
 @login_required
 def createArtist(request):
     artist_form = UploadArtist
     return render(request,"guideXP_admin/create_artist.html", {'form':artist_form})
 
+
+'''Create login function for admin'''
 @login_required
 def createAccount(request):
     if request.method == 'POST':

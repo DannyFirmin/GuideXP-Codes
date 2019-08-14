@@ -78,7 +78,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'guideXP.wsgi.application'
 
-
+'''the builtin database for testing '''
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
 #

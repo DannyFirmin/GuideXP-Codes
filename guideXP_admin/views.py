@@ -1,3 +1,4 @@
+'''import modle for '''
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
@@ -8,7 +9,7 @@ from .models import Guidexpuser,Artist, Exhibition, Artimage
 # def login(request):
 #     form = UserCreationForm()
 #     return render(request, "guideXP_admin/login.html", {'form':form})
-
+'''This is the the home page '''
 @login_required
 def home(request):
     return render(request, "guideXP_admin/base.html", {})
@@ -21,6 +22,7 @@ def profile(request):
     u_form = UserUpdate
     p_form = UserprofileUpdate
     context = {
+        # user form and user profile form
         'u_form': u_form,
         'p_form': p_form,
     }
@@ -39,13 +41,13 @@ def createArt(request):
         exhibition_name    = request.POST.get('exhibition_name')
         artist             = None
         exhibition         = None
-
+        # check artist name or exhibition name is digit
         if artist_name.isdigit():
             artist = Artist.objects.get(pk=int(artist_name))
         if exhibition_name.isdigit():
             exhibition = Exhibition.objects.get(pk=int(exhibition_name))
 
-
+        # check form is valid,if the form is  suitable filled,then save it
         if form.is_valid():
             cleaned_data = form.cleaned_data;
             if artist is None:
@@ -76,7 +78,7 @@ def createArt(request):
     return render(request,"guideXP_admin/create_art.html", context_variables)
 
 
-'''Create login function for artists'''
+'''Create new Artists'''
 @login_required
 def createArtist(request):
     artist_form = UploadArtist

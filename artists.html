@@ -75,29 +75,34 @@
                             }
                             insert();
                           }
-                         /* const url_head = 'http://admin.guidexp.me/api/exhibition/'
-                          fetch(url_head)
-                           .then(response => response.json())
-                           .then(data => {
-                              for (i = 0; i < data.length; i++) {
-                              exbi[i] = data[i].exhibition_name;
-                              }
-                             })*/
-                        
-                            function insert() {
-                              var str = "";
-                              var ul = document.getElementById("dropdowncontent");
+
+                         //Code following not used:
+                         /* 
+                         const url_head = 'http://admin.guidexp.me/api/exhibition/'
+                         fetch(url_head)
+                          .then(response => response.json())
+                          .then(data => {
+                            for (i = 0; i < data.length; i++) {
+                            exbi[i] = data[i].exhibition_name;
+                            }
+                            })
+                         */
+
+                         //  Put the data fetch from API into dropdown menu
+                          function insert() {
+                            var str = "";
+                            var ul = document.getElementById("dropdowncontent");
       
-                              for (var i = 0; i < exbi.length; i++) {
-                              var data = exbi[i];
-                              var url = "exhibition.html?exhibition=" + data;
-                                str = str + "<a href='" + url + "'>" + data + "</a>";
+                            for (var i = 0; i < exbi.length; i++) {
+                            var data = exbi[i];
+                            var url = "exhibition.html?exhibition=" + data;
+                              str = str + "<a href='" + url + "'>" + data + "</a>";
       
-                                var li = document.createElement('li');
-                              li.innerHTML = str;
-                              }
-                              ul.appendChild(li);
-                            }                    
+                              var li = document.createElement('li');
+                            li.innerHTML = str;
+                            }
+                            ul.appendChild(li);
+                          }                    
                           
                           </script>
       

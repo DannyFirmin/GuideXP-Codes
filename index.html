@@ -60,44 +60,51 @@
                   <ul class='dropdown' id='dropdowncontent'>
 
                     <body>
-
+      
                       <script>
                         //  Fetch from API to get the list of all exhibitions
                         var exbi = new Array();
                         var request = new XMLHttpRequest();
-                        request.open('GET', 'http://admin.guidexp.me/api/exhibition/', false);
+                        request.open('GET','http://admin.guidexp.me/api/exhibition/',false);
                         request.send(null);
-                        if (request.status === 200) {
+                        if (request.status === 200){
                           var data = JSON.parse(request.responseText);
-                          for (i = 0; i < data.length; i++) {
+                          for(i = 0;i <data.length;i++){
                             exbi[i] = data[i].exhibition_name;
                           }
                           insert();
                         }
-                        /* const url_head = 'http://admin.guidexp.me/api/exhibition/'
-                         fetch(url_head)
-                          .then(response => response.json())
-                          .then(data => {
-                             for (i = 0; i < data.length; i++) {
-                             exbi[i] = data[i].exhibition_name;
-                             }
-                            })*/
 
+                       //Code following not used:
+                       /* 
+                       const url_head = 'http://admin.guidexp.me/api/exhibition/'
+                       fetch(url_head)
+                        .then(response => response.json())
+                        .then(data => {
+                          for (i = 0; i < data.length; i++) {
+                          exbi[i] = data[i].exhibition_name;
+                          }
+                          })
+                       */
+
+                       //  Put the data fetch from API into dropdown menu
                         function insert() {
                           var str = "";
                           var ul = document.getElementById("dropdowncontent");
+    
                           for (var i = 0; i < exbi.length; i++) {
-                            var data = exbi[i];
-                            var url = "exhibition.html?exhibition=" + data;
+                          var data = exbi[i];
+                          var url = "exhibition.html?exhibition=" + data;
                             str = str + "<a href='" + url + "'>" + data + "</a>";
+    
                             var li = document.createElement('li');
-                            li.innerHTML = str;
+                          li.innerHTML = str;
                           }
                           ul.appendChild(li);
-                        }
-
-                      </script>
-
+                        }                    
+                        
+                        </script>
+    
                     </body>
 
                   </ul>

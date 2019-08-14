@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 import os
 import sys
-
+'''this is the file to management, to run the back end code , in the terminal below, type" python manageme.py runserver "  '''
 if __name__ == '__main__':
     os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'guideXP.settings')
     try:

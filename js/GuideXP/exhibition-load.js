@@ -1,6 +1,7 @@
 
 const domain = 'http://admin.guidexp.me';
 
+// Get the parameter in URL
 var url = location.search,
     obj = {};
 

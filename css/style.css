@@ -1096,7 +1096,7 @@ a {
       bottom: 0;
       top: 0;
       z-index: 1;
-      background: transparent;
+      background: #35333357;
       -webkit-transition: .3s all ease;
       -o-transition: .3s all ease;
       transition: .3s all ease; }
@@ -1118,7 +1118,7 @@ a {
       .swiper-container .swiper-slide .image-wrap .image-info h2 {
         color: #fff; }
     .swiper-container .swiper-slide .image-wrap:hover:before {
-      background: rgba(0, 0, 0, 0.4);
+      background: rgba(0, 0, 0, 0.5);
       content: ""; }
   .swiper-container .btn-outline-white {
     border-color: #fff;

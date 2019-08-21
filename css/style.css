@@ -1166,3 +1166,14 @@ a {
 
 #lightgallery .item {
   margin-bottom: 30px; }
+
+
+/* Set location of the search bar */
+.searchb {
+  overflow: scroll;
+  position: absolute;
+  top: 30px;
+  right: 135px;
+}
+
+

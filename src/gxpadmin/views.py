@@ -6,4 +6,8 @@ def home_view(request):
 
 
 def create_view(request):
+
+    if request.method == "POST":
+        pass
+
     return render(request, 'gxpadmin/create.html', {})

@@ -28,6 +28,9 @@ function selectConfirm() {
     }
 }
 
+function selectCancel(){
+    location.href="/";
+}
 
 function nextPrev(n) {
     let l = $("#" + currentType);

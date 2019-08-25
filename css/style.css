@@ -1168,7 +1168,9 @@ a {
   background: #20c997; }
 
 #lightgallery .item {
-  margin-bottom: 30px; }
+  margin-bottom: 30px;
+  height: 300px;
+  width: 300px;}
 
 
 /* Set location of the search bar */

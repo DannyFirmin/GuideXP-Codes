@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-
+<!--The main page of the website-->
+<!--Header start-->
 <head>
   <title>GuideXP</title>
   <meta charset="utf-8">
@@ -60,44 +61,51 @@
                   <ul class='dropdown' id='dropdowncontent'>
 
                     <body>
-
+      
                       <script>
                         //  Fetch from API to get the list of all exhibitions
                         var exbi = new Array();
                         var request = new XMLHttpRequest();
-                        request.open('GET', 'http://admin.guidexp.me/api/exhibition/', false);
+                        request.open('GET','http://admin.guidexp.me/api/exhibition/',false);
                         request.send(null);
-                        if (request.status === 200) {
+                        if (request.status === 200){
                           var data = JSON.parse(request.responseText);
-                          for (i = 0; i < data.length; i++) {
+                          for(i = 0;i <data.length;i++){
                             exbi[i] = data[i].exhibition_name;
                           }
                           insert();
                         }
-                        /* const url_head = 'http://admin.guidexp.me/api/exhibition/'
-                         fetch(url_head)
-                          .then(response => response.json())
-                          .then(data => {
-                             for (i = 0; i < data.length; i++) {
-                             exbi[i] = data[i].exhibition_name;
-                             }
-                            })*/
 
+                       //Code following not used:
+                       /* 
+                       const url_head = 'http://admin.guidexp.me/api/exhibition/'
+                       fetch(url_head)
+                        .then(response => response.json())
+                        .then(data => {
+                          for (i = 0; i < data.length; i++) {
+                          exbi[i] = data[i].exhibition_name;
+                          }
+                          })
+                       */
+
+                       //  Put the data fetch from API into dropdown menu
                         function insert() {
                           var str = "";
                           var ul = document.getElementById("dropdowncontent");
+    
                           for (var i = 0; i < exbi.length; i++) {
-                            var data = exbi[i];
-                            var url = "exhibition.html?exhibition=" + data;
+                          var data = exbi[i];
+                          var url = "exhibition.html?exhibition=" + data;
                             str = str + "<a href='" + url + "'>" + data + "</a>";
+    
                             var li = document.createElement('li');
-                            li.innerHTML = str;
+                          li.innerHTML = str;
                           }
                           ul.appendChild(li);
-                        }
-
-                      </script>
-
+                        }                    
+                        
+                        </script>
+    
                     </body>
 
                   </ul>
@@ -134,11 +142,19 @@
       <script src="js/jquery-3.3.1.min.js"></script>
       <script src="js/bootstrap.min.js"></script>
 
-    </header>
+      <!-- search bar -->
+      <div class="searchb">
+        <input type="text" placeholder="Search..">
+      </div>
 
+    </header>
+    <!--Header end-->
+
+    <!--Content start-->
     <div class="container-fluid" data-aos="fade" data-aos-delay="500">
       <div class="swiper-container images-carousel">
         <div class="swiper-wrapper">
+          <!-- Create four cards that shown in the index-->
           <div class="swiper-slide">
             <div class="image-wrap">
               <div class="image-info">
@@ -180,6 +196,7 @@
             </div>
           </div>
 
+          <!-- Put the data from API into cards-->
           <script>
             const domain = 'http://admin.guidexp.me';
             var exbi = new Array();
@@ -268,7 +285,9 @@
         <div class="swiper-scrollbar"></div>
       </div>
     </div>
+    <!--Content end-->
 
+    <!--footer-->
     <div class="footer py-4">
       <div class="container-fluid">
         <p>
@@ -300,7 +319,7 @@
   <script src="js/lightgallery-all.min.js"></script>
   <script src="js/jquery.mousewheel.min.js"></script>
 
-  <script src="js/main.js"></script>
+  <script src="js/GuideXP/main.js"></script>
 
   <script>
     $(document).ready(function () {

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+  <!--About page-->
   <head>
     <title>GuideXP</title>
     <meta charset="utf-8">
@@ -41,7 +42,7 @@
     </div>
     
 
-
+ <!--Header start-->
 
     <header class='site-navbar py-3 border-bottom' role='banner'>
 
@@ -75,29 +76,34 @@
                             }
                             insert();
                           }
-                         /* const url_head = 'http://admin.guidexp.me/api/exhibition/'
-                          fetch(url_head)
-                           .then(response => response.json())
-                           .then(data => {
-                              for (i = 0; i < data.length; i++) {
-                              exbi[i] = data[i].exhibition_name;
-                              }
-                             })*/
-                        
-                            function insert() {
-                              var str = "";
-                              var ul = document.getElementById("dropdowncontent");
+
+                         //Code following not used:
+                         /* 
+                         const url_head = 'http://admin.guidexp.me/api/exhibition/'
+                         fetch(url_head)
+                          .then(response => response.json())
+                          .then(data => {
+                            for (i = 0; i < data.length; i++) {
+                            exbi[i] = data[i].exhibition_name;
+                            }
+                            })
+                         */
+
+                         //  Put the data fetch from API into dropdown menu
+                          function insert() {
+                            var str = "";
+                            var ul = document.getElementById("dropdowncontent");
       
-                              for (var i = 0; i < exbi.length; i++) {
-                              var data = exbi[i];
-                              var url = "exhibition.html?exhibition=" + data;
-                                str = str + "<a href='" + url + "'>" + data + "</a>";
+                            for (var i = 0; i < exbi.length; i++) {
+                            var data = exbi[i];
+                            var url = "exhibition.html?exhibition=" + data;
+                              str = str + "<a href='" + url + "'>" + data + "</a>";
       
-                                var li = document.createElement('li');
-                              li.innerHTML = str;
-                              }
-                              ul.appendChild(li);
-                            }                    
+                              var li = document.createElement('li');
+                            li.innerHTML = str;
+                            }
+                            ul.appendChild(li);
+                          }                    
                           
                           </script>
       
@@ -135,11 +141,20 @@
         </div>
         <script src="js/jquery-3.3.1.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
-      
+
+      <!-- search bar -->
+      <div class="searchb">
+        <input type="text" placeholder="Search..">
+      </div>
+
+
       </header>
 
+      <!--Header end-->
 
 
+
+      <!--content start-->
   <div class=""  data-aos="fade">
     <div class="container-fluid">
       
@@ -164,7 +179,7 @@
             </div>
           </div>
 
-         
+         <!--Details in the ABOUT page-->
           <div class="row site-section">
             <div class="col-md-6 col-lg-6 col-xl-4 text-center mb-5">
               <img src="images/person_4.jpg" alt="Image" class="img-fluid w-50 rounded-circle mb-4">
@@ -205,18 +220,16 @@
       </div>
     </div>
   </div>
+  <!--Content end-->
 
+  <!--footer-->
   <div class="footer py-4">
     <div class="container-fluid text-center">
       <p>
           GuideXP - Create a guided tour for anything
       </p>
     </div>
-  </div>
-
-    
-
-    
+  </div>  
     
   </div>
 
@@ -237,7 +250,7 @@
   <script src="js/lightgallery-all.min.js"></script>
   <script src="js/jquery.mousewheel.min.js"></script>
 
-  <script src="js/main.js"></script>
+  <script src="js/GuideXP/main.js"></script>
   
   <script>
     $(document).ready(function(){

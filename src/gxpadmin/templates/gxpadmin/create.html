@@ -1,0 +1,131 @@
+{% extends 'gxpadmin/base.html' %}
+{% block content %}
+
+<form class="upload-form" method="post" enctype="multipart/form-data"> {% csrf_token %}
+
+    <div id="overlay"></div>
+    <div id="overlay-select-type" class="overlayContent">
+        <label>Select Upload Type</label>
+        <select id="type-select" class="select" name="type">
+            <option value=""></option>
+            <option value="author">Author</option>
+            <option value="exhibit">Exhibit</option>
+            <option value="exhibition">Exhibition</option>
+            <option value="gallery">Gallery</option>
+        </select>
+        <button type="button" class="btn btn-outline-dark btn-sm" onclick="selectConfirm()">Confirm</button>
+    </div>
+
+    <div id="upload-form-content" style="display: none;">
+        <div id="author" style="display: none;">
+            <label>Create a New Author Profile</label>
+            <div class="tab">
+                <label style="border-left: 3px solid #23272b; padding-left: 10px">Provide Details for Author</label>
+            </div>
+        </div>
+
+        <div id="exhibit" style="display: none">
+            <label>Create a New Exhibit</label>
+            <div class="stepbar">
+                <span class="step"></span>
+                <span class="step"></span>
+                <span class="step"></span>
+                <span class="step"></span>
+            </div>
+            <div class="tab">
+                <label>Step 1: Select a Gallery</label>
+                <select id="exhibit-gallery-select" class="select" name="gallery" style="width: 100%; !important;">
+                    <option></option>
+                </select>
+            </div>
+            <div class="tab" style="display: none;">
+                <label>Step 2: Select an Exhibition</label>
+                <select id="exhibit-exhibition-select" class="select" name="exhibition" style="width: 100%; !important;">
+                    <option></option>
+                </select>
+            </div>
+            <div class="tab" style="display: none;">
+                <label>Step 3: Select an Author</label>
+                <select id="exhibit-author-select" class="select" name="author" style="width: 100%; !important;">
+                    <option></option>
+                </select>
+            </div>
+            <div class="tab" style="display: none;">
+                <label>Step 4: Provide Details for Exhibit</label>
+            </div>
+        </div>
+
+        <div id="exhibition" style="display: none">
+            <label>Create a New Exhibition Profile</label>
+            <div class="stepbar">
+                <span class="step"></span>
+                <span class="step"></span>
+            </div>
+            <div class="tab">
+                <label>Step 1: Select a Gallery</label>
+                <select id="exhibition-gallery-select" class="select" name="gallery-selected" style="width: 100%; !important;">
+                    <option></option>
+
+                </select>
+            </div>
+            <div class="tab" style="display: none">
+                <label>Step 2: Add Details for Exhibition</label>
+            </div>
+        </div>
+
+        <div id="gallery" style="display: none;">
+            <label>Cretae a New Gallery Profile</label>
+            <div class="tab">
+                <label style="border-left: 3px solid #23272b; padding-left: 10px">Provide Details for Gallery</label>
+            </div>
+        </div>
+
+        <input id="uploaded-text" type="text" name="uploaded-text" style="display: none;">
+        <div class="form-control-btns">
+            <button id="prevBtn" class="btn btn-outline-dark btn-sm" type="button" onclick="nextPrev(-1)"
+                    style="display: none;">Previous
+            </button>
+            <button id="nextBtn" class="btn btn-outline-dark btn-sm" type="button" onclick="nextPrev(1)"
+                    style="float: right;">Next
+            </button>
+        </div>
+
+    </div>
+</form>
+
+
+<div class="upload_description_board" style="display: none;">
+    <div class="upload-select-btns">
+        <button class="btn btn-outline-dark btn-sm" type="button" onclick="showOverlayforTextInput('Name')">Name
+        </button>
+        <button class="btn btn-outline-dark btn-sm" type="button" onclick="showOverlayforTextInput('Description')">
+            Description
+        </button>
+        <button class="btn btn-outline-dark btn-sm" type="button" onclick="showOverlayforFile()">File</button>
+    </div>
+    <table class="table table-hover table-borderless description_table" style="display: none;">
+        <thead>
+        <tr>
+            <th scope="col" style="width: 5%;">#</th>
+            <th scope="col" style="width: 25%;">Type</th>
+            <th scope="col" style="width: 50%;">Detail</th>
+            <th scope="col" style="width: 20%;">Edit</th>
+        </tr>
+        </thead>
+        <tbody class="table-body"></tbody>
+    </table>
+    <div id="overlay-textarea" class="overlayContent" style="display: none;">
+        <textarea class="form-control" rows="11"></textarea>
+        <div class="form-control-btns">
+            <button id="cancel" class="btn btn-outline-dark btn-sm" type="button" onclick="overlayTextInputCancel()">
+                Cancel
+            </button>
+            <button id="confirm" class="btn btn-outline-dark btn-sm" type="button" style="float: right;"
+                    onclick="overlayTextInputSubmit()">Confirm
+            </button>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

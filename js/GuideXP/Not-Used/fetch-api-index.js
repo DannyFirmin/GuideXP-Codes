@@ -1,3 +1,4 @@
+// Test code from index card
 const url = 'https://randomuser.me/api/?results=7'
 const card0_img = document.getElementById('card0-img');
 const card1_img = document.getElementById('card1-img');

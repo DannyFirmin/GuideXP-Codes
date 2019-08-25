@@ -1,5 +1,4 @@
-
-
+//Get the variable delivered by URL split by '?'
 function getQueryVariable(variable)
 {
        var query = window.location.search.substring(1);

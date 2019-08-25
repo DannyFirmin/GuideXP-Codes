@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-
+<!--The exhibition page- Content varies depending on the data from API -->
 <head>
   <title>GuideXP</title>
   <meta charset="utf-8">
@@ -42,6 +42,7 @@
       <div class="site-mobile-menu-body"></div>
     </div>
 
+    <!--header start-->
     <header class='site-navbar py-3 border-bottom' role='banner'>
 
         <div class='container-fluid'>
@@ -74,29 +75,34 @@
                             }
                             insert();
                           }
-                         /* const url_head = 'http://admin.guidexp.me/api/exhibition/'
-                          fetch(url_head)
-                           .then(response => response.json())
-                           .then(data => {
-                              for (i = 0; i < data.length; i++) {
-                              exbi[i] = data[i].exhibition_name;
-                              }
-                             })*/
-                        
-                            function insert() {
-                              var str = "";
-                              var ul = document.getElementById("dropdowncontent");
+
+                         //Code following not used:
+                         /* 
+                         const url_head = 'http://admin.guidexp.me/api/exhibition/'
+                         fetch(url_head)
+                          .then(response => response.json())
+                          .then(data => {
+                            for (i = 0; i < data.length; i++) {
+                            exbi[i] = data[i].exhibition_name;
+                            }
+                            })
+                         */
+
+                         //  Put the data fetch from API into dropdown menu
+                          function insert() {
+                            var str = "";
+                            var ul = document.getElementById("dropdowncontent");
       
-                              for (var i = 0; i < exbi.length; i++) {
-                              var data = exbi[i];
-                              var url = "exhibition.html?exhibition=" + data;
-                                str = str + "<a href='" + url + "'>" + data + "</a>";
+                            for (var i = 0; i < exbi.length; i++) {
+                            var data = exbi[i];
+                            var url = "exhibition.html?exhibition=" + data;
+                              str = str + "<a href='" + url + "'>" + data + "</a>";
       
-                                var li = document.createElement('li');
-                              li.innerHTML = str;
-                              }
-                              ul.appendChild(li);
-                            }                    
+                              var li = document.createElement('li');
+                            li.innerHTML = str;
+                            }
+                            ul.appendChild(li);
+                          }                    
                           
                           </script>
       
@@ -129,6 +135,16 @@
                   class='site-menu-toggle js-menu-toggle text-black'><span class='icon-menu h3'></span></a></div>
       
             </div>
+
+            <!-- search bar -->
+            <div class="searchb">
+              <input type="text" placeholder="Search..">
+            </div>
+
+
+
+
+
       
           </div>
         </div>
@@ -136,7 +152,9 @@
         <script src="js/bootstrap.min.js"></script>
       
       </header>
+      <!--Header end-->
 
+      <!--Content start-->
     <div class="site-section" data-aos="fade">
       <div class="container-fluid">
 
@@ -152,8 +170,10 @@
         </div>
         <div class="row" id="lightgallery">
 
+          <!--Load the exhibits in the exhibition-->
           <script src="js/GuideXP/exhibition-load.js"></script>
 
+          <!--Test code - not used-->
           <!-- Load GUI -->
           <!-- <div id="art0" class="col-sm-6 col-md-4 col-lg-3 col-xl-2 item" data-aos="fade" data-html="#audio0"
             data-sub-html="<h4>Fading Light</h4><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor doloremque hic excepturi fugit, sunt impedit fuga tempora, ad amet aliquid?</p>">
@@ -163,8 +183,10 @@
         </div>
       </div>
     </div>
-
+    <!--Content ends-->
+    
     <div id="res">
+    <!-- Test code: Code not used-->
     <!-- Load Resource -->
       <!-- <div style="display:none;" id="audio0">
       <audio class="lg-video-object lg-html5 video-js vjs-default-skin" poster="images/nature_small_1.jpg" preload="none" controls="none">
@@ -176,6 +198,7 @@
     </div> -->
     </div>
 
+    <!--Footer-->
     <div class="footer py-4">
       <div class="container-fluid text-center">
         <p>
@@ -225,7 +248,7 @@
   <script src="js/lightgallery-all.min.js"></script>
   <script src="js/jquery.mousewheel.min.js"></script>
 
-  <script src="js/main.js"></script>
+  <script src="js/GuideXP/main.js"></script>
 
   <script>
     $(document).ready(function () {

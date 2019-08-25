@@ -14,12 +14,12 @@ class Gallery(models.Model):
 
 class Exhibition(models.Model):
     id = models.AutoField(primary_key=True)
-    gallery_id = models.ForeignKey(Gallery, on_delete=models.SET_NULL, null=True)
+    gallery_id = models.ForeignKey(Gallery, on_delete=models.SET_NULL, null=True,blank=True)
 
 
 class Exhibit(models.Model):
     id = models.AutoField(primary_key=True)
-    exhibition_id = models.ForeignKey(Exhibition, on_delete=models.SET_NULL, null=True)
+    exhibition_id = models.ForeignKey(Exhibition, on_delete=models.SET_NULL, null=True,blank=True)
 
 
 class Author(models.Model):

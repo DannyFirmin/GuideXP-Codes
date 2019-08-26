@@ -13,7 +13,10 @@
             <option value="exhibition">Exhibition</option>
             <option value="gallery">Gallery</option>
         </select>
-        <button type="button" class="btn btn-outline-dark btn-sm" onclick="selectConfirm()">Confirm</button>
+        <div class="form-control-btns">
+            <button type="button" class="btn btn-outline-dark btn-sm" onclick="selectCancel()">Cancel</button>
+            <button type="button" class="btn btn-outline-dark btn-sm" onclick="selectConfirm()" style="float:right">Confirm</button>
+        </div>
     </div>
 
     <div id="upload-form-content" style="display: none;">
@@ -40,7 +43,8 @@
             </div>
             <div class="tab" style="display: none;">
                 <label>Step 2: Select an Exhibition</label>
-                <select id="exhibit-exhibition-select" class="select" name="exhibition" style="width: 100%; !important;">
+                <select id="exhibit-exhibition-select" class="select" name="exhibition"
+                        style="width: 100%; !important;">
                     <option></option>
                 </select>
             </div>
@@ -63,7 +67,8 @@
             </div>
             <div class="tab">
                 <label>Step 1: Select a Gallery</label>
-                <select id="exhibition-gallery-select" class="select" name="gallery-selected" style="width: 100%; !important;">
+                <select id="exhibition-gallery-select" class="select" name="gallery-selected"
+                        style="width: 100%; !important;">
                     <option></option>
 
                 </select>

@@ -181,14 +181,14 @@ select {
     z-index: 1;
 }
 
-#overlay-select-type>button{
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    border-radius: 0;
-    border: none;
-    width: 100%;
-}
+/*#overlay-select-type>button{*/
+/*    position: absolute;*/
+/*    bottom: 0;*/
+/*    left: 0;*/
+/*    border-radius: 0;*/
+/*    border: none;*/
+/*    width: 100%;*/
+/*}*/
 
 .upload-select-btns button{
     font-size: 12px !important;

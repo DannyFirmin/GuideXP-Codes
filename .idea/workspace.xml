@@ -2,16 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a8667b62-6572-4b9a-a332-2e7f31a00855" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/gxpadmin/templates/gxpadmin/view.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/guidexp.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/guidexp.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/src/db.sqlite3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/gxpadmin/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/gxpadmin/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gxpadmin/templates/gxpadmin/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/gxpadmin/templates/gxpadmin/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gxpadmin/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/gxpadmin/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gxpadmin/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/gxpadmin/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gxpadmin/static/gxpadmin/css/guidexp.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/gxpadmin/static/gxpadmin/css/guidexp.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gxpadmin/static/gxpadmin/js/guidexp.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/gxpadmin/static/gxpadmin/js/guidexp.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gxpadmin/templates/gxpadmin/create.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/gxpadmin/templates/gxpadmin/create.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -19,53 +14,13 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FUSProjectUsageTrigger">
-    <session id="-524760304">
-      <usages-collector id="statistics.lifecycle.project">
-        <counts>
-          <entry key="project.closed" value="1" />
-          <entry key="project.open.time.3" value="1" />
-          <entry key="project.open.time.4" value="1" />
-          <entry key="project.opened" value="2" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.extensions.open">
-        <counts>
-          <entry key="html" value="3" />
-          <entry key="py" value="3" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.open">
-        <counts>
-          <entry key="HTML" value="3" />
-          <entry key="Python" value="3" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.extensions.edit">
-        <counts>
-          <entry key="html" value="212" />
-          <entry key="py" value="432" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.edit">
-        <counts>
-          <entry key="HTML" value="212" />
-          <entry key="Python" value="432" />
-        </counts>
-      </usages-collector>
-    </session>
-  </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/gxpadmin/templates/gxpadmin/create.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="502">
-              <caret line="117" column="31" lean-forward="true" selection-start-line="117" selection-start-column="31" selection-end-line="117" selection-end-column="31" />
-              <folding>
-                <element signature="n#style#0;n#div#2;n#form#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#2;n#form#0;n#!!top" expanded="true" />
-              </folding>
+              <caret line="122" column="31" lean-forward="true" selection-start-line="122" selection-start-column="31" selection-end-line="122" selection-end-column="31" />
             </state>
           </provider>
         </entry>
@@ -82,24 +37,23 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/gxpadmin/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="18" column="13" selection-start-line="18" selection-start-column="4" selection-end-line="18" selection-end-column="13" />
+            <state relative-caret-position="120">
+              <caret line="13" column="54" selection-start-line="13" selection-start-column="54" selection-end-line="13" selection-end-column="54" />
               <folding>
                 <element signature="e#0#35#0" expanded="true" />
-                <marker date="1566705594081" expanded="true" signature="280:285" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/gxpadmin/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="577">
-              <caret line="39" column="34" lean-forward="true" selection-start-line="39" selection-start-column="34" selection-end-line="39" selection-end-column="34" />
+            <state relative-caret-position="322">
+              <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
             </state>
           </provider>
         </entry>
@@ -107,11 +61,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/gxpadmin/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="7" selection-start-line="7" selection-end-line="7" />
-              <folding>
-                <element signature="e#0#28#0" expanded="true" />
-              </folding>
+            <state>
+              <caret column="28" lean-forward="true" selection-start-column="28" selection-end-column="28" />
             </state>
           </provider>
         </entry>
@@ -132,14 +83,13 @@
       <list>
         <option value="CSS File" />
         <option value="Python Script" />
-        <option value="JavaScript File" />
         <option value="HTML File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>form-control-btns</find>
       <find>name</find>
       <find>btn.html</find>
       <find>html</find>
@@ -148,6 +98,10 @@
       <find>index</find>
       <find>upload-select-btns</find>
       <find>label</find>
+      <find>submit</find>
+      <find>form-control-btns</find>
+      <find>bottom: 0</find>
+      <find>selectconfirm</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -160,14 +114,13 @@
         <option value="$PROJECT_DIR$/src/guidexp/urls.py" />
         <option value="$PROJECT_DIR$/src/guidexp/settings.py" />
         <option value="$PROJECT_DIR$/src/gxpadmin/admin.py" />
-        <option value="$PROJECT_DIR$/src/gxpadmin/static/gxpadmin/js/guidexp.js" />
-        <option value="$PROJECT_DIR$/src/gxpadmin/templates/gxpadmin/create.html" />
-        <option value="$PROJECT_DIR$/src/gxpadmin/static/gxpadmin/css/guidexp.css" />
-        <option value="$PROJECT_DIR$/src/gxpadmin/templates/gxpadmin/base.html" />
-        <option value="$PROJECT_DIR$/src/gxpadmin/templates/gxpadmin/view.html" />
-        <option value="$PROJECT_DIR$/src/gxpadmin/models.py" />
         <option value="$PROJECT_DIR$/src/gxpadmin/urls.py" />
+        <option value="$PROJECT_DIR$/src/gxpadmin/templates/gxpadmin/base.html" />
         <option value="$PROJECT_DIR$/src/gxpadmin/views.py" />
+        <option value="$PROJECT_DIR$/src/gxpadmin/static/gxpadmin/css/guidexp.css" />
+        <option value="$PROJECT_DIR$/src/gxpadmin/templates/gxpadmin/create.html" />
+        <option value="$PROJECT_DIR$/src/gxpadmin/models.py" />
+        <option value="$PROJECT_DIR$/src/gxpadmin/static/gxpadmin/js/guidexp.js" />
       </list>
     </option>
   </component>
@@ -178,11 +131,12 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="53" />
-    <option name="y" value="23" />
-    <option name="width" value="1627" />
+    <option name="x" value="121" />
+    <option name="y" value="49" />
+    <option name="width" value="1265" />
     <option name="height" value="1027" />
   </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
@@ -204,82 +158,7 @@
               <item name="guidexp" type="b2602c69:ProjectViewProjectNode" />
               <item name="guidexp" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="guidexp" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="guidexp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="guidexp" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="gxpadmin" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="guidexp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="guidexp" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="gxpadmin" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="guidexp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="guidexp" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="gxpadmin" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="gxpadmin" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="guidexp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="guidexp" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="gxpadmin" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="gxpadmin" type="462c0819:PsiDirectoryNode" />
-              <item name="css" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="guidexp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="guidexp" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="gxpadmin" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="gxpadmin" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="guidexp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="guidexp" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="gxpadmin" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="guidexp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="guidexp" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="gxpadmin" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="gxpadmin" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="guidexp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="guidexp" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="guidexp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="guidexp" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="bootstrap" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="guidexp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="guidexp" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="bootstrap" type="462c0819:PsiDirectoryNode" />
-              <item name="css" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -290,12 +169,12 @@
   </component>
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -319,12 +198,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1566536343905</updated>
-      <workItem from="1566536347443" duration="63259000" />
+      <workItem from="1566536347443" duration="66662000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="63259000" />
+    <option name="totallyTimeSpent" value="66662000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="53" y="23" width="1627" height="1027" extended-state="0" />
@@ -342,10 +221,10 @@
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" />
-      <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info anchor="bottom" id="Terminal" order="11" visible="true" weight="0.10802139" />
-      <window_info anchor="bottom" id="Python Console" order="12" weight="0.32941177" />
+      <window_info anchor="bottom" id="Database Changes" order="9" />
+      <window_info anchor="bottom" id="Terminal" order="10" />
+      <window_info anchor="bottom" id="Python Console" order="11" />
+      <window_info anchor="bottom" id="Event Log" order="12" side_tool="true" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -382,6 +261,10 @@
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="commit change" />
+    <option name="LAST_COMMIT_MESSAGE" value="commit change" />
+  </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/manage.py">
       <provider selected="true" editor-type-id="text-editor" />
@@ -390,6 +273,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="360">
           <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
+          <folding>
+            <element signature="e#631#673#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -407,35 +293,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/gxpadmin/static/gxpadmin/js/guidexp.js">
+    <entry file="file://$PROJECT_DIR$/src/gxpadmin/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="569">
-          <caret line="74" column="14" selection-start-line="74" selection-start-column="14" selection-end-line="74" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/gxpadmin/static/gxpadmin/css/guidexp.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="365">
-          <caret line="209" column="1" lean-forward="true" selection-start-line="209" selection-start-column="1" selection-end-line="209" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/gxpadmin/templates/gxpadmin/view.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="13" column="7" lean-forward="true" selection-start-line="13" selection-start-column="7" selection-end-line="13" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/gxpadmin/templates/gxpadmin/create.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="502">
-          <caret line="117" column="31" lean-forward="true" selection-start-line="117" selection-start-column="31" selection-end-line="117" selection-end-column="31" />
-          <folding>
-            <element signature="n#style#0;n#div#2;n#form#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#2;n#form#0;n#!!top" expanded="true" />
-          </folding>
+        <state>
+          <caret column="28" lean-forward="true" selection-start-column="28" selection-end-column="28" />
         </state>
       </provider>
     </entry>
@@ -449,31 +310,41 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/gxpadmin/urls.py">
+    <entry file="file://$PROJECT_DIR$/src/gxpadmin/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" selection-start-line="7" selection-end-line="7" />
+        <state relative-caret-position="120">
+          <caret line="13" column="54" selection-start-line="13" selection-start-column="54" selection-end-line="13" selection-end-column="54" />
           <folding>
-            <element signature="e#0#28#0" expanded="true" />
+            <element signature="e#0#35#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gxpadmin/static/gxpadmin/css/guidexp.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="265">
+          <caret line="183" selection-start-line="183" selection-start-column="2" selection-end-line="190" selection-end-column="3" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/gxpadmin/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="577">
-          <caret line="39" column="34" lean-forward="true" selection-start-line="39" selection-start-column="34" selection-end-line="39" selection-end-column="34" />
+        <state relative-caret-position="322">
+          <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/gxpadmin/views.py">
+    <entry file="file://$PROJECT_DIR$/src/gxpadmin/templates/gxpadmin/create.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="18" column="13" selection-start-line="18" selection-start-column="4" selection-end-line="18" selection-end-column="13" />
-          <folding>
-            <element signature="e#0#35#0" expanded="true" />
-            <marker date="1566705594081" expanded="true" signature="280:285" ph="..." />
-          </folding>
+        <state relative-caret-position="502">
+          <caret line="122" column="31" lean-forward="true" selection-start-line="122" selection-start-column="31" selection-end-line="122" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gxpadmin/static/gxpadmin/js/guidexp.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="33" column="4" selection-start-line="33" selection-start-column="4" selection-end-line="33" selection-end-column="4" />
         </state>
       </provider>
     </entry>

@@ -28,10 +28,19 @@ function selectConfirm() {
     }
 }
 
+function selectCancel(){
+    location.href="/";
+}
 
 function nextPrev(n) {
     let l = $("#" + currentType);
     let tn = l.find(".tab");
+    if(n == 1 && currenttab == tn.length-1){
+        if(!validate()){
+            alert("You must provide a name to submit");
+            return;
+        }
+    }
     tn.eq(currenttab).css("display", "none");
     currenttab += n;
     if (currenttab >= tn.length) {
@@ -52,7 +61,7 @@ function showTab(n) {
             l.find(".tab").eq(0).append(html.html());
             html.remove();
         } else {
-            l.find(".tab").eq(0).css("display","block");
+            l.find(".tab").eq(0).css("display", "block");
             btn.html("Next");
             btn.css("width", "50%");
         }
@@ -62,12 +71,12 @@ function showTab(n) {
         let btn = $("#nextBtn");
         let tabs = l.find(".tab");
         //show the tab
-        tabs.eq(n).css("display","block");
+        tabs.eq(n).css("display", "block");
         //if you are at the last tab
-        if (n == tabs.length-1) {
+        if (n == tabs.length - 1) {
             if (l.find(".upload_description_board").length == 0) {
                 let html = $(".upload_description_board");
-                tabs.eq(tabs.length-1).append(html.html());
+                tabs.eq(tabs.length - 1).append(html.html());
                 html.remove();
             }
             btn.html("Submit");
@@ -79,9 +88,20 @@ function showTab(n) {
     fixIndicator(n);
 }
 
-function fixIndicator(n){
-    let steps = $("#"+currentType+" .step");
-    steps.each(function(){
+function validate() {
+    let valid = true;
+    let upload_text = $("#uploaded-text").val();
+    if (upload_text.length == 0 || !JSON.parse(upload_text).hasOwnProperty("Name")) {
+        valid = false;
+        return valid;
+    }
+    return valid;
+}
+
+
+function fixIndicator(n) {
+    let steps = $("#" + currentType + " .step");
+    steps.each(function () {
         $(this).removeClass("active");
     });
     steps.eq(n).addClass("active");
@@ -172,7 +192,7 @@ function overlayTextInputUpdateSubmit(index) {
     textarea.val("");
     let btn = $("#confirm");
     btn.html("Confirm");
-    btn.attr("onClick","overlayTextInputSubmit()");
+    btn.attr("onClick", "overlayTextInputSubmit()");
     $("#overlay-textarea").css("display", "none");
     $("#overlay").css("display", "none");
 }
@@ -181,7 +201,7 @@ function overlayTextInputCancel() {
     $("#overlay-textarea textarea").val("");
     let btn = $("#confirm");
     btn.html("Confirm");
-    btn.attr("onClick","overlayTextInputSubmit()");
+    btn.attr("onClick", "overlayTextInputSubmit()");
     $("#overlay-textarea").css("display", "none");
     $("#overlay").css("display", "none");
 }
@@ -214,26 +234,26 @@ function showOverlayforFile() {
 }
 
 function fileSubmit(id) {
-    let file = $("#"+id);
+    let file = $("#" + id);
     let filetype = checkFile(file.val());
-    if(filetype == "Image" || filetype == "Audio"){
+    if (filetype == "Image" || filetype == "Audio") {
         let fn = file.val().split("\\").pop();
         let t = {};
         t[filetype] = fn;
         t['id'] = id;
         itemList[itemList.length] = t;
         updateDescriptionBoard();
-    }else{
+    } else {
         alert("Please select a valid image or audio file.");
     }
 }
 
-function checkFile(filename){
+function checkFile(filename) {
     let extension = filename.split('.').pop().toUpperCase();
-    if(imageExtensions.includes(extension)){
+    if (imageExtensions.includes(extension)) {
         return "Image";
     }
-    if(audioExtensions.includes(extension)){
+    if (audioExtensions.includes(extension)) {
         return "Audio";
     }
     return "Unknown";
@@ -271,12 +291,13 @@ function updateDescriptionBoard() {
         }
     }
     $("#uploaded-text").val(formatUploadString(itemList));
+    console.log($("#uploaded-text").val());
     $(".table-body").html(html);
 }
 
 function removeFromList(index) {
     let key = Object.keys(itemList[index])[0];
-    if(key == "Image" || key == "Audio"){
+    if (key == "Image" || key == "Audio") {
         let id = itemList[index]['id'];
         $('#' + id).remove();
     }
@@ -308,9 +329,6 @@ function formatUploadString(arr) {
     // console.log(json);
     return json;
 }
-
-
-
 
 function sortUpdateList(arr) {
     if (arr.length <= 1) {

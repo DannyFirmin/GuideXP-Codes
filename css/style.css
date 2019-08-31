@@ -1173,12 +1173,53 @@ a {
   width: 300px;}
 
 
-/* Set location of the search bar */
-.searchb {
+/* Setting the search bar */
+.search-bar {
   overflow: scroll;
   position: absolute;
-  top: 30px;
-  right: 135px;
+  top: 45%;
+  left: 77%;
+  /*top: 30px;
+  right: 135px;*/
+  transform: translate(-50%,-50%);
+  height:40px;
+  border-radius: 40px;
+
+  padding: 10px;
+  outline: #686a6b solid 2px;
+
+}
+
+.search-bar:hover > .search-txt{
+  width: 180px;
+  padding:0 6px;
+}
+
+.search-btn{
+  color: #686a6b;
+  float:right;
+  width: 20px;
+  height: 20px;
+  border-radius: 10%;
+
+  display:flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.search-txt{
+  border: none;
+  float: left;
+  padding:0;
+  color:#4d4d4d;
+  font-size:18px;
+  transition: 0.4s;
+  height: 25px;
+  line-height:20px;
+  width: 0px;
+  outline: none;
+
+
 }
 
 

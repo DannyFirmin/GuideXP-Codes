@@ -61,6 +61,7 @@
                 <li class='has-children'>
                   <a>Exhibitions</a>
                   <ul class='dropdown' id='dropdowncontent'>
+                    <li><a href="exhibition.html">All Exhibitions</a></li>
 
                     <body>
       
@@ -94,10 +95,10 @@
                         function insert() {
                           var str = "";
                           var ul = document.getElementById("dropdowncontent");
-    
+                     
                           for (var i = 0; i < exbi.length; i++) {
                           var data = exbi[i];
-                          var url = "exhibition.html?exhibition=" + data;
+                          var url = "exhibit.html?exhibition=" + data;
                             str = str + "<a href='" + url + "'>" + data + "</a>";
     
                             var li = document.createElement('li');
@@ -226,20 +227,20 @@
               for (i = 0; i < data.length; i++) {
                 exbi[i] = data[i].exhibition_name;
               }
-              card0_link.href = "exhibition.html?exhibition=" + data[0].exhibition_name;
+              card0_link.href = "exhibit.html?exhibition=" + data[0].exhibition_name;
               card0_name.innerHTML = data[0].exhibition_name;
               if (data.length >= 2) {
-                card1_link.href = "exhibition.html?exhibition=" + data[1].exhibition_name;
+                card1_link.href = "exhibit.html?exhibition=" + data[1].exhibition_name;
                 card1_name.innerHTML = data[1].exhibition_name;
                 setImage1(data[1]);
               }
               if (data.length >= 3) {
-                card2_link.href = "exhibition.html?exhibition=" + data[2].exhibition_name;
+                card2_link.href = "exhibit.html?exhibition=" + data[2].exhibition_name;
                 card2_name.innerHTML = data[2].exhibition_name;
                 setImage2(data[2]);
               }
               if (data.length >= 4) {
-                card3_link.href = "exhibition.html?exhibition=" + data[3].exhibition_name
+                card3_link.href = "exhibit.html?exhibition=" + data[3].exhibition_name
                 card3_name.innerHTML = data[3].exhibition_name
                 setImage3(data[3]);
               }

@@ -1,35 +1,37 @@
 <!DOCTYPE html>
-<!--Webpage not uesd - Potential useful-->
 <html lang="en">
-  <head>
-    <title>GuideXP</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<!--The exhibition page- Content varies depending on the data from API -->
+<head>
+  <title>GuideXP</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:300i,400,700" rel="stylesheet">
-    <link rel="stylesheet" href="fonts/icomoon/style.css">
+  <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:300i,400,700" rel="stylesheet">
+  <link rel="stylesheet" href="fonts/icomoon/style.css">
 
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/magnific-popup.css">
-    <link rel="stylesheet" href="css/jquery-ui.css">
-    <link rel="stylesheet" href="css/owl.carousel.min.css">
-    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/magnific-popup.css">
+  <link rel="stylesheet" href="css/jquery-ui.css">
+  <link rel="stylesheet" href="css/owl.carousel.min.css">
+  <link rel="stylesheet" href="css/owl.theme.default.min.css">
 
-    <link rel="stylesheet" href="css/lightgallery.min.css">    
-    
-    <link rel="stylesheet" href="css/bootstrap-datepicker.css">
+  <link rel="stylesheet" href="css/lightgallery.min.css">
 
-    <link rel="stylesheet" href="fonts/flaticon/font/flaticon.css">
-    
-    <link rel="stylesheet" href="css/swiper.css">
+  <link rel="stylesheet" href="css/bootstrap-datepicker.css">
 
-    <link rel="stylesheet" href="css/aos.css">
+  <link rel="stylesheet" href="fonts/flaticon/font/flaticon.css">
 
-    <link rel="stylesheet" href="css/style.css">
-    
-  </head>
-  <body>
-  
+  <link rel="stylesheet" href="css/swiper.css">
+
+  <link rel="stylesheet" href="css/aos.css">
+
+  <link rel="stylesheet" href="css/style.css">
+
+
+</head>
+
+<body>
+
   <div class="site-wrap">
 
     <div class="site-mobile-menu">
@@ -40,10 +42,8 @@
       </div>
       <div class="site-mobile-menu-body"></div>
     </div>
-    
 
-
-
+    <!--header start-->
     <header class='site-navbar py-3 border-bottom' role='banner'>
 
         <div class='container-fluid'>
@@ -60,7 +60,8 @@
                   <li class='has-children'>
                     <a>Exhibitions</a>
                     <ul class='dropdown' id='dropdowncontent'>
-                        <li><a href="exhibition.html">All Exhibitions</a></li>     
+                        <li><a href="exhibition.html">All Exhibitions</a></li>
+      
                       <body>
       
                         <script>
@@ -77,18 +78,6 @@
                             insert();
                           }
 
-                         //Code following not used:
-                         /* 
-                         const url_head = 'http://admin.guidexp.me/api/exhibition/'
-                         fetch(url_head)
-                          .then(response => response.json())
-                          .then(data => {
-                            for (i = 0; i < data.length; i++) {
-                            exbi[i] = data[i].exhibition_name;
-                            }
-                            })
-                         */
-
                          //  Put the data fetch from API into dropdown menu
                           function insert() {
                             var str = "";
@@ -96,7 +85,7 @@
       
                             for (var i = 0; i < exbi.length; i++) {
                             var data = exbi[i];
-                            var url = "exhibit.html?exhibition=" + data;
+                            var url = "exhibition.html?exhibition=" + data;
                               str = str + "<a href='" + url + "'>" + data + "</a>";
       
                               var li = document.createElement('li');
@@ -136,6 +125,19 @@
                   class='site-menu-toggle js-menu-toggle text-black'><span class='icon-menu h3'></span></a></div>
       
             </div>
+
+            <!-- search bar -->
+            <div class="search-bar">
+              <input class="search-txt" type="text" placeholder="Type to Search..">
+              <a class="search-btn" href="#">
+                <i class="fas fa-search"></i>
+              </a>
+            </div>
+
+
+
+
+
       
           </div>
         </div>
@@ -143,90 +145,80 @@
         <script src="js/bootstrap.min.js"></script>
       
       </header>
+      <!--Header end-->
 
+      <!--Content start-->
+    <div class="site-section" data-aos="fade">
+      <div class="container-fluid">
 
+        <div class="row justify-content-center">
 
-  <div class="site-section"  data-aos="fade">
-    <div class="container-fluid">
-      
-      <div class="row justify-content-center">
-        <div class="col-md-7">
-          <div class="row mb-5">
-            <div class="col-12 ">
-              <h2 class="site-section-heading text-center">Our Services</h2>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-6 col-lg-6 col-xl-4 text-center mb-5 mb-lg-5">
-              <div class="h-100 p-4 p-lg-5 bg-light site-block-feature-7">
-                <span class="icon flaticon-camera display-3 text-primary mb-4 d-block"></span>
-                <h3 class="text-black h4">Camera</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum exercitationem quae id dolorum debitis.</p>
-                <p><strong class="font-weight-bold text-primary">$29</strong></p>
+          <div class="col-md-7">
+            <div class="row mb-5">
+              <div class="col-12 ">
+                <h2 class="site-section-heading text-center" id="exb-title">Exhibition</h2>
               </div>
             </div>
-            <div class="col-md-6 col-lg-6 col-xl-4 text-center mb-5 mb-lg-5">
-              <div class="h-100 p-4 p-lg-5 bg-light site-block-feature-7">
-                <span class="icon flaticon-picture display-3 text-primary mb-4 d-block"></span>
-                <h3 class="text-black h4">Wedding Photography</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum exercitationem quae id dolorum debitis.</p>
-                <p><strong class="font-weight-bold text-primary">$46</strong></p>
-              </div>
-            </div>
-            <div class="col-md-6 col-lg-6 col-xl-4 text-center mb-5 mb-lg-5">
-              <div class="h-100 p-4 p-lg-5 bg-light site-block-feature-7">
-                <span class="icon flaticon-sheep display-3 text-primary mb-4 d-block"></span>
-                <h3 class="text-black h4">Animal</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum exercitationem quae id dolorum debitis.</p>
-                <p><strong class="font-weight-bold text-primary">$24</strong></p>
-              </div>
-            </div>
-
-            <div class="col-md-6 col-lg-6 col-xl-4 text-center mb-5 mb-lg-5">
-              <div class="h-100 p-4 p-lg-5 bg-light site-block-feature-7">
-                <span class="icon flaticon-frame display-3 text-primary mb-4 d-block"></span>
-                <h3 class="text-black h4">Portrait</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum exercitationem quae id dolorum debitis.</p>
-                <p><strong class="font-weight-bold text-primary">$40</strong></p>
-              </div>
-            </div>
-            <div class="col-md-6 col-lg-6 col-xl-4 text-center mb-5 mb-lg-5">
-              <div class="h-100 p-4 p-lg-5 bg-light site-block-feature-7">
-                <span class="icon flaticon-eiffel-tower display-3 text-primary mb-4 d-block"></span>
-                <h3 class="text-black h4">Travel</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum exercitationem quae id dolorum debitis.</p>
-                <p><strong class="font-weight-bold text-primary">$35</strong></p>
-              </div>
-            </div>
-            <div class="col-md-6 col-lg-6 col-xl-4 text-center mb-5 mb-lg-5">
-              <div class="h-100 p-4 p-lg-5 bg-light site-block-feature-7">
-                <span class="icon flaticon-video-play display-3 text-primary mb-4 d-block"></span>
-                <h3 class="text-black h4">Video Editing</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum exercitationem quae id dolorum debitis.</p>
-                <p><strong class="font-weight-bold text-primary">$15</strong></p>
-              </div>
-            </div>
-
           </div>
         </div>
+        <div class="row" id="lightgallery">
+
+          <!--Load the exhibits in the exhibition-->
+          <script src="js/GuideXP/exhibition-load.js"></script>
+
+
+        </div>
+        </div>
+      </div>
+    </div>
+    <!--Content ends-->
+    
+    <div id="res">
+    <!-- Test code: Code not used-->
+    <!-- Load Resource -->
+      <!-- <div style="display:none;" id="audio0">
+      <audio class="lg-video-object lg-html5 video-js vjs-default-skin" poster="images/nature_small_1.jpg" preload="none" controls="none">
+        <source
+          src="https://cs.anu.edu.au/courses/comp2300/v_media/lecture-recordings/01_COPE_Part_0__Organisation_&_Contents.mp3"
+          type="audio/mpeg">
+        Your browser does not support HTML5 video.
+      </audio>
+    </div> -->
+    </div>
+
+    <!--Footer-->
+    <div class="footer py-4">
+      <div class="container-fluid text-center">
+        <p>
+          GuideXP - Create a guided tour for anything
+        </p>
       </div>
     </div>
   </div>
 
-  <div class="footer py-4">
-    <div class="container-fluid text-center">
-      <p>
-          GuideXP - Create a guided tour for anything
-      </p>
-    </div>
-  </div>
+  <script>
+    /*- Get the parameter in the url-*/
+    var url = location.search,
+      obj = {};
 
-    
+    if (url.indexOf("?") != -1) {
+      var str = url.substr(1);
+      strs = str.split("&");
+      for (var i = 0; i < strs.length; i++) {
+        obj[strs[i].split("=")[0]] = unescape(strs[i].split("=")[1]);
+      }
+    }
 
-    
-    
-  </div>
+    // Set title
+    var exhibitionTitle = document.getElementById('exb-title');
+    exhibitionTitle.innerText = obj.exhibition;
 
+  </script>
+
+  <link href="http://vjs.zencdn.net/4.12/video-js.css" rel="stylesheet">
+  <script src="http://vjs.zencdn.net/4.12/video.js"></script>
+
+  <script src="js/GuideXP/getQueryVariable.js"></script>
   <script src="js/jquery-3.3.1.min.js"></script>
   <script src="js/jquery-migrate-3.0.1.min.js"></script>
   <script src="js/jquery-ui.js"></script>
@@ -245,12 +237,33 @@
   <script src="js/jquery.mousewheel.min.js"></script>
 
   <script src="js/GuideXP/main.js"></script>
-  
+  <script src="https://kit.fontawesome.com/57a785c54f.js"></script>
+
   <script>
-    $(document).ready(function(){
+    $(document).ready(function () {
       $('#lightgallery').lightGallery();
     });
+
+    $('#lightgallery').lightGallery({
+      videojs: true
+    }); 
   </script>
+  <script>
+$('#fixed-size').lightGallery({
+  width: '700px',
+  height: '470px',
+  mode: 'lg-fade',
+  addClass: 'fixed-size',
+  counter: false,
+  download: false,
+  startClass: '',
+  enableSwipe: false,
+  enableDrag: false,
+  speed: 500
+});
+</script>
+
+</body>
 <!-- Google Translate Starts -->
 <div id="google_translate_element"></div>
   <script type="text/javascript">
@@ -262,5 +275,4 @@
   <script type="text/javascript"
     src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 <!-- Google Translate Ends -->
-  </body>
 </html>

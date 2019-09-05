@@ -2,108 +2,120 @@
     The header of the website - Which should be the same for all pages
   -->
 
+  <!-- update 04/09/2019 : File abandoned -->
 
 
 <header class='site-navbar py-3 border-bottom' role='banner'>
 
-    <div class='container-fluid'>
-      <div class='row align-items-center'>
-  
-        <div class='col-6 col-xl-2' data-aos='fade-down'>
-          <h1 class='mb-0'><a href='index.html' class='text-black h2 mb-0'>GuideXP</a></h1>
-        </div>
-        <div class='col-10 col-md-8 d-none d-xl-block' data-aos='fade-down'>
-          <nav class='site-navigation position-relative text-right text-lg-center' role='navigation'>
-  
-            <ul class='site-menu js-clone-nav mx-auto d-none d-lg-block'>
-              <li><a href='index.html'>Home</a></li>
-              <li class='has-children'>
-                <a>Exhibitions</a>
-                <ul class='dropdown' id='dropdowncontent'>
-  
-                  <body>
-  
-                    <script>
-                      // //  Fetch from API to get the list of all exhibitions
-                      // var exbi = new Array();
-                      // var request = new XMLHttpRequest();
-                      // request.open('GET','http://admin.guidexp.me/api/exhibition/',false);
-                      // request.send(null);
-                      // if (request.status === 200){
-                      //   var data = JSON.parse(request.responseText);
-                      //   for(i = 0;i <data.length;i++){
-                      //     exbi[i] = data[i].exhibition_name;
-                      //   }
-                      //   insert();s
-                      // }
-                      const url_head = 'http://admin.guidexp.me/api/exhibition/'
-                      fetch(url_head)
-                       .then(response => response.json())
-                       .then(data => {
-                          for (i = 0; i < data.length; i++) {
+  <div class='container-fluid'>
+    <div class='row align-items-center'>
+
+      <div class='col-6 col-xl-2' data-aos='fade-down'>
+        <h1 class='mb-0'><a href='index.html' class='text-black h2 mb-0'>GuideXP</a></h1>
+      </div>
+      <div class='col-10 col-md-8 d-none d-xl-block' data-aos='fade-down'>
+        <nav class='site-navigation position-relative text-right text-lg-center' role='navigation'>
+
+          <ul class='site-menu js-clone-nav mx-auto d-none d-lg-block'>
+            <li><a href='index.html'>Home</a></li>
+            <li class='has-children'>
+              <a>Exhibitions</a>
+              <ul class='dropdown' id='dropdowncontent'>
+
+                <body>
+
+                  <script>
+                    // //  Fetch from API to get the list of all exhibitions
+                    // var exbi = new Array();
+                    // var request = new XMLHttpRequest();
+                    // request.open('GET','http://admin.guidexp.me/api/exhibition/',false);
+                    // request.send(null);
+                    // if (request.status === 200){
+                    //   var data = JSON.parse(request.responseText);
+                    //   for(i = 0;i <data.length;i++){
+                    //     exbi[i] = data[i].exhibition_name;
+                    //   }
+                    //   insert();s
+                    // }
+                    const url_head = 'http://admin.guidexp.me/api/exhibition/'
+                    fetch(url_head)
+                      .then(response => response.json())
+                      .then(data => {
+                        for (i = 0; i < data.length; i++) {
                           exbi[i] = data[i].exhibition_name;
-                          }
-                          insert();
-                         })
-                    
-                        function insert() {
-                          var str = "";
-                          var ul = document.getElementById("dropdowncontent");
-  
-                          for (var i = 0; i < exbi.length; i++) {
-                          var data = exbi[i];
-                          var url = "exhibition.html?exhibition=" + data;
-                            str = str + "<a href='" + url + "'>" + data + "</a>";
-  
-                            var li = document.createElement('li');
-                          li.innerHTML = str;
-                          }
-                          ul.appendChild(li);
-                        }                    
-                      
-                      </script>
-  
-                  </body>
-  
-                </ul>
-  
-              </li>
-  
-              <li><a href='artists.html'>Artists</a></li>
-              <li><a href='about.html'>About</a></li>
-              <li><a href='contact.html'>Contact</a></li>
-            </ul>
-          </nav>
+                        }
+                        insert();
+                      })
+
+                    function insert() {
+                      var str = "";
+                      var ul = document.getElementById("dropdowncontent");
+
+                      for (var i = 0; i < exbi.length; i++) {
+                        var data = exbi[i];
+                        var url = "exhibition.html?exhibition=" + data;
+                        str = str + "<a href='" + url + "'>" + data + "</a>";
+
+                        var li = document.createElement('li');
+                        li.innerHTML = str;
+                      }
+                      ul.appendChild(li);
+                    }
+
+                  </script>
+
+                </body>
+
+              </ul>
+
+            </li>
+
+            <li><a href='artists.html'>Artists</a></li>
+            <li><a href='about.html'>About</a></li>
+            <li><a href='contact.html'>Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+
+      <div class='col-6 col-xl-2 text-right' data-aos='fade-down'>
+        <div class='d-none d-xl-inline-block'>
+          <ul class='site-menu js-clone-nav ml-auto list-unstyled d-flex text-right mb-0' data-class='social'>
+            <li>
+              <a href='http://admin.guidexp.me/upload/art/' class='pl-3 pr-3'><span
+                  class='icon-cloud-upload'></span></a>
+            </li>
+            <li>
+              <a href='http://admin.guidexp.me/' class='pl-3 pr-3'><span class='icon-user'></span></a>
+            </li>
+          </ul>
         </div>
-  
-        <div class='col-6 col-xl-2 text-right' data-aos='fade-down'>
-          <div class='d-none d-xl-inline-block'>
-            <ul class='site-menu js-clone-nav ml-auto list-unstyled d-flex text-right mb-0' data-class='social'>
-              <li>
-                <a href='http://admin.guidexp.me/upload/art/' class='pl-3 pr-3'><span class='icon-cloud-upload'></span></a>
-              </li>
-              <li>
-                <a href='http://admin.guidexp.me/' class='pl-3 pr-3'><span class='icon-user'></span></a>
-              </li>
-            </ul>
-          </div>
-  
-          <div class='d-inline-block d-xl-none ml-md-0 mr-auto py-3' style='position: relative; top: 3px;'><a href='#'
-              class='site-menu-toggle js-menu-toggle text-black'><span class='icon-menu h3'></span></a></div>
-        </div>
+
+        <div class='d-inline-block d-xl-none ml-md-0 mr-auto py-3' style='position: relative; top: 3px;'><a href='#'
+            class='site-menu-toggle js-menu-toggle text-black'><span class='icon-menu h3'></span></a></div>
       </div>
     </div>
-    <script src="js/jquery-3.3.1.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
+  </div>
+  <script src="js/jquery-3.3.1.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
   <!-- Google Translate Starts -->
-<div id="google_translate_element"></div>
-<script type="text/javascript">
-  function googleTranslateElementInit() {
-    new google.translate.TranslateElement({ pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE }, 'google_translate_element');
-  }
-</script>
+  <div id="google_translate_element"></div>
+  <script type="text/javascript">
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({ pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE }, 'google_translate_element');
+    }
+  </script>
 
-<script type="text/javascript"
-  src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-<!-- Google Translate Ends -->
-  </header>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-146229659-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-146229659-1');
+  </script>
+
+  <script type="text/javascript"
+    src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+  <!-- Google Translate Ends -->
+</header>

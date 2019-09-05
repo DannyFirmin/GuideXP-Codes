@@ -2,7 +2,18 @@
 <html lang="en">
 <!--The main page of the website-->
 <!--Header start-->
+
 <head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-146229659-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-146229659-1');
+  </script>
+  
   <title>GuideXP</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -61,53 +72,54 @@
                 <li class='has-children'>
                   <a>Exhibitions</a>
                   <ul class='dropdown' id='dropdowncontent'>
+                    <li><a href="exhibition.html">All Exhibitions</a></li>
 
                     <body>
-      
+
                       <script>
                         //  Fetch from API to get the list of all exhibitions
                         var exbi = new Array();
                         var request = new XMLHttpRequest();
-                        request.open('GET','http://admin.guidexp.me/api/exhibition/',false);
+                        request.open('GET', 'http://admin.guidexp.me/api/exhibition/', false);
                         request.send(null);
-                        if (request.status === 200){
+                        if (request.status === 200) {
                           var data = JSON.parse(request.responseText);
-                          for(i = 0;i <data.length;i++){
+                          for (i = 0; i < data.length; i++) {
                             exbi[i] = data[i].exhibition_name;
                           }
                           insert();
                         }
 
-                       //Code following not used:
-                       /* 
-                       const url_head = 'http://admin.guidexp.me/api/exhibition/'
-                       fetch(url_head)
-                        .then(response => response.json())
-                        .then(data => {
-                          for (i = 0; i < data.length; i++) {
-                          exbi[i] = data[i].exhibition_name;
-                          }
-                          })
-                       */
+                        //Code following not used:
+                        /* 
+                        const url_head = 'http://admin.guidexp.me/api/exhibition/'
+                        fetch(url_head)
+                         .then(response => response.json())
+                         .then(data => {
+                           for (i = 0; i < data.length; i++) {
+                           exbi[i] = data[i].exhibition_name;
+                           }
+                           })
+                        */
 
-                       //  Put the data fetch from API into dropdown menu
+                        //  Put the data fetch from API into dropdown menu
                         function insert() {
                           var str = "";
                           var ul = document.getElementById("dropdowncontent");
-    
+
                           for (var i = 0; i < exbi.length; i++) {
-                          var data = exbi[i];
-                          var url = "exhibition.html?exhibition=" + data;
+                            var data = exbi[i];
+                            var url = "exhibit.html?exhibition=" + data;
                             str = str + "<a href='" + url + "'>" + data + "</a>";
-    
+
                             var li = document.createElement('li');
-                          li.innerHTML = str;
+                            li.innerHTML = str;
                           }
                           ul.appendChild(li);
-                        }                    
-                        
-                        </script>
-    
+                        }
+
+                      </script>
+
                     </body>
 
                   </ul>
@@ -122,7 +134,7 @@
           </div>
 
           <div class='col-6 col-xl-2 text-right' data-aos='fade-down'>
-            <div class='d-none d-xl-inline-block'>
+            <!-- <div class='d-none d-xl-inline-block'>
               <ul class='site-menu js-clone-nav ml-auto list-unstyled d-flex text-right mb-0' data-class='social'>
                 <li>
                   <a href='http://admin.guidexp.me/upload/art/' class='pl-3 pr-3'><span
@@ -132,28 +144,25 @@
                   <a href='http://admin.guidexp.me/' class='pl-3 pr-3'><span class='icon-user'></span></a>
                 </li>
               </ul>
-            </div>
+            </div> -->
 
             <div class='d-inline-block d-xl-none ml-md-0 mr-auto py-3' style='position: relative; top: 3px;'><a href='#'
                 class='site-menu-toggle js-menu-toggle text-black'><span class='icon-menu h3'></span></a></div>
 
           </div>
 
-          <div class="search-bar" >
-            <input class="search-txt" type="text" id="txt" placeholder="Type to  search..">
-            <a class="search-btn" href="search.html">
-              <i class="fas fa-search" ></i>
-            </a>
-          </div>
-
-
-
         </div>
       </div>
       <script src="js/jquery-3.3.1.min.js"></script>
       <script src="js/bootstrap.min.js"></script>
 
-
+      <!-- search bar -->
+      <div class="search-bar">
+        <input class="search-txt" type="text" placeholder="Type to Search..">
+        <a class="search-btn" href="#">
+          <i class="fas fa-search"></i>
+        </a>
+      </div>
 
 
     </header>
@@ -171,7 +180,7 @@
                 <a id="card0-link" href="contact.html" class="btn btn-outline-white py-2 px-4">Start this
                   Guide</a>
               </div>
-              <img id="card0-img" src="images/img_1.jpg" alt="Image">
+              <img id="card0-img" src="images/placeholder.jpg" alt="Image">
             </div>
           </div>
           <div class="swiper-slide">
@@ -181,7 +190,7 @@
                 <a id="card1-link" href="contact.html" class="btn btn-outline-white py-2 px-4">Start
                   this Guide</a>
               </div>
-              <img id="card1-img" src="images/img_2.jpg" alt="Image">
+              <img id="card1-img" src="images/placeholder.jpg" alt="Image">
             </div>
           </div>
           <div class="swiper-slide">
@@ -191,7 +200,7 @@
                 <a id="card2-link" href="contact.html" class="btn btn-outline-white py-2 px-4">Start this
                   Guide</a>
               </div>
-              <img id="card2-img" src="images/img_3.jpg" alt="Image">
+              <img id="card2-img" src="images/placeholder.jpg" alt="Image">
             </div>
           </div>
           <div class="swiper-slide">
@@ -201,7 +210,7 @@
                 <a id="card3-link" href="contact.html" class="btn btn-outline-white py-2 px-4">Start this
                   Guide</a>
               </div>
-              <img id="card3-img" src="images/img_4.jpg" alt="Image">
+              <img id="card3-img" src="images/placeholder.jpg" alt="Image">
             </div>
           </div>
 
@@ -229,20 +238,20 @@
               for (i = 0; i < data.length; i++) {
                 exbi[i] = data[i].exhibition_name;
               }
-              card0_link.href = "exhibition.html?exhibition=" + data[0].exhibition_name;
+              card0_link.href = "exhibit.html?exhibition=" + data[0].exhibition_name;
               card0_name.innerHTML = data[0].exhibition_name;
               if (data.length >= 2) {
-                card1_link.href = "exhibition.html?exhibition=" + data[1].exhibition_name;
+                card1_link.href = "exhibit.html?exhibition=" + data[1].exhibition_name;
                 card1_name.innerHTML = data[1].exhibition_name;
                 setImage1(data[1]);
               }
               if (data.length >= 3) {
-                card2_link.href = "exhibition.html?exhibition=" + data[2].exhibition_name;
+                card2_link.href = "exhibit.html?exhibition=" + data[2].exhibition_name;
                 card2_name.innerHTML = data[2].exhibition_name;
                 setImage2(data[2]);
               }
               if (data.length >= 4) {
-                card3_link.href = "exhibition.html?exhibition=" + data[3].exhibition_name
+                card3_link.href = "exhibit.html?exhibition=" + data[3].exhibition_name
                 card3_name.innerHTML = data[3].exhibition_name
                 setImage3(data[3]);
               }
@@ -340,8 +349,8 @@
     });
   </script>
 
-<!-- Google Translate Starts -->
-<div id="google_translate_element"></div>
+  <!-- Google Translate Starts -->
+  <div id="google_translate_element"></div>
   <script type="text/javascript">
     function googleTranslateElementInit() {
       new google.translate.TranslateElement({ pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE }, 'google_translate_element');
@@ -350,7 +359,7 @@
 
   <script type="text/javascript"
     src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-<!-- Google Translate Ends -->
+  <!-- Google Translate Ends -->
 
 </body>
 

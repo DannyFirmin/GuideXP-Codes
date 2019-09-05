@@ -1,36 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
-  <!--About page-->
-  <head>
-    <title>GuideXP</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<!--About page-->
 
-    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:300i,400,700" rel="stylesheet">
-    <link rel="stylesheet" href="fonts/icomoon/style.css">
+<head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-146229659-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
 
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/magnific-popup.css">
-    <link rel="stylesheet" href="css/jquery-ui.css">
-    <link rel="stylesheet" href="css/owl.carousel.min.css">
-    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+    gtag('config', 'UA-146229659-1');
+  </script>
 
-    <link rel="stylesheet" href="css/lightgallery.min.css">    
-    
-    <link rel="stylesheet" href="css/bootstrap-datepicker.css">
+  <title>GuideXP</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <link rel="stylesheet" href="fonts/flaticon/font/flaticon.css">
-    
-    <link rel="stylesheet" href="css/swiper.css">
+  <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:300i,400,700" rel="stylesheet">
+  <link rel="stylesheet" href="fonts/icomoon/style.css">
 
-    <link rel="stylesheet" href="css/aos.css">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/magnific-popup.css">
+  <link rel="stylesheet" href="css/jquery-ui.css">
+  <link rel="stylesheet" href="css/owl.carousel.min.css">
+  <link rel="stylesheet" href="css/owl.theme.default.min.css">
 
-    <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/lightgallery.min.css">
 
-    
-  </head>
-  <body>
-  
+  <link rel="stylesheet" href="css/bootstrap-datepicker.css">
+
+  <link rel="stylesheet" href="fonts/flaticon/font/flaticon.css">
+
+  <link rel="stylesheet" href="css/swiper.css">
+
+  <link rel="stylesheet" href="css/aos.css">
+
+  <link rel="stylesheet" href="css/style.css">
+
+
+</head>
+
+<body>
+
   <div class="site-wrap">
 
     <div class="site-mobile-menu">
@@ -41,107 +53,109 @@
       </div>
       <div class="site-mobile-menu-body"></div>
     </div>
-    
 
- <!--Header start-->
+
+    <!--Header start-->
 
     <header class='site-navbar py-3 border-bottom' role='banner'>
 
-        <div class='container-fluid'>
-          <div class='row align-items-center'>
-      
-            <div class='col-6 col-xl-2' data-aos='fade-down'>
-              <h1 class='mb-0'><a href='index.html' class='text-black h2 mb-0'>GuideXP</a></h1>
-            </div>
-            <div class='col-10 col-md-8 d-none d-xl-block' data-aos='fade-down'>
-              <nav class='site-navigation position-relative text-right text-lg-center' role='navigation'>
-      
-                <ul class='site-menu js-clone-nav mx-auto d-none d-lg-block'>
-                  <li><a href='index.html'>Home</a></li>
-                  <li class='has-children'>
-                    <a>Exhibitions</a>
-                    <ul class='dropdown' id='dropdowncontent'>
-      
-                      <body>
-      
-                        <script>
-                          //  Fetch from API to get the list of all exhibitions
-                          var exbi = new Array();
-                          var request = new XMLHttpRequest();
-                          request.open('GET','http://admin.guidexp.me/api/exhibition/',false);
-                          request.send(null);
-                          if (request.status === 200){
-                            var data = JSON.parse(request.responseText);
-                            for(i = 0;i <data.length;i++){
-                              exbi[i] = data[i].exhibition_name;
-                            }
-                            insert();
-                          }
+      <div class='container-fluid'>
+        <div class='row align-items-center'>
 
-                         //Code following not used:
-                         /* 
-                         const url_head = 'http://admin.guidexp.me/api/exhibition/'
-                         fetch(url_head)
-                          .then(response => response.json())
-                          .then(data => {
-                            for (i = 0; i < data.length; i++) {
-                            exbi[i] = data[i].exhibition_name;
-                            }
-                            })
-                         */
-
-                         //  Put the data fetch from API into dropdown menu
-                          function insert() {
-                            var str = "";
-                            var ul = document.getElementById("dropdowncontent");
-      
-                            for (var i = 0; i < exbi.length; i++) {
-                            var data = exbi[i];
-                            var url = "exhibition.html?exhibition=" + data;
-                              str = str + "<a href='" + url + "'>" + data + "</a>";
-      
-                              var li = document.createElement('li');
-                            li.innerHTML = str;
-                            }
-                            ul.appendChild(li);
-                          }                    
-                          
-                          </script>
-      
-                      </body>
-      
-                    </ul>
-      
-                  </li>
-      
-                  <li><a href='artists.html'>Artists</a></li>
-                  <li><a href='about.html'>About</a></li>
-                  <li><a href='contact.html'>Contact</a></li>
-                </ul>
-              </nav>
-            </div>
-      
-            <div class='col-6 col-xl-2 text-right' data-aos='fade-down'>
-              <div class='d-none d-xl-inline-block'>
-                <ul class='site-menu js-clone-nav ml-auto list-unstyled d-flex text-right mb-0' data-class='social'>
-                  <li>
-                    <a href='http://admin.guidexp.me/upload/art/' class='pl-3 pr-3'><span class='icon-cloud-upload'></span></a>
-                  </li>
-                  <li>
-                    <a href='http://admin.guidexp.me/' class='pl-3 pr-3'><span class='icon-user'></span></a>
-                  </li>
-                </ul>
-              </div>
-      
-              <div class='d-inline-block d-xl-none ml-md-0 mr-auto py-3' style='position: relative; top: 3px;'><a href='#'
-                  class='site-menu-toggle js-menu-toggle text-black'><span class='icon-menu h3'></span></a></div>
-      
-            </div>
-      
+          <div class='col-6 col-xl-2' data-aos='fade-down'>
+            <h1 class='mb-0'><a href='index.html' class='text-black h2 mb-0'>GuideXP</a></h1>
           </div>
+          <div class='col-10 col-md-8 d-none d-xl-block' data-aos='fade-down'>
+            <nav class='site-navigation position-relative text-right text-lg-center' role='navigation'>
+
+              <ul class='site-menu js-clone-nav mx-auto d-none d-lg-block'>
+                <li><a href='index.html'>Home</a></li>
+                <li class='has-children'>
+                  <a>Exhibitions</a>
+                  <ul class='dropdown' id='dropdowncontent'>
+                    <li><a href="exhibition.html">All Exhibitions</a></li>
+
+                    <body>
+
+                      <script>
+                        //  Fetch from API to get the list of all exhibitions
+                        var exbi = new Array();
+                        var request = new XMLHttpRequest();
+                        request.open('GET', 'http://admin.guidexp.me/api/exhibition/', false);
+                        request.send(null);
+                        if (request.status === 200) {
+                          var data = JSON.parse(request.responseText);
+                          for (i = 0; i < data.length; i++) {
+                            exbi[i] = data[i].exhibition_name;
+                          }
+                          insert();
+                        }
+
+                        //Code following not used:
+                        /* 
+                        const url_head = 'http://admin.guidexp.me/api/exhibition/'
+                        fetch(url_head)
+                         .then(response => response.json())
+                         .then(data => {
+                           for (i = 0; i < data.length; i++) {
+                           exbi[i] = data[i].exhibition_name;
+                           }
+                           })
+                        */
+
+                        //  Put the data fetch from API into dropdown menu
+                        function insert() {
+                          var str = "";
+                          var ul = document.getElementById("dropdowncontent");
+
+                          for (var i = 0; i < exbi.length; i++) {
+                            var data = exbi[i];
+                            var url = "exhibit.html?exhibition=" + data;
+                            str = str + "<a href='" + url + "'>" + data + "</a>";
+
+                            var li = document.createElement('li');
+                            li.innerHTML = str;
+                          }
+                          ul.appendChild(li);
+                        }
+
+                      </script>
+
+                    </body>
+
+                  </ul>
+
+                </li>
+
+                <li><a href='artists.html'>Artists</a></li>
+                <li><a href='about.html'>About</a></li>
+                <li><a href='contact.html'>Contact</a></li>
+              </ul>
+            </nav>
+          </div>
+
+          <div class='col-6 col-xl-2 text-right' data-aos='fade-down'>
+            <!-- <div class='d-none d-xl-inline-block'>
+              <ul class='site-menu js-clone-nav ml-auto list-unstyled d-flex text-right mb-0' data-class='social'>
+                <li>
+                  <a href='http://admin.guidexp.me/upload/art/' class='pl-3 pr-3'><span
+                      class='icon-cloud-upload'></span></a>
+                </li>
+                <li>
+                  <a href='http://admin.guidexp.me/' class='pl-3 pr-3'><span class='icon-user'></span></a>
+                </li>
+              </ul>
+            </div> -->
+
+            <div class='d-inline-block d-xl-none ml-md-0 mr-auto py-3' style='position: relative; top: 3px;'><a href='#'
+                class='site-menu-toggle js-menu-toggle text-black'><span class='icon-menu h3'></span></a></div>
+
+          </div>
+
         </div>
-        <script src="js/jquery-3.3.1.min.js"></script>
-        <script src="js/bootstrap.min.js"></script>
+      </div>
+      <script src="js/jquery-3.3.1.min.js"></script>
+      <script src="js/bootstrap.min.js"></script>
 
       <!-- search bar -->
       <div class="search-bar">
@@ -152,89 +166,102 @@
       </div>
 
 
-      </header>
+    </header>
 
-      <!--Header end-->
+    <!--Header end-->
 
 
 
-      <!--content start-->
-  <div class=""  data-aos="fade">
-    <div class="container-fluid">
-      
-      <div class="row justify-content-center">
-        <div class="col-md-7">
-          <div class="row mb-5 site-section">
-            <div class="col-12 ">
-              <h2 class="site-section-heading text-center">About Us</h2>
+    <!--content start-->
+    <div class="" data-aos="fade">
+      <div class="container-fluid">
+
+        <div class="row justify-content-center">
+          <div class="col-md-7">
+            <div class="row mb-5 site-section">
+              <div class="col-12 ">
+                <h2 class="site-section-heading text-center">About Us</h2>
+              </div>
+            </div>
+
+            <div class="row mb-5">
+              <div class="col-md-7">
+                <img src="images/aboutPic.jpg" alt="Images" class="img-fluid">
+              </div>
+              <div class="col-md-4 ml-auto">
+                <h3>What is GuideXP?</h3>
+                <p>
+                  Through our digital platform, visitors can now unpack the stories behind the art pieces and learn more
+                  about the artist’s creative inspiration and process.
+
+                  We understand the importance of artists connecting with their audiences, and it is our mission to make
+                  sharing stories as simple as possible. With GuideXP, artists can easily create audio guides for their
+                  own exhibition, and engage their audience in more ways.</p>
+              </div>
+            </div>
+
+            <!--Details in the ABOUT page-->
+            <div class="row site-section">
+              <div class="col-md-6 col-lg-6 col-xl-4 text-center mb-5">
+                <img src="images/person_4.jpg" alt="Image" class="img-fluid w-50 rounded-circle mb-4">
+                <h2 class="text-black font-weight-light mb-4">Jayden Castillo</h2>
+                <p class="mb-4">Jayden’s day job is working for Accenture, a global technology consulting company.
+                  Through this experience Jayden has worked in several government agencies and delivered technical
+                  products while in roles such as Product Manager, Business Analyst and UX Designer. Jayden’s current
+                  role is in The Garden where he works with government clients to achieve think and act more
+                  innovatively.
+                  Jayden was also one of the Lead Facilitators for InnovationACT in 2018.</p>
+                <p>
+                  <a href="#" class="pl-0 pr-3"><span class="icon-twitter"></span></a>
+                  <a href="#" class="pl-3 pr-3"><span class="icon-instagram"></span></a>
+                  <a href="#" class="pl-3 pr-3"><span class="icon-facebook"></span></a>
+                </p>
+              </div>
+              <div class="col-md-6 col-lg-6 col-xl-4 text-center mb-5">
+                <img src="images/person_1.jpg" alt="Image" class="img-fluid w-50 rounded-circle mb-4">
+                <h2 class="text-black font-weight-light mb-4">Irene Zhen</h2>
+                <p class="mb-4">Irene is currently part of Growth Programs team at the Canberra Innovation Network,
+                  helping early stage start ups grow to the next level using techniques such as Lean Startup and Design
+                  Thinking.
+                  She has experience delivering technical projects for government agencies in Service Design and
+                  Business Analysis roles as a consultant.</p>
+                <p>
+                  <a href="#" class="pl-0 pr-3"><span class="icon-twitter"></span></a>
+                  <a href="#" class="pl-3 pr-3"><span class="icon-instagram"></span></a>
+                  <a href="#" class="pl-3 pr-3"><span class="icon-facebook"></span></a>
+                </p>
+              </div>
+              <div class="col-md-6 col-lg-6 col-xl-4 text-center mb-5">
+                <img src="images/person_3.jpg" alt="Image" class="img-fluid w-50 rounded-circle mb-4">
+                <h2 class="text-black font-weight-light mb-4">Jey Panisilvam</h2>
+                <p class="mb-4">
+                  Jey recently graduated with First Class honours in Engineering (Mechatronics) and a second degree in
+                  Science (Maths). Jey has experience in deep learning and artificial intelligence systems, and has
+                  developed a number of programs with these capabilities. Jey’s projects have been completed in a
+                  variety of programming languages including C++, Python, R and assembly.</p>
+                <p>
+                  <a href="#" class="pl-0 pr-3"><span class="icon-twitter"></span></a>
+                  <a href="#" class="pl-3 pr-3"><span class="icon-instagram"></span></a>
+                  <a href="#" class="pl-3 pr-3"><span class="icon-facebook"></span></a>
+                </p>
+              </div>
             </div>
           </div>
 
-          <div class="row mb-5">
-            <div class="col-md-7">
-              <img src="images/img_5.jpg" alt="Images" class="img-fluid">
-            </div>
-            <div class="col-md-4 ml-auto">
-              <h3>What is GuideXP?</h3>
-              <p>
-                Through our digital platform, visitors can now unpack the stories behind the art pieces and learn more about the artist’s creative inspiration and process.
-                
-                We understand the importance of artists connecting with their audiences, and it is our mission to make sharing stories as simple as possible. With GuideXP, artists can easily create audio guides for their own exhibition, and engage their audience in more ways.</p>
-            </div>
-          </div>
-
-         <!--Details in the ABOUT page-->
-          <div class="row site-section">
-            <div class="col-md-6 col-lg-6 col-xl-4 text-center mb-5">
-              <img src="images/person_4.jpg" alt="Image" class="img-fluid w-50 rounded-circle mb-4">
-              <h2 class="text-black font-weight-light mb-4">Jayden Castillo</h2>
-              <p class="mb-4">Jayden’s day job is working for Accenture, a global technology consulting company. Through this experience Jayden has worked in several government agencies and delivered technical products while in roles such as Product Manager, Business Analyst and UX Designer. Jayden’s current role is in The Garden where he works with government clients to achieve think and act more innovatively.
-                Jayden was also one of the Lead Facilitators for InnovationACT in 2018.</p>
-              <p>
-                <a href="#" class="pl-0 pr-3"><span class="icon-twitter"></span></a>
-                <a href="#" class="pl-3 pr-3"><span class="icon-instagram"></span></a>
-                <a href="#" class="pl-3 pr-3"><span class="icon-facebook"></span></a>
-              </p>
-            </div>
-            <div class="col-md-6 col-lg-6 col-xl-4 text-center mb-5">
-              <img src="images/person_1.jpg" alt="Image" class="img-fluid w-50 rounded-circle mb-4">
-              <h2 class="text-black font-weight-light mb-4">Irene Zhen</h2>
-              <p class="mb-4">Irene is currently part of Growth Programs team at the Canberra Innovation Network, helping early stage start ups grow to the next level using techniques such as Lean Startup and Design Thinking.
-                She has experience delivering technical projects for government agencies in Service Design and Business Analysis roles as a consultant.</p>
-              <p>
-                <a href="#" class="pl-0 pr-3"><span class="icon-twitter"></span></a>
-                <a href="#" class="pl-3 pr-3"><span class="icon-instagram"></span></a>
-                <a href="#" class="pl-3 pr-3"><span class="icon-facebook"></span></a>
-              </p>
-            </div>
-            <div class="col-md-6 col-lg-6 col-xl-4 text-center mb-5">
-              <img src="images/person_3.jpg" alt="Image" class="img-fluid w-50 rounded-circle mb-4">
-              <h2 class="text-black font-weight-light mb-4">Jey Panisilvam</h2>
-              <p class="mb-4">
-                Jey recently graduated with First Class honours in Engineering (Mechatronics) and a second degree in Science (Maths). Jey has experience in deep learning and artificial intelligence systems, and has developed a number of programs with these capabilities. Jey’s projects have been completed in a variety of programming languages including C++, Python, R and assembly.</p>
-              <p>
-                <a href="#" class="pl-0 pr-3"><span class="icon-twitter"></span></a>
-                <a href="#" class="pl-3 pr-3"><span class="icon-instagram"></span></a>
-                <a href="#" class="pl-3 pr-3"><span class="icon-facebook"></span></a>
-              </p>
-            </div>
-          </div>
         </div>
-    
       </div>
     </div>
-  </div>
-  <!--Content end-->
+    <!--Content end-->
 
-  <!--footer-->
-  <div class="footer py-4">
-    <div class="container-fluid text-center">
-      <p>
+    <!--footer-->
+    <div class="footer py-4">
+      <div class="container-fluid text-center">
+        <p>
           GuideXP - Create a guided tour for anything
-      </p>
+        </p>
+      </div>
     </div>
-  </div>  
-    
+
   </div>
 
   <script src="js/jquery-3.3.1.min.js"></script>
@@ -257,14 +284,14 @@
   <script src="js/GuideXP/main.js"></script>
 
   <script src="https://kit.fontawesome.com/57a785c54f.js"></script>
-  
+
   <script>
-    $(document).ready(function(){
+    $(document).ready(function () {
       $('#lightgallery').lightGallery();
     });
   </script>
-<!-- Google Translate Starts -->
-<div id="google_translate_element"></div>
+  <!-- Google Translate Starts -->
+  <div id="google_translate_element"></div>
   <script type="text/javascript">
     function googleTranslateElementInit() {
       new google.translate.TranslateElement({ pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE }, 'google_translate_element');
@@ -273,6 +300,7 @@
 
   <script type="text/javascript"
     src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-<!-- Google Translate Ends -->
-  </body>
+  <!-- Google Translate Ends -->
+</body>
+
 </html>

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<!--The exhibit page- Content varies depending on the data from API -->
+<!--The exhibition area page- Content varies depending on the data from API -->
 
 <head>
   <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -89,14 +89,28 @@
                           insert();
                         }
 
+                        //Code following not used:
+                        /* 
+                        const url_head = 'http://admin.guidexp.me/api/exhibition/'
+                        fetch(url_head)
+                         .then(response => response.json())
+                         .then(data => {
+                           for (i = 0; i < data.length; i++) {
+                           exbi[i] = data[i].exhibition_name;
+                           }
+                           })
+                        */
+
                         //  Put the data fetch from API into dropdown menu
                         function insert() {
                           var str = "";
                           var ul = document.getElementById("dropdowncontent");
 
+
+
                           for (var i = 0; i < exbi.length; i++) {
                             var data = exbi[i];
-                            var url = "exhibition.html?exhibition=" + data;
+                            var url = "exhibit.html?exhibition=" + data;
                             str = str + "<a href='" + url + "'>" + data + "</a>";
 
                             var li = document.createElement('li');
@@ -168,7 +182,7 @@
           <div class="col-md-7">
             <div class="row mb-5">
               <div class="col-12 ">
-                <h2 class="site-section-heading text-center" id="exb-title">Exhibition</h2>
+                <h2 class="site-section-heading text-center" id="exb-title">All Exhibitions</h2>
               </div>
             </div>
           </div>
@@ -178,7 +192,12 @@
           <!--Load the exhibits in the exhibition-->
           <script src="js/GuideXP/exhibition-load.js"></script>
 
-
+          <!--Test code - not used-->
+          <!-- Load GUI -->
+          <!-- <div id="art0" class="col-sm-6 col-md-4 col-lg-3 col-xl-2 item" data-aos="fade" data-html="#audio0"
+            data-sub-html="<h4>Fading Light</h4><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor doloremque hic excepturi fugit, sunt impedit fuga tempora, ad amet aliquid?</p>">
+            <a href="#"><img src="images/nature_small_1.jpg" alt="IMage" class="img-fluid"></a>
+          </div> -->
         </div>
       </div>
     </div>
@@ -221,9 +240,6 @@
       }
     }
 
-    // Set title
-    var exhibitionTitle = document.getElementById('exb-title');
-    exhibitionTitle.innerText = obj.exhibition;
 
   </script>
 

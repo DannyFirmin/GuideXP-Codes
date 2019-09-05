@@ -1177,30 +1177,30 @@ a {
 .search-bar {
   overflow: scroll;
   position: absolute;
-  top: 45%;
+  top: 50%;
   left: 77%;
   /*top: 30px;
   right: 135px;*/
   transform: translate(-50%,-50%);
   height:40px;
   border-radius: 40px;
-
   padding: 10px;
   outline: #686a6b solid 2px;
 
 }
 
 .search-bar:hover > .search-txt{
-  width: 180px;
+  width: 160px;
   padding:0 6px;
 }
 
 .search-btn{
+   position: relative;
+    float: right;
   color: #686a6b;
-  float:right;
   width: 20px;
   height: 20px;
-  border-radius: 10%;
+  border-radius: 50%;
 
   display:flex;
   justify-content: center;
@@ -1209,6 +1209,7 @@ a {
 
 .search-txt{
   border: none;
+    background: none;
   float: left;
   padding:0;
   color:#4d4d4d;
@@ -1218,8 +1219,6 @@ a {
   line-height:20px;
   width: 0px;
   outline: none;
-
-
 }
 
 

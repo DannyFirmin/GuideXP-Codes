@@ -74,8 +74,6 @@
                   <ul class='dropdown' id='dropdowncontent'>
                     <li><a href="exhibition.html">All Exhibitions</a></li>
 
-                    <body>
-
                       <script>
                         //  Fetch from API to get the list of all exhibitions
                         var exbi = new Array();
@@ -120,8 +118,6 @@
 
                       </script>
 
-                    </body>
-
                   </ul>
 
                 </li>
@@ -129,6 +125,22 @@
                 <li><a href='artists.html'>Artists</a></li>
                 <li><a href='about.html'>About</a></li>
                 <li><a href='contact.html'>Contact</a></li>
+                <!-- search bar -->
+                <li>
+                  <div class="search d-none d-xl-flex">
+                    <input class="form-control" type="text" placeholder="Type to Search..">
+                    <a class="search-btn" href="search.html">
+
+                    <i class="fas fa-search" ></i>
+                    </a>
+
+                  </div>
+                </li>
+
+                <li class="d-xl-none">
+                    <input class="form-control search-input" type="text" placeholder="Type to Search..">
+                </li>
+
               </ul>
             </nav>
           </div>
@@ -155,14 +167,6 @@
       </div>
       <script src="js/jquery-3.3.1.min.js"></script>
       <script src="js/bootstrap.min.js"></script>
-
-      <!-- search bar -->
-      <div class="search-bar">
-        <input class="search-txt" type="text" placeholder="Type to Search..">
-        <a class="search-btn" href="search.html">
-          <i class="fas fa-search"></i>
-        </a>
-      </div>
 
 
     </header>

@@ -54,11 +54,11 @@ def get_exhibit_view(request, lan, exhibit_id):
         return JsonResponse(serializer.data, safe=False)
 
 @csrf_exempt
-def search_result(request,lan):
+def search_result(request,lan,exhibition_id):
     if request.method == "POST":
         language = Language.objects.get(name=lan)
         num = request.POST.get('searchnumber', None)
-        query = Description.objects.filter(model_id= num, language = language, model_name = 'B')
+        query = Description.objects.filter(search_id= num, language=language, model_name='B')
         serializer = DescriptionSerializer(query, many=True)
         return JsonResponse(serializer.data, safe=False)
 

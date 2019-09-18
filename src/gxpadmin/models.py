@@ -20,6 +20,7 @@ class Exhibition(models.Model):
 class Exhibit(models.Model):
     id = models.AutoField(primary_key=True)
     exhibition_id = models.ForeignKey(Exhibition, on_delete=models.SET_NULL, null=True,blank=True)
+    search_id=models.IntegerField
 
 
 class Author(models.Model):

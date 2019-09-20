@@ -4,13 +4,9 @@ from .models import *
 class LanguageSerializer(serializers.ModelSerializer):
     class Meta:
         model = Language
-        fields = ['id', 'name']
+        fields = ['code', 'name']
 
 class DescriptionSerializer(serializers.ModelSerializer):
     class Meta:
         model = Description
-        fields = ['id','jsonString']
-
-
-
-
+        fields = ['model_id','jsonString']

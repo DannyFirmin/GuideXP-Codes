@@ -1,67 +1,72 @@
 from django.shortcuts import render
 
-from django.http import HttpResponse, JsonResponse
+from django.http import HttpResponse, JsonResponse, Http404
 from django.views.decorators.csrf import csrf_exempt
 from rest_framework.parsers import JSONParser
 from .models import Exhibit, Exhibition, Description, Language
 from .serializer import LanguageSerializer, DescriptionSerializer
 
-
-def home_view(request):
-    return render(request, 'gxpadmin/base.html', {})
-
-def create_view(request):
-    if request.method == "POST":
-        pass
-    return render(request, 'gxpadmin/create.html', {})
+# Create your views here.
 
 @csrf_exempt
-def language_list_view(request):
-    """
-    List all language
-    """
+def get_all_language_view(request):
     if request.method == 'GET':
-        languages = Language.objects.all()
+        languages  = Language.objects.all()
         serializer = LanguageSerializer(languages, many=True)
         return JsonResponse(serializer.data, safe=False)
+    else:
+        raise Http404("Please only use GET method")
 
 @csrf_exempt
-def exhibition_list_view(request,lan):
-    """
-        List all exhibitions of given language
-        """
+def get_all_gallery_view(request, lang_code):
     if request.method == 'GET':
-        language = Language.objects.get(name = lan)
-        query = Description.objects.filter(language = language, model_name = 'C')
-        serializer = DescriptionSerializer(query, many=True)
-        return JsonResponse(serializer.data, safe=False)
+        language = Language.objects.get(code = lang_code)
+        query = Description.objects.filter(language = language, model_name = 'D')
+        serializer = DescriptionSerializer(query,many=True)
+        return JsonResponse(serializer.data,safe=False)
+    else:
+        raise Http404("Please only use GET method")
 
 @csrf_exempt
-def exhibit_list_view(request, lan, exhibition_id):
+def get_all_exhibition_from_gallery_view(request, lang_code, gallery_id):
     if request.method == 'GET':
-        id_list = Exhibit.objects.filter(exhibition_id = exhibition_id).values_list('id', flat=True)
-        language = Language.objects.get(name=lan)
-        query = Description.objects.filter(model_id__in = id_list, language = language, model_name = 'B')
+        language = Language.objects.get(code = lang_code)
+        exhibition_ids = Exhibition.objects.filter(gallery_id = gallery_id).values_list('id', flat=True)
+        query = Description.objects.filter(model_id__in = exhibition_ids, language = language, model_name = 'C')
         serializer = DescriptionSerializer(query, many=True)
         return JsonResponse(serializer.data, safe=False)
+    else:
+        raise Http404("Please only use GET method")
+
 
 @csrf_exempt
-def get_exhibit_view(request, lan, exhibit_id):
+def get_all_exhibit_from_exhibition_gallery(request, lang_code, gallery_id, exhibition_id):
     if request.method == 'GET':
-        language = Language.objects.get(name=lan)
-        query = Description.objects.filter(model_id= exhibit_id, language = language, model_name = 'B')
-        serializer = DescriptionSerializer(query, many=True)
-        return JsonResponse(serializer.data, safe=False)
+        language = Language.objects.get(code = lang_code)
+
+
+    else:
+        raise Http404("Please only use GET method")
 
 @csrf_exempt
-def search_result(request,lan,exhibition_id):
-    if request.method == "POST":
-        language = Language.objects.get(name=lan)
-        num = request.POST.get('searchnumber', None)
-        query = Description.objects.filter(search_id= num, language=language, model_name='B')
-        serializer = DescriptionSerializer(query, many=True)
-        return JsonResponse(serializer.data, safe=False)
+def get_exhibit_from_exhibition_gallery(request, lang_code, gallery_id, ehxibition_id, exhibit_id):
+    pass
 
+
+@csrf_exempt
+def search_all(request, lang_code, search_item):
+    pass
+
+
+
+@csrf_exempt
+def search_exhibition_from_gallery_view(request, lang_code, search_item):
+    pass
+
+
+@csrf_exempt
+def search_exhibiti_from_exhibition_gallery_view(request, lang_code, search_item):
+    pass
 
 
 

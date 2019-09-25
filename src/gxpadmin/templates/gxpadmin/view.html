@@ -1,0 +1,16 @@
+{% extends 'gxpadmin/base.html' %}
+{% block content %}
+
+<form method="get" action="/search/">
+    {% csrf_token %}
+
+<div class="input-group mb-3">
+  <input name="keywords" type="text" class="form-control" placeholder="input exhibit name or id" aria-describedby="basic-addon2" required>
+  <div class="input-group-append">
+    <button class="btn btn-outline-secondary" type="submit">Search</button>
+  </div>
+</div>
+
+</form>
+
+{% endblock %}

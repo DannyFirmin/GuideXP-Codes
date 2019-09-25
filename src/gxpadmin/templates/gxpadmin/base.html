@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin</title>
+    {% load static %}
+    <!--css -->
+    <link rel="stylesheet" type="text/css" href="{% static 'gxpadmin/css/guidexp.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.8/css/select2.min.css" rel="stylesheet"/>
+    <!--js -->
+    <script type="text/javascript" src="{% static 'bootstrap/js/jquery-3.4.1.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.8/js/select2.min.js"></script>
+    <script src="https://kit.fontawesome.com/24dc059ee7.js"></script>
+    {% block static %}{% endblock %}
+</head>
+<body>
+<div class="sidebar-container">
+    <div class="sidebar-logo">GuideXP</div>
+    <ul class="sidebar-navigation">
+        <li><a href="/create"><i class="fa " aria-hidden="true"></i>Create</a></li>
+        <li><a href="/view"><i class="fa " aria-hidden="true"></i>View</a></li>
+        <li><a href="#"><i class="fa " aria-hidden="true"></i>Settings</a></li>
+        <li><a href="#"><i class="fa " aria-hidden="true"></i>Sign Out</a></li>
+    </ul>
+</div>
+
+<div id="content-container">
+    <div class="container" style="position: relative;">
+        {% block content %}{% endblock %}
+    </div>
+</div>
+<script type="text/javascript" src="{% static 'gxpadmin/js/guidexp.js' %}"></script>
+</body>
+</html>

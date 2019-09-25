@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--The main page of the website-->
+<!--Header start-->
+
+<head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-146229659-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-146229659-1');
+  </script>
+  
+  <title>GuideXP</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="icon" href="images/browserlogo.ico" type="image/x-icon">
+
+  <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:300i,400,700" rel="stylesheet">
+  <link rel="stylesheet" href="fonts/icomoon/style.css">
+
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/magnific-popup.css">
+  <link rel="stylesheet" href="css/jquery-ui.css">
+  <link rel="stylesheet" href="css/owl.carousel.min.css">
+  <link rel="stylesheet" href="css/owl.theme.default.min.css">
+
+  <link rel="stylesheet" href="css/lightgallery.min.css">
+
+  <link rel="stylesheet" href="css/bootstrap-datepicker.css">
+
+  <link rel="stylesheet" href="fonts/flaticon/font/flaticon.css">
+
+  <link rel="stylesheet" href="css/swiper.css">
+
+  <link rel="stylesheet" href="css/aos.css">
+
+  <link rel="stylesheet" href="css/style.css">
+
+
+</head>
+
+<body>
+
+  <div class="site-wrap">
+
+    <div class="site-mobile-menu">
+      <div class="site-mobile-menu-header">
+        <div class="site-mobile-menu-close mt-3">
+          <span class="icon-close2 js-menu-toggle"></span>
+        </div>
+      </div>
+      <div class="site-mobile-menu-body"></div>
+    </div>
+
+    <header class='site-navbar py-3 border-bottom' role='banner'>
+
+
+      <div class='container-fluid'>
+        <div class='row align-items-center'>
+
+          <div class='col-6 col-xl-2' data-aos='fade-down'>
+            <h1 class='mb-0'><a href='index.html' class='text-black h2 mb-0'>GuideXP</a></h1>
+          </div>
+          <div class='col-10 col-md-8 d-none d-xl-block' data-aos='fade-down'>
+            <nav class='site-navigation position-relative text-right text-lg-center' role='navigation'>
+
+              <ul class='site-menu js-clone-nav mx-auto d-none d-lg-block'>
+                <li><a href='index.html'>Home</a></li>
+                <li class='has-children'>
+                  <a>Exhibitions</a>
+                  <ul class='dropdown' id='dropdowncontent'>
+                    <li><a href="exhibition.html">All Exhibitions</a></li>
+
+                      <script>
+                        //  Fetch from API to get the list of all exhibitions
+                        var exbi = new Array();
+                        var request = new XMLHttpRequest();
+                        request.open('GET', 'http://admin.guidexp.me/api/exhibition/', false);
+                        request.send(null);
+                        if (request.status === 200) {
+                          var data = JSON.parse(request.responseText);
+                          for (i = 0; i < data.length; i++) {
+                            exbi[i] = data[i].exhibition_name;
+                          }
+                          insert();
+                        }
+
+                        //Code following not used:
+                        /* 
+                        const url_head = 'http://admin.guidexp.me/api/exhibition/'
+                        fetch(url_head)
+                         .then(response => response.json())
+                         .then(data => {
+                           for (i = 0; i < data.length; i++) {
+                           exbi[i] = data[i].exhibition_name;
+                           }
+                           })
+                        */
+
+                        //  Put the data fetch from API into dropdown menu
+                        function insert() {
+                          var str = "";
+                          var ul = document.getElementById("dropdowncontent");
+
+                          for (var i = 0; i < exbi.length; i++) {
+                            var data = exbi[i];
+                            var url = "exhibit.html?exhibition=" + data;
+                            str = str + "<a href='" + url + "'>" + data + "</a>";
+
+                            var li = document.createElement('li');
+                            li.innerHTML = str;
+                          }
+                          ul.appendChild(li);
+                        }
+
+                      </script>
+
+                  </ul>
+
+                </li>
+
+                <!-- <li><a href='artists.html'>Artists</a></li> -->
+                <li><a href='about.html'>About</a></li>
+                <li><a href='contact.html'>Contact</a></li>
+                <!-- search bar -->
+                <li>
+                  <div class="search d-none d-xl-flex">
+                    <input class="form-control" type="text" placeholder="Type to Search..">
+                    <a class="search-btn" href="search.html">
+
+                    <i class="fas fa-search" ></i>
+                    </a>
+
+                  </div>
+                </li>
+
+                <li class="d-xl-none">
+                    <input class="form-control search-input" type="text" placeholder="Type to Search..">
+                </li>
+
+              </ul>
+            </nav>
+          </div>
+
+          <div class='col-6 col-xl-2 text-right' data-aos='fade-down'>
+            <!-- <div class='d-none d-xl-inline-block'>
+              <ul class='site-menu js-clone-nav ml-auto list-unstyled d-flex text-right mb-0' data-class='social'>
+                <li>
+                  <a href='http://admin.guidexp.me/upload/art/' class='pl-3 pr-3'><span
+                      class='icon-cloud-upload'></span></a>
+                </li>
+                <li>
+                  <a href='http://admin.guidexp.me/' class='pl-3 pr-3'><span class='icon-user'></span></a>
+                </li>
+              </ul>
+            </div> -->
+
+            <div class='d-inline-block d-xl-none ml-md-0 mr-auto py-3' style='position: relative; top: 3px;'><a href='#'
+                class='site-menu-toggle js-menu-toggle text-black'><span class='icon-menu h3'></span></a></div>
+
+          </div>
+
+        </div>
+      </div>
+      <script src="js/jquery-3.3.1.min.js"></script>
+      <script src="js/bootstrap.min.js"></script>
+
+
+    </header>
+    <!--Header end-->
+
+    <!--Content start-->
+    <div class="container-fluid" data-aos="fade" data-aos-delay="500">
+      <div class="swiper-container images-carousel">
+        <div class="swiper-wrapper">
+          <!-- Create four cards that shown in the index-->
+          <div class="swiper-slide">
+            <div class="image-wrap">
+              <div class="image-info">
+                <h2 id="card0-name" class="mb-3">Contact us to buy this block</h2>
+                <a id="card0-link" href="contact.html" class="btn btn-outline-white py-2 px-4">Start this
+                  Guide</a>
+              </div>
+              <img id="card0-img" src="images/placeholder.jpg" alt="Image">
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="image-wrap">
+              <div class="image-info">
+                <h2 id="card1-name" class="mb-3">Contact us to buy this block</h2>
+                <a id="card1-link" href="contact.html" class="btn btn-outline-white py-2 px-4">Start
+                  this Guide</a>
+              </div>
+              <img id="card1-img" src="images/placeholder.jpg" alt="Image">
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="image-wrap">
+              <div class="image-info">
+                <h2 id="card2-name" class="mb-3">Contact us to buy this block</h2>
+                <a id="card2-link" href="contact.html" class="btn btn-outline-white py-2 px-4">Start this
+                  Guide</a>
+              </div>
+              <img id="card2-img" src="images/placeholder.jpg" alt="Image">
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="image-wrap">
+              <div class="image-info">
+                <h2 id="card3-name" class="mb-3">Contact us to buy this block</h2>
+                <a id="card3-link" href="contact.html" class="btn btn-outline-white py-2 px-4">Start this
+                  Guide</a>
+              </div>
+              <img id="card3-img" src="images/placeholder.jpg" alt="Image">
+            </div>
+          </div>
+
+          <!-- Put the data from API into cards-->
+          <script>
+            const domain = 'http://admin.guidexp.me';
+            var exbi = new Array();
+            const card0_img = document.getElementById('card0-img');
+            const card0_name = document.getElementById('card0-name');
+            const card0_link = document.getElementById('card0-link');
+            const card1_name = document.getElementById('card1-name');
+            const card1_link = document.getElementById('card1-link');
+            const card2_img = document.getElementById('card2-img');
+            const card2_name = document.getElementById('card2-name');
+            const card2_link = document.getElementById('card2-link');
+            const card3_img = document.getElementById('card3-img');
+            const card3_name = document.getElementById('card3-name');
+            const card3_link = document.getElementById('card3-link');
+            var url = 'http://admin.guidexp.me/api/exhibition/';
+            var result = fetch(url, {
+              method: 'get',
+            }).then(function (response) {
+              return response.json(); // pass the data as promise to next then block
+            }).then(function (data) {
+              for (i = 0; i < data.length; i++) {
+                exbi[i] = data[i].exhibition_name;
+              }
+              card0_link.href = "exhibit.html?exhibition=" + data[0].exhibition_name;
+              card0_name.innerHTML = data[0].exhibition_name;
+              if (data.length >= 2) {
+                card1_link.href = "exhibit.html?exhibition=" + data[1].exhibition_name;
+                card1_name.innerHTML = data[1].exhibition_name;
+                setImage1(data[1]);
+              }
+              if (data.length >= 3) {
+                card2_link.href = "exhibit.html?exhibition=" + data[2].exhibition_name;
+                card2_name.innerHTML = data[2].exhibition_name;
+                setImage2(data[2]);
+              }
+              if (data.length >= 4) {
+                card3_link.href = "exhibit.html?exhibition=" + data[3].exhibition_name
+                card3_name.innerHTML = data[3].exhibition_name
+                setImage3(data[3]);
+              }
+              return fetch('http://admin.guidexp.me/api/exhibition/' + exbi[0]); // make a 2nd request and return a promise
+            })
+              .then(function (response) {
+                return response.json();
+              })
+              .catch(function (error) {
+                console.log('Request failed', error)
+              })
+            result.then(function (r) {
+              card0_img.src = domain + r[0].art_img;
+            });
+            function setImage1(data) {
+              const card1_img = document.getElementById('card1-img');
+              const url = 'http://admin.guidexp.me/api/exhibition/' + data.exhibition_name;
+              fetch(url)
+                .then(response => response.json())
+                .then(d => {
+                  card1_img.src = domain + d[0].art_img;
+                })
+            }
+            function setImage2(data) {
+              const card2_img = document.getElementById('card2-img');
+              const url = 'http://admin.guidexp.me/api/exhibition/' + data.exhibition_name;
+              fetch(url)
+                .then(response => response.json())
+                .then(d => {
+                  card2_img.src = domain + d[0].art_img;
+                })
+            }
+            function setImage3(data) {
+              const card3_img = document.getElementById('card3-img');
+              const url = 'http://admin.guidexp.me/api/exhibition/' + data.exhibition_name;
+              fetch(url)
+                .then(response => response.json())
+                .then(d => {
+                  card3_img.src = domain + d[0].art_img;
+                })
+            }
+          </script>
+
+        </div>
+
+        <div class="swiper-pagination"></div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-scrollbar"></div>
+      </div>
+    </div>
+    <!--Content end-->
+
+
+    <!--footer-->
+    <div class="footer py-4">
+      <div class="container-fluid">
+        <p>
+          GuideXP - Create a guided tour for anything
+        </p>
+      </div>
+    </div>
+
+
+
+
+
+
+
+  </div>
+
+  <script src="js/jquery-3.3.1.min.js"></script>
+  <script src="js/jquery-migrate-3.0.1.min.js"></script>
+  <script src="js/jquery-ui.js"></script>
+  <script src="js/popper.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/owl.carousel.min.js"></script>
+  <script src="js/jquery.stellar.min.js"></script>
+  <script src="js/jquery.countdown.min.js"></script>
+  <script src="js/jquery.magnific-popup.min.js"></script>
+  <script src="js/bootstrap-datepicker.min.js"></script>
+  <script src="js/swiper.min.js"></script>
+  <script src="js/aos.js"></script>
+
+  <script src="js/picturefill.min.js"></script>
+  <script src="js/lightgallery-all.min.js"></script>
+  <script src="js/jquery.mousewheel.min.js"></script>
+
+  <script src="js/GuideXP/main.js"></script>
+  <script src="https://kit.fontawesome.com/57a785c54f.js"></script>
+
+  <script>
+    $(document).ready(function () {
+      $('#lightgallery').lightGallery();
+    });
+  </script>
+
+  <!-- Google Translate Starts -->
+  <div id="google_translate_element"></div>
+  <script type="text/javascript">
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({ pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE }, 'google_translate_element');
+    }
+  </script>
+
+  <script type="text/javascript"
+    src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+  <!-- Google Translate Ends -->
+
+</body>
+
+</html>

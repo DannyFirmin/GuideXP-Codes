@@ -1171,28 +1171,37 @@ a {
   border:solid 2px #333;
 }
 .search {
-  position: absolute;
+  display: flex;
   top:0.5em;
-  margin-left:100px;
-  justify-content: center;
-  align-items: center;
+
   border:solid 2px #111;
   padding-right: 1em;
-}
-.search input{
-  margin-right:1em;
-  border:none;
-  width:160px;
-  transition:all ease 0.5s;
-}
-/*.search input:hover{
-  max-height: 100%;
-  width:200px;
-}*/
+  height:40px;
 
-.search .search-btn{
-  color: #1d2124;
 }
+.search:hover > .form-control{
+ width: 240px;
+ padding: 0 6px;
+}
+
+.search input{
+
+  border:none;
+  transition:all ease 0.5s;
+  height:36px;
+  font-size: 18px;
+    width: 0px;
+}
+
+.search-btn{
+  display: flex;
+    width: 10px;
+  float: right;
+  color: #1d2124;
+  justify-content: center;
+  align-items: center;
+}
+
 .search .search-btn:hover{
   color:#20c997;
 }

@@ -1,7 +1,3 @@
-
-const domain = 'http://admin.guidexp.me';
-
-// Get the parameter in URL
 var url = location.search,
     obj = {};
 
@@ -13,66 +9,58 @@ if (url.indexOf("?") != -1) {
     }
 }
 
+const available_language_list = ['en','zh','ja','ko','es','fr'];
 
-// Create GUI from API, Synchronous method
-var request = new XMLHttpRequest();
-request.open('GET', 'http://admin.guidexp.me/api/exhibition/' + obj.exhibition + '/', false);
-request.send(null);
-if (request.status === 200) {
-    var data = JSON.parse(request.responseText);
+function setCookie(cname, cvalue, exdays, reload) {
+    var d = new Date();
+    d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+    var expires = "expires=" + d.toUTCString();
+    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
 
-    var exhibitDetailDiv = document.getElementById('exhibitDetail');
-    var imageDiv = document.createElement("p");
-    imageDiv.className = "text-center";
-    img = document.createElement('img');
-    img.src = domain + "/" + data[i].art_img;
-    img.setAttribute('alt', 'IMage');
-    imageDiv.appendChild(img);
-    exhibitDetailDiv.appendChild(imageDiv);
-
-    var makeItCenter = document.createElement("center");
-    var exhibitAudio = document.createElement("audio");
-    var title = document.createElement("h4");
-    var description = document.createElement("p");
-    var titleText = data[i].art_name;
-    var desText = data[i].art_description;
-
-    exhibitAudio.setAttribute("src","");
-    exhibitAudio.setAttribute("controls","controls");
-
-    makeItCenter.appendChild(exhibitAudio);
-    makeItCenter.appendChild(title);
-    makeItCenter.appendChild(description);
-
-    exhibitDetailDiv.appendChild(makeItCenter);
-
+    if (reload){
+        window.location.reload();
+    }
 }
-// Create resource from API, Asynchronous method
-const apiurl = 'http://admin.guidexp.me/api/exhibition/' + obj.exhibition + '/';
-fetch(apiurl)
-    .then(response => response.json())
-    .then(data => {
-        for (i = 0; i < data.length; i++) {
-            // load audio resource
-            var audioResDiv = document.createElement("div");
 
-            audioResDiv.style = "display:none;";
-            audioResDiv.id = 'audio' + i;
-
-            audioTag = document.createElement('audio');
-            audioTag.className = "lg-video-object lg-html5 video-js vjs-default-skin";
-            audioTag.setAttribute('poster', domain + "/" + data[i].art_img);
-            audioTag.setAttribute('preload', 'none');
-            audioTag.setAttribute('controls', 'none');
-
-            audioSource = document.createElement('source');
-            audioSource.src = domain + "/" + data[i].art_audio;
-            audioSource.setAttribute('type', 'audio/mpeg');
-            audioTag.appendChild(audioSource);
-            audioResDiv.appendChild(audioTag);
-            var res = document.getElementById('res');
-            res.appendChild(audioResDiv);
+function getCookie(cname) {
+    var name = cname + "=";
+    var decodedCookie = decodeURIComponent(document.cookie);
+    var ca = decodedCookie.split(';');
+    for(var i = 0; i <ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == ' ') {
+            c = c.substring(1);
         }
-    })
+        if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+        }
+    }
+    return "";
+}
 
-
+function checkCookie(){
+    let lang = getCookie("lang");
+    if (lang === ""){
+        let [lang, locale] = (((navigator.userLanguage || navigator.language).replace('-', '_')).toLowerCase()).split('_');
+        let i = available_language_list.indexOf(lang);
+        if (i !== -1){
+            setCookie("lang",lang,1, false);
+        }else{
+            setCookie("lang",'en',1, false);
+        }
+    }
+}
+checkCookie();
+var translation_menu;
+var api_url = "http://13.239.36.190/api/get_language/"+getCookie('lang');
+var request = new XMLHttpRequest();
+request.open('GET', api_url, false);
+request.send(null);
+if (request.status === 200){
+    let json = JSON.parse(request.responseText);    
+    let nav_translation = JSON.parse(json['jsonString'])['index']['navbar'];
+    translation_menu = JSON.parse(json['jsonString']);
+    let html =`<br><div id ='content1'>${nav_translation[1]}</div><br><div id='content2'>${nav_translation[2]}</div>`;
+    let ele = document.getElementById('exhibitDetail');
+    ele.innerHTML = html;
+}

@@ -44,7 +44,7 @@ if (request.status === 200) {
 
 }
 // Create resource from API, Asynchronous method
-const apiurl = 'http://admin.guidexp.me/api/exhibition/' + obj.exhibition + '/'
+const apiurl = 'http://admin.guidexp.me/api/exhibition/' + obj.exhibition + '/';
 fetch(apiurl)
     .then(response => response.json())
     .then(data => {

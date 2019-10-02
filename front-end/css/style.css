@@ -83,7 +83,7 @@ a {
   padding: 2.5em 0; }
   @media (min-width: 768px) {
     .site-section {
-      padding: 5em 0; } }
+      padding: 2.5em 0; } }
   .site-section.site-section-sm {
     padding: 4em 0; }
 
@@ -93,7 +93,7 @@ a {
   font-size: 2.5rem; }
   @media (min-width: 768px) {
     .site-section-heading {
-      font-size: 4rem; } }
+      font-size: 2.5rem; } }
   .site-section-heading:after {
     content: "";
     left: 0%;

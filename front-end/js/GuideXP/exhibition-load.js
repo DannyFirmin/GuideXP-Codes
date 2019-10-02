@@ -1,6 +1,3 @@
-
-const domain = 'http://admin.guidexp.me';
-
 // Get the parameter in URL
 var url = location.search,
     obj = {};
@@ -14,61 +11,47 @@ if (url.indexOf("?") != -1) {
 }
 
 
-// function resizeImage(obj) {obj.height = 150;  obj.width = 150; }
+
 
 // Create GUI from API, Synchronous method
-var request = new XMLHttpRequest();
-request.open('GET', 'http://admin.guidexp.me/api/exhibition/' + obj.exhibition + '/', false);
-request.send(null);
-if (request.status === 200) {
-    var data = JSON.parse(request.responseText);
-    for (i = 0; i < data.length; i++) {
-        var lightGalleryDiv = document.getElementById('lightgallery');
-        var imageCardDiv = document.createElement("div");
-        imageCardDiv.className = "col-sm-6 col-md-4 col-lg-3 col-xl-2 item";
-        imageCardDiv.setAttribute('data-aos', 'fade');
-        imageCardDiv.setAttribute('data-html', '#audio' + i);
-        imageCardDiv.setAttribute('data-sub-html', '<h4>' + data[i].art_name + '</h4><p>' + data[i].art_description + '</p>');
-        a = document.createElement('a');
-        a.setAttribute('href', '#');
-        img = document.createElement('img');
-        img.src = domain + "/" + data[i].art_img;
-        img.setAttribute('alt', 'IMage');
-        img.className = "img-fluid";
-        // img.setAttribute('onload', 'resizeImage(this)');
-        a.appendChild(img);
-        imageCardDiv.appendChild(a);
+var request1 = new XMLHttpRequest();
+var api_url ="http://13.239.36.190/api/get_gallery/"+getCookie('lang')+"/all";
+request1.open('GET',api_url, true);
+request1.onload = function (e) {
+    if (request1.readyState === 4 && request1.status === 200){
+        let json = JSON.parse(request1.responseText);
+        console.log(json);
+        console.log(json[0].model_id);
+        for (let i = 0; i<json.length; i++){
+            if (json[i].model_id == obj.gallery_id){
 
-        lightGalleryDiv.appendChild(imageCardDiv);
-    }
-
-}
-// Create resource from API, Asynchronous method
-const apiurl = 'http://admin.guidexp.me/api/exhibition/' + obj.exhibition + '/';
-fetch(apiurl)
-    .then(response => response.json())
-    .then(data => {
-        for (i = 0; i < data.length; i++) {
-            // load audio resource
-            var audioResDiv = document.createElement("div");
-
-            audioResDiv.style = "display:none;";
-            audioResDiv.id = 'audio' + i;
-
-            audioTag = document.createElement('audio');
-            audioTag.className = "lg-video-object lg-html5 video-js vjs-default-skin";
-            audioTag.setAttribute('poster', domain + "/" + data[i].art_img);
-            audioTag.setAttribute('preload', 'none');
-            audioTag.setAttribute('controls', 'none');
-
-            audioSource = document.createElement('source');
-            audioSource.src = domain + "/" + data[i].art_audio;
-            audioSource.setAttribute('type', 'audio/mpeg');
-            audioTag.appendChild(audioSource);
-            audioResDiv.appendChild(audioTag);
-            var res = document.getElementById('res');
-            res.appendChild(audioResDiv);
+                let jsonstring = JSON.parse(json[i]["jsonString"]);
+                let gn = jsonstring["gallery_name"];
+                let ele = document.getElementById("exb-title");
+                ele.innerHTML = gn;
+                break;
+            }
         }
-    })
+    }
+};
+request1.send(null);
+
+var request2 = new XMLHttpRequest();
+api_url = "http://13.239.36.190/api/get_exhibition/"+getCookie('lang')+"/"+obj.gallery_id+"/all";
+request2.open('GET', api_url, true);
+request2.send(null);
+request2.onload = function (e) {
+    if (request2.readyState === 4 && request2.status === 200){
+        let json = JSON.parse(request2.responseText);
+        let container = document.getElementById("lightgallery");
+        let html = "";
+        for(let i = 0; i<json.length; i++){
+            html += ` <div class="col-12 col-sm-4 col-md-3 col-lg-2 px-4 my-3" data-aos="fade" style="height: 100px;">`;
+            html += `<div style="width: 100%; height: 100%; background-color: tomato; text-align: center; line-height: 100px;">${i+1}</div>`;
+            html += `</div>`;
+        }
+        container.innerHTML = html;
+    }
+};
 
 

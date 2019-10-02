@@ -31,7 +31,7 @@ xhr.onload = function (e) {
             ele.getElementsByTagName("h2")[0].innerHTML = gallery_name;
             let atag = ele.getElementsByTagName("a")[0];
             atag.innerHTML = translation_menu['index']['card']['1'];
-            atag.href = 'exhibit.html?exhibition_id='+json[i]['model_id'];
+            atag.href = 'exhibit.html?gallery_id='+json[i]['model_id'];
             ele.getElementsByTagName("img")[0].src = media_url + gallery_cover;
         }
     }

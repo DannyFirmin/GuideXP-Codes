@@ -31,13 +31,11 @@
   <link rel="stylesheet" href="css/aos.css">
   <link rel="stylesheet" href="css/style.css">
 
-
 </head>
 
 <body>
 
   <div class="site-wrap">
-
     <div class="site-mobile-menu">
       <div class="site-mobile-menu-header">
         <div class="site-mobile-menu-close mt-3">
@@ -78,49 +76,28 @@
 
     <!--Content start-->
     <div class="site-section" data-aos="fade">
-      <div class="container-fluid">
-
+      <div class="container" >
         <div class="row justify-content-center">
           <div class="col-md-7">
             <div class="row">
               <div class="col-12">
-                <h2 class="site-section-heading text-center" id="exb-title">Exhibition</h2>
+                <h4 class="site-section-heading text-center" id="exb-title">
+
+                </h4>
               </div>
             </div>
           </div>
         </div>
 
+        <div class="row" id="lightgallery" style="margin: 0 auto;">
 
-        <div class="row" id="lightgallery">
-          <!--Load the exhibits in the exhibition-->
-          <script src="js/GuideXP/exhibition-load.js"></script>
         </div>
       </div>
     </div>
   </div>
   <!--Content ends-->
-
+  <script src="js/GuideXP/exhibition-load.js"></script>
   <!--Footer-->
-
-
-  <script>
-    /*- Get the parameter in the url-*/
-    var url = location.search,
-      obj = {};
-
-    if (url.indexOf("?") != -1) {
-      var str = url.substr(1);
-      strs = str.split("&");
-      for (var i = 0; i < strs.length; i++) {
-        obj[strs[i].split("=")[0]] = unescape(strs[i].split("=")[1]);
-      }
-    }
-
-    // Set title
-    var exhibitionTitle = document.getElementById('exb-title');
-    exhibitionTitle.innerText = obj.exhibition;
-
-  </script>
 
   <link href="http://vjs.zencdn.net/4.12/video-js.css" rel="stylesheet">
   <script src="http://vjs.zencdn.net/4.12/video.js"></script>

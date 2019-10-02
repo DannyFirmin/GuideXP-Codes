@@ -56,4 +56,93 @@ if (request.status === 200){
     html += `<li class="d-xl-none"><div class="dropdown-divider"></div></li>`;
     let ele = document.getElementById('navbar-item');
     ele.innerHTML = html;
+
+    // translate the page
+    let currentPath = window.location.pathname;
+    let page = currentPath.substring(currentPath.lastIndexOf('/') + 1);
+    page = page.substring(0,page.lastIndexOf('.'));
+    if (page === "about" || page === "contact"){
+        if (page === "about"){
+            let about_translation = JSON.parse(json['jsonString'])['About'];
+            document.getElementById("translation-1").innerHTML = about_translation['title'];
+            let html = "";
+            html += `<h3>${about_translation['sub_title']}</h3>`;
+            html += `<p>${about_translation['introduction']}</p>`;
+            document.getElementById("translation-2").innerHTML = html;
+            html = "";
+            for(let i = 1; i<=3; i++){
+                html += `<div class="col-md-6 col-lg-6 col-xl-4 text-center mb-5">`;
+                html += `<img src="images/person_${i}.jpg"" alt="Image" class="img-fluid w-50 rounded-circle mb-4">`;
+                html += `<h2 class="text-black font-weight-light mb-4">${about_translation['contacts'][''+i]['name']}</h2>`;
+                html += `<p class="mb-4">${about_translation['contacts'][''+i]['introduction']}</p>`;
+                html += `<p><a href="#" class="pl-0 pr-3"><span class="icon-twitter"></span></a>`;
+                html += `<a href="#" class="pl-3 pr-3"><span class="icon-instagram"></span></a>`;
+                html += `<a href="#" class="pl-3 pr-3"><span class="icon-facebook"></span></a></p></div>`;
+            }
+            document.getElementById("translation-3").innerHTML = html;
+        }else{
+            let contact = JSON.parse(json['jsonString'])['Contact'];
+            let html = ` 
+            <div class="row mb-5">
+              <div class="col-12 ">
+                <h2 class="site-section-heading text-center">${contact['title']}</h2>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-lg-8 mb-5">
+                <form action="#">
+                  <div class="row form-group">
+                    <div class="col-md-6 mb-3 mb-md-0">
+                      <label class="text-black" for="fname">${contact['FN']}</label>
+                      <input type="text" id="fname" class="form-control">
+                    </div>
+                    <div class="col-md-6">
+                      <label class="text-black" for="lname">${contact['LN']}</label>
+                      <input type="text" id="lname" class="form-control">
+                    </div>
+                  </div>
+                  <div class="row form-group">
+                    <div class="col-md-12">
+                      <label class="text-black" for="email">${contact['EM']}</label>
+                      <input type="email" id="email" class="form-control">
+                    </div>
+                  </div>
+                  <div class="row form-group">
+                    <div class="col-md-12">
+                      <label class="text-black" for="subject">${contact['SUB']}</label>
+                      <input type="subject" id="subject" class="form-control">
+                    </div>
+                  </div>
+                  <div class="row form-group">
+                    <div class="col-md-12">
+                      <label class="text-black" for="message">${contact['MES']}</label>
+                      <textarea name="message" id="message" cols="30" rows="7" class="form-control"></textarea>
+                    </div>
+                  </div>
+                  <div class="row form-group">
+                    <div class="col-md-12">
+                      <input type="submit" value="${contact['SEND']}" class="btn btn-primary py-2 px-4 text-white">
+                    </div>
+                  </div>
+                </form>
+              </div>
+              <div class="col-lg-3 ml-auto">
+                <div class="mb-3 bg-white">
+                  <p class="mb-0 font-weight-bold">${contact['ADD']}</p>
+                  <p class="mb-4">2601 Childer St. Canberra, ACT, Australia</p>
+
+                  <p class="mb-0 font-weight-bold">${contact['PH']}</p>
+                  <p class="mb-4"><a href="#">+1 232 3235 324</a></p>
+
+                  <p class="mb-0 font-weight-bold">${contact['CONTACT_EM']}</p>
+                  <p class="mb-0"><a href="#">info@guidexp.me</a></p>
+                </div>
+              </div>
+            </div>`;
+            document.getElementById("translation-1").innerHTML = html;
+        }
+    }
+
 }
+

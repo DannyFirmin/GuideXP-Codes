@@ -11,8 +11,6 @@ if (url.indexOf("?") != -1) {
 }
 
 
-
-
 // Create GUI from API, Synchronous method
 var request1 = new XMLHttpRequest();
 var api_url ="http://13.239.36.190/api/get_gallery/"+getCookie('lang')+"/all";
@@ -53,5 +51,7 @@ request2.onload = function (e) {
         container.innerHTML = html;
     }
 };
+
+
 
 

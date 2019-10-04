@@ -16,7 +16,7 @@ function generate_card(number) {
 
 generate_card(4);
 var api_url =  'http://13.239.36.190/api/get_gallery/'+getCookie('lang')+'/all';
-var media_url = 'http://13.239.36.190/media';
+
 var xhr = new XMLHttpRequest();
 xhr.open("GET", api_url, true);
 xhr.onload = function (e) {

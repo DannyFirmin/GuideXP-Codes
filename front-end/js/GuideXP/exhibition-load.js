@@ -42,43 +42,71 @@ request2.onload = function (e) {
             let container = document.getElementById("lightgallery");
             let html = "";
             for (let i = 0; i < json.length; i++) {
-                html += ` <div class="col-12 col-sm-4 col-md-3 col-lg-2 px-5 px-sm-4 mt-5" data-aos="fade" style="height: 100px;">`;
+                html += ` <div class="col-12 col-sm-4 col-md-3 col-lg-2 px-5 px-sm-4 mb-5" data-aos="fade" style="height: 100px;">`;
                 html += `<div style="width: 100%; height: 100%; background-color: tomato; text-align: center; line-height: 100px; font-size: 2em">${i + 1}</div>`;
                 html += `</div>`;
             }
             container.innerHTML = html;
         }else{
-           var index = [];
-           for(let i = 1; i<=13; i++){
-               index.push(i);
-           }
-           shuffleArray(index);
-           let json = JSON.parse(JSON.parse(request2.responseText)[0]['jsonString']);
-           let container = document.getElementById("lightgallery");
-           let div1 = "", div2="", div3="";
-           let imgdiv;
-           for (let i = 0; i<index.length; i++){
-                let j = i % 3;
-                let imgurl = media_url + json[index[i]]['img'];
-                imgdiv = `<img data-aos="flip-up" src="${imgurl}" class="img-fluid rounded p-1" alt="Imaginarium-${index[i]}">`;
-                switch (j) {
-                    case 0:
-                        div1 += imgdiv;
-                        break;
-                    case 1:
-                        div2 += imgdiv;
-                        break;
-                    case 2:
-                        div3 += imgdiv;
-                        break;
+
+            let json = JSON.parse(JSON.parse(request2.responseText)[0]['jsonString']);
+            let container = document.getElementById("lightgallery");
+            let s = [1,2,4,6], m = [8,9,10,11], l=[3,5,7,12,13];
+            shuffleArray(s); shuffleArray(m); shuffleArray(l);
+            let a = [], b = [], c = [];
+            for (let j = 0; j<3; j++){
+                if (j === 0){
+                    a.push(s.pop());
+                    b.push(s.pop());
+                    c.push(s.pop());
+                }else if (j === 1){
+                    a.push(m.pop());
+                    b.push(m.pop());
+                    c.push(m.pop());
+                }else{
+                    a.push(l.pop());
+                    b.push(l.pop());
+                    c.push(l.pop());
                 }
-           }
-           let html = `<div class="col-12 col-sm-6 col-md-4 col-lg-4 p-1">`;
-           div1 = html + div1 + `</div>`;
-           div2 = html + div2 + `</div>`;
-           div3 = html + div3 + `</div>`;
-           container.innerHTML = div1 + div2 + div3;
-           container.classList.add("mt-4")
+            }
+            let r  = Math.floor(Math.random() * 3);
+            if (r === 0 || r === 1){
+                if (r===0){
+                    a.push(s.pop());
+                    a.push(m.pop());
+                    b.push(l.pop());
+                    c.push(l.pop());
+                }else{
+                    b.push(s.pop());
+                    b.push(m.pop());
+                    a.push(l.pop());
+                    c.push(l.pop());
+                }
+            }else{
+                c.push(s.pop());
+                c.push(m.pop());
+                a.push(l.pop());
+                b.push(l.pop());
+            }
+            let div1 = `<div class="col-12 col-sm-4 col-md-4 col-lg-4 p-1">`, div2 = `<div class="col-12 col-sm-4 col-md-4 col-lg-4 p-1">`, div3 = `<div class="col-12 col-sm-4 col-md-4 col-lg-4 p-1">`;
+            for(let i = 0; i<a.length; i++){
+                let imgurl = media_url + json[a[i]+""]['img'];
+                div1 += `<img data-aos="flip-up" src="${imgurl}" class="img-fluid rounded p-1" alt="Imaginarium-${a[i]}">`;
+            }
+            div1 += `</div>`;
+
+            for(let i = 0; i<b.length; i++){
+                let imgurl = media_url + json[b[i]+""]['img'];
+                div2 += `<img data-aos="flip-up" src="${imgurl}" class="img-fluid rounded p-1" alt="Imaginarium-${b[i]}">`;
+            }
+            div2 += `</div>`;
+            for(let i = 0; i<c.length; i++){
+                let imgurl = media_url + json[c[i]+""]['img'];
+                div3 += `<img data-aos="flip-up" src="${imgurl}" class="img-fluid rounded p-1" alt="Imaginarium-${c[i]}">`;
+            }
+            div3 += `</div>`;
+            container.innerHTML = div1 + div2 + div3;
+
         }
     }
 };

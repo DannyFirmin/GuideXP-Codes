@@ -1,6 +1,8 @@
 // Get the parameter in URL
 var url = location.search,
-    obj = {};
+    obj = {},
+    jss = {};
+
 
 if (url.indexOf("?") != -1) {
     var str = url.substr(1);
@@ -48,8 +50,8 @@ request2.onload = function (e) {
             }
             container.innerHTML = html;
         }else{
-
             let json = JSON.parse(JSON.parse(request2.responseText)[0]['jsonString']);
+            jss = json;
             let container = document.getElementById("lightgallery");
             let s = [1,2,4,6], m = [8,9,10,11], l=[3,5,7,12,13];
             shuffleArray(s); shuffleArray(m); shuffleArray(l);
@@ -88,21 +90,22 @@ request2.onload = function (e) {
                 a.push(l.pop());
                 b.push(l.pop());
             }
-            let div1 = `<div class="col-12 col-sm-4 col-md-4 col-lg-4 p-1">`, div2 = `<div class="col-12 col-sm-4 col-md-4 col-lg-4 p-1">`, div3 = `<div class="col-12 col-sm-4 col-md-4 col-lg-4 p-1">`;
+            let div1 = `<div class="col-12 col-sm-4 col-md-4 col-lg-4 p-0">`, div2 = `<div class="col-12 col-sm-4 col-md-4 col-lg-4 p-0">`, div3 = `<div class="col-12 col-sm-4 col-md-4 col-lg-4 p-0">`;
             for(let i = 0; i<a.length; i++){
                 let imgurl = media_url + json[a[i]+""]['img'];
-                div1 += `<img data-aos="flip-up" src="${imgurl}" class="img-fluid rounded p-1" alt="Imaginarium-${a[i]}">`;
+                div1 += `<div id="imaginarium-${a[i]}"><img data-aos="flip-up" src="${imgurl}" class="img-fluid rounded p-1" alt="Imaginarium-${a[i]}" onclick="showTextCard(${a[i]})"></div>`;
+
             }
             div1 += `</div>`;
 
             for(let i = 0; i<b.length; i++){
                 let imgurl = media_url + json[b[i]+""]['img'];
-                div2 += `<img data-aos="flip-up" src="${imgurl}" class="img-fluid rounded p-1" alt="Imaginarium-${b[i]}">`;
+                div2 += `<div id="imaginarium-${b[i]}"><img data-aos="flip-up" src="${imgurl}" class="img-fluid rounded p-1" alt="Imaginarium-${b[i]}" onclick="showTextCard(${b[i]})"></div>`;
             }
             div2 += `</div>`;
             for(let i = 0; i<c.length; i++){
                 let imgurl = media_url + json[c[i]+""]['img'];
-                div3 += `<img data-aos="flip-up" src="${imgurl}" class="img-fluid rounded p-1" alt="Imaginarium-${c[i]}">`;
+                div3 += `<div id="imaginarium-${c[i]}"><img data-aos="flip-up" src="${imgurl}" class="img-fluid rounded p-1" alt="Imaginarium-${c[i]}" onclick="showTextCard(${c[i]})"></div>`;
             }
             div3 += `</div>`;
             container.innerHTML = div1 + div2 + div3;
@@ -110,7 +113,3 @@ request2.onload = function (e) {
         }
     }
 };
-
-
-
-

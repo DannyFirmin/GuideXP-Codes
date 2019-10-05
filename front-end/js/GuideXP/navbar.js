@@ -1,5 +1,6 @@
 const available_language_list = ['en','zh','ja','ko','es','fr'];
 const media_url = 'http://13.239.36.190/media';
+var currentid = -1;
 
 function shuffleArray(array) {
     for (let i = array.length - 1; i > 0; i--) {
@@ -8,12 +9,38 @@ function shuffleArray(array) {
     }
 }
 
+function showTextCard(id) {
+    if (id !== currentid) {
+        if (currentid !== -1) {
+            let ele = document.getElementById("imaginarium-" + currentid);
+            ele.removeChild(ele.lastChild);
+        }
+        currentid = id;
+        let ele = document.getElementById("imaginarium-" + id);
+        let html = "";
+        html += `<div class="card-body">`;
+        html += `<h5 class="card-title">${jss[id + ""]['title']}</h5>`;
+        html += `<p class="card-text">${jss[id + ""]['text']}</p></div>`;
+        let node = document.createElement('div');
+        node.setAttribute("data-aos", "flip-left");
+        node.setAttribute("data-aos-easing", "ease-out-cubic");
+        node.setAttribute("data-aos-duration", "2000");
+        node.classList.add("card");
+        node.innerHTML = html;
+        ele.appendChild(node);
+    }
+}
+
 function setCookie(cname, cvalue, exdays, reload) {
     var d = new Date();
     d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
     var expires = "expires=" + d.toUTCString();
+    // if(reload){
+    //     if(cvalue == getCookie("lang")){
+    //         reload = false;
+    //     }
+    // }
     document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
-
     if (reload){
         window.location.reload();
     }
@@ -59,11 +86,18 @@ if (request.status === 200){
     translation_menu = JSON.parse(json['jsonString']);
     let html = `<li><a id='navbar-home' href='index.html'>${nav_translation[1]}</a></li>`;
     html += `<li class='has-children'><a id='navbar-exhibitions'>${nav_translation[2]}</a></li>`;
+
+
+
     html += `<li><a id="navbar-about" href='about.html'>${nav_translation[3]}</a></li>`;
     html += `<li><a id="navbar-contact" href='contact.html'>${nav_translation[4]}</a></li>`;
     html += `<li class="d-xl-none"><div class="dropdown-divider"></div></li>`;
     let ele = document.getElementById('navbar-item');
     ele.innerHTML = html;
+
+    //add exhibition to the navbar
+
+
 
     // translate the page
     let currentPath = window.location.pathname;

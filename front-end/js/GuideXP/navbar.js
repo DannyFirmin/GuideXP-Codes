@@ -85,7 +85,36 @@ if (request.status === 200){
     let nav_translation = JSON.parse(json['jsonString'])['index']['navbar'];
     translation_menu = JSON.parse(json['jsonString']);
     let html = `<li><a id='navbar-home' href='index.html'>${nav_translation[1]}</a></li>`;
-    html += `<li class='has-children'><a id='navbar-exhibitions'>${nav_translation[2]}</a></li>`;
+    
+
+    var gallery_api_url = "http://13.239.36.190/api/get_gallery/"+getCookie('lang') + '/all';
+    var gallery_request = new XMLHttpRequest();
+    var all_gallery = new Array();
+    gallery_request.open('GET', gallery_api_url, false);
+    gallery_request.send(null);
+    if (gallery_request.status === 200){
+
+      let json = JSON.parse(gallery_request.responseText);
+
+      for (i = 0; i < json.length; i++) {
+        var s = json[i].jsonString;
+        all_gallery[i] = JSON.parse(s);
+      }     
+      console.log(all_gallery[1].gallery_name);
+    }
+
+
+
+    html += `
+    <li class="dropdown">
+    <li class="dropdown-toggle" type="button" data-toggle="dropdown">${nav_translation[2]}
+    <span class="caret"></span>
+    <ul class="dropdown-menu">
+      <li><a href='about.html'>${all_gallery[0].gallery_name}</a></li>
+      <li><a href="#">${all_gallery[1].gallery_name}</a></li>
+    </ul>
+  </li>`;
+
 
 
 

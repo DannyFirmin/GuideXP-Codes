@@ -90,10 +90,10 @@ a {
 .site-section-heading {
   color: #000;
   position: relative;
-  font-size: 2.5rem; }
+  font-size: 1.5rem; }
   @media (min-width: 768px) {
     .site-section-heading {
-      font-size: 2.5rem; } }
+      font-size: 1.5rem; } }
   .site-section-heading:after {
     content: "";
     left: 0%;
@@ -1231,3 +1231,6 @@ a {
   color: tomato;
 }
 
+#exhibition_number_input:focus {
+  outline: 0px solid transparent;
+}

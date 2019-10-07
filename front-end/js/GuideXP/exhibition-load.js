@@ -1,8 +1,8 @@
 // Get the parameter in URL
 var url = location.search,
     obj = {},
-    jss = {};
-
+    jss = {},
+    nceHTML = "";
 
 if (url.indexOf("?") != -1) {
     var str = url.substr(1);
@@ -11,7 +11,6 @@ if (url.indexOf("?") != -1) {
         obj[strs[i].split("=")[0]] = unescape(strs[i].split("=")[1]);
     }
 }
-
 
 // Create GUI from API, Synchronous method
 var request1 = new XMLHttpRequest();
@@ -44,10 +43,18 @@ request2.onload = function (e) {
             let container = document.getElementById("lightgallery");
             let html = "";
             for (let i = 0; i < json.length; i++) {
-                html += ` <div class="col-12 col-sm-4 col-md-3 col-lg-2 px-5 px-sm-4 mb-5" data-aos="fade" style="height: 100px;">`;
-                html += `<div style="width: 100%; height: 100%; background-color: tomato; text-align: center; line-height: 100px; font-size: 2em">${i + 1}</div>`;
+                let js = JSON.parse(json[i]['jsonString']);
+                jss[js['exhibition_number']] = js;
+                html += `<div class="col-12 col-sm-4 col-md-3 col-lg-2 px-5 px-sm-4 mb-5" data-aos="fade" style="height: 100px;">`;
+                html += `<div style="width: 100%; height: 100%; background-color: tomato; text-align: center; line-height: 100px; font-size: 2em;" onclick="showNCEText(${js['exhibition_number']})">${js['exhibition_number']}</div>`;
                 html += `</div>`;
             }
+            //     <div class="col-6 col-sm-4 col-md-3 col-lg-2 rounded p-0" id="section_details" style="height: 300px; border: 2px solid black; position: relative">
+            //         <div id="exhibition_number_input" style="height: 250px; line-height: 270px; text-align: center; font-size: 5em;" contenteditable="true">1</div>
+            //         <a href="#" class="btn btn-dark " style="position: absolute; bottom: 0px; width: 100%;" role="button" aria-pressed="true">Jump</a>
+            //     </div>;
+
+            nceHTML = html;
             container.innerHTML = html;
         }else{
             let json = JSON.parse(JSON.parse(request2.responseText)[0]['jsonString']);
@@ -113,3 +120,44 @@ request2.onload = function (e) {
         }
     }
 };
+
+function showNCEText(exhibition_id){
+    // let html = `<div class="row justify-content-center"><div class="col-12">`;
+    // html += `<h4>${jss[exhibition_id]["exhibition_name"]}</h4>`;
+    // html += `</div></div>`;
+    console.log(jss);
+    let ele = document.getElementById("lightgallery");
+    ele.innerHTML = "";
+    let html = "";
+    // let node = document.createElement("div");
+    // node.classList.add(["row", "justify-content-center"]);
+    // node.setAttribute("data-aos", "flip-right");
+    // node.innerHTML = `<h5 class="text-center">${jss[exhibition_id]['exhibition_name']}</h5>`;
+    // ele.appendChild(node);
+    //
+    // setTimeout(function (e) {
+    //     ele.innerHTML = nceHTML;
+    // },1000);
+
+    let titele = document.getElementById("exb-title");
+    titele.innerHTML = jss[exhibition_id]['exhibition_name'];
+    let section_counter = 1;
+    while (jss[exhibition_id]['section'][section_counter]){
+        section_counter++;
+    }
+    section_counter--;
+    for (let i = 1; i<=section_counter; i++){
+        html += `<div class="card w-75" style="margin: 0 auto; ${i>1?"display : none;":""}"><div class="card-body"><h3 class="card-title">${jss[exhibition_id]['section'][i]['title']}</h3>`;
+        let paragraph_counter = 1;
+        while(jss[exhibition_id]['section'][i]['paragraph'][paragraph_counter]){
+            paragraph_counter++;
+        }
+        paragraph_counter--;
+        for(let j = 1; j<=paragraph_counter; j++){
+            html += `<p class="card-text">${jss[exhibition_id]['section'][i]['paragraph'][j]}</p>`;
+        }
+        html += `</div></div>`;
+    }
+    ele.innerHTML = html;
+
+}

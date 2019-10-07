@@ -13,7 +13,10 @@ function showTextCard(id) {
     if (id !== currentid) {
         if (currentid !== -1) {
             let ele = document.getElementById("imaginarium-" + currentid);
-            ele.removeChild(ele.lastChild);
+            setTimeout(function (e) {
+                ele.removeChild(ele.lastChild);
+            },0);
+
         }
         currentid = id;
         let ele = document.getElementById("imaginarium-" + id);
@@ -22,12 +25,14 @@ function showTextCard(id) {
         html += `<h5 class="card-title">${jss[id + ""]['title']}</h5>`;
         html += `<p class="card-text">${jss[id + ""]['text']}</p></div>`;
         let node = document.createElement('div');
-        node.setAttribute("data-aos", "flip-left");
-        node.setAttribute("data-aos-easing", "ease-out-cubic");
-        node.setAttribute("data-aos-duration", "2000");
+        node.setAttribute("data-aos", "fade-down");
+        node.setAttribute("data-aos-easing", "linear");
+        node.setAttribute("data-aos-duration", "500");
         node.classList.add("card");
         node.innerHTML = html;
-        ele.appendChild(node);
+        setTimeout(function (e) {
+            ele.appendChild(node);
+        },0);
     }
 }
 
@@ -94,10 +99,6 @@ if (request.status === 200){
     html += `<li class="d-xl-none"><div class="dropdown-divider"></div></li>`;
     let ele = document.getElementById('navbar-item');
     ele.innerHTML = html;
-
-    //add exhibition to the navbar
-
-
 
     // translate the page
     let currentPath = window.location.pathname;

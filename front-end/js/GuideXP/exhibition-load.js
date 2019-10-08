@@ -1,3 +1,5 @@
+
+
 // Get the parameter in URL
 var url = location.search,
     obj = {},
@@ -34,92 +36,81 @@ request1.send(null);
 
 var request2 = new XMLHttpRequest();
 api_url = "http://13.239.36.190/api/get_exhibition/"+getCookie('lang')+"/"+obj.gallery_id+"/all";
-request2.open('GET', api_url, true);
-request2.send(null);
-request2.onload = function (e) {
-    if (request2.readyState === 4 && request2.status === 200){
-        if (obj.gallery_id == 1) {
-            let json = JSON.parse(request2.responseText);
-            let container = document.getElementById("lightgallery");
-            let html = "";
-            for (let i = 0; i < json.length; i++) {
-                let js = JSON.parse(json[i]['jsonString']);
-                jss[js['exhibition_number']] = js;
-                html += `<div class="col-12 col-sm-4 col-md-3 col-lg-2 px-5 px-sm-4 mb-5" data-aos="fade" style="height: 100px;">`;
-                html += `<div style="width: 100%; height: 100%; background-color: tomato; text-align: center; line-height: 100px; font-size: 2em;" onclick="showNCEText(${js['exhibition_number']})">${js['exhibition_number']}</div>`;
-                html += `</div>`;
-            }
-            //     <div class="col-6 col-sm-4 col-md-3 col-lg-2 rounded p-0" id="section_details" style="height: 300px; border: 2px solid black; position: relative">
-            //         <div id="exhibition_number_input" style="height: 250px; line-height: 270px; text-align: center; font-size: 5em;" contenteditable="true">1</div>
-            //         <a href="#" class="btn btn-dark " style="position: absolute; bottom: 0px; width: 100%;" role="button" aria-pressed="true">Jump</a>
-            //     </div>;
+if (obj.gallery_id == 2) {
+    request2.open('GET', api_url, true);
+    request2.send(null);
+    request2.onload = function (e) {
+        if (request2.readyState === 4 && request2.status === 200) {
 
-            nceHTML = html;
-            container.innerHTML = html;
-        }else{
-            let json = JSON.parse(JSON.parse(request2.responseText)[0]['jsonString']);
-            jss = json;
-            let container = document.getElementById("lightgallery");
-            let s = [1,2,4,6], m = [8,9,10,11], l=[3,5,7,12,13];
-            shuffleArray(s); shuffleArray(m); shuffleArray(l);
-            let a = [], b = [], c = [];
-            for (let j = 0; j<3; j++){
-                if (j === 0){
-                    a.push(s.pop());
-                    b.push(s.pop());
+                document.getElementById("nce-container").style.display = "none";
+
+                let json = JSON.parse(JSON.parse(request2.responseText)[0]['jsonString']);
+                jss = json;
+                let container = document.getElementById("lightgallery");
+                let s = [1, 2, 4, 6], m = [8, 9, 10, 11], l = [3, 5, 7, 12, 13];
+                shuffleArray(s);
+                shuffleArray(m);
+                shuffleArray(l);
+                let a = [], b = [], c = [];
+                for (let j = 0; j < 3; j++) {
+                    if (j === 0) {
+                        a.push(s.pop());
+                        b.push(s.pop());
+                        c.push(s.pop());
+                    } else if (j === 1) {
+                        a.push(m.pop());
+                        b.push(m.pop());
+                        c.push(m.pop());
+                    } else {
+                        a.push(l.pop());
+                        b.push(l.pop());
+                        c.push(l.pop());
+                    }
+                }
+                let r = Math.floor(Math.random() * 3);
+                if (r === 0 || r === 1) {
+                    if (r === 0) {
+                        a.push(s.pop());
+                        a.push(m.pop());
+                        b.push(l.pop());
+                        c.push(l.pop());
+                    } else {
+                        b.push(s.pop());
+                        b.push(m.pop());
+                        a.push(l.pop());
+                        c.push(l.pop());
+                    }
+                } else {
                     c.push(s.pop());
-                }else if (j === 1){
-                    a.push(m.pop());
-                    b.push(m.pop());
                     c.push(m.pop());
-                }else{
                     a.push(l.pop());
                     b.push(l.pop());
-                    c.push(l.pop());
                 }
-            }
-            let r  = Math.floor(Math.random() * 3);
-            if (r === 0 || r === 1){
-                if (r===0){
-                    a.push(s.pop());
-                    a.push(m.pop());
-                    b.push(l.pop());
-                    c.push(l.pop());
-                }else{
-                    b.push(s.pop());
-                    b.push(m.pop());
-                    a.push(l.pop());
-                    c.push(l.pop());
+                let div1 = `<div class="col-12 col-sm-4 col-md-4 col-lg-4 p-0">`,
+                    div2 = `<div class="col-12 col-sm-4 col-md-4 col-lg-4 p-0">`,
+                    div3 = `<div class="col-12 col-sm-4 col-md-4 col-lg-4 p-0">`;
+                for (let i = 0; i < a.length; i++) {
+                    let imgurl = media_url + json[a[i] + ""]['img'];
+                    div1 += `<div id="imaginarium-${a[i]}"><img data-aos="flip-up" src="${imgurl}" class="img-fluid rounded p-1" alt="Imaginarium-${a[i]}" onclick="showTextCard(${a[i]})"></div>`;
+
                 }
-            }else{
-                c.push(s.pop());
-                c.push(m.pop());
-                a.push(l.pop());
-                b.push(l.pop());
-            }
-            let div1 = `<div class="col-12 col-sm-4 col-md-4 col-lg-4 p-0">`, div2 = `<div class="col-12 col-sm-4 col-md-4 col-lg-4 p-0">`, div3 = `<div class="col-12 col-sm-4 col-md-4 col-lg-4 p-0">`;
-            for(let i = 0; i<a.length; i++){
-                let imgurl = media_url + json[a[i]+""]['img'];
-                div1 += `<div id="imaginarium-${a[i]}"><img data-aos="flip-up" src="${imgurl}" class="img-fluid rounded p-1" alt="Imaginarium-${a[i]}" onclick="showTextCard(${a[i]})"></div>`;
+                div1 += `</div>`;
+
+                for (let i = 0; i < b.length; i++) {
+                    let imgurl = media_url + json[b[i] + ""]['img'];
+                    div2 += `<div id="imaginarium-${b[i]}"><img data-aos="flip-up" src="${imgurl}" class="img-fluid rounded p-1" alt="Imaginarium-${b[i]}" onclick="showTextCard(${b[i]})"></div>`;
+                }
+                div2 += `</div>`;
+                for (let i = 0; i < c.length; i++) {
+                    let imgurl = media_url + json[c[i] + ""]['img'];
+                    div3 += `<div id="imaginarium-${c[i]}"><img data-aos="flip-up" src="${imgurl}" class="img-fluid rounded p-1" alt="Imaginarium-${c[i]}" onclick="showTextCard(${c[i]})"></div>`;
+                }
+                div3 += `</div>`;
+                container.innerHTML = div1 + div2 + div3;
 
             }
-            div1 += `</div>`;
-
-            for(let i = 0; i<b.length; i++){
-                let imgurl = media_url + json[b[i]+""]['img'];
-                div2 += `<div id="imaginarium-${b[i]}"><img data-aos="flip-up" src="${imgurl}" class="img-fluid rounded p-1" alt="Imaginarium-${b[i]}" onclick="showTextCard(${b[i]})"></div>`;
-            }
-            div2 += `</div>`;
-            for(let i = 0; i<c.length; i++){
-                let imgurl = media_url + json[c[i]+""]['img'];
-                div3 += `<div id="imaginarium-${c[i]}"><img data-aos="flip-up" src="${imgurl}" class="img-fluid rounded p-1" alt="Imaginarium-${c[i]}" onclick="showTextCard(${c[i]})"></div>`;
-            }
-            div3 += `</div>`;
-            container.innerHTML = div1 + div2 + div3;
-
-        }
-    }
-};
+    };
+}
 
 function showNCEText(exhibition_id){
     // let html = `<div class="row justify-content-center"><div class="col-12">`;

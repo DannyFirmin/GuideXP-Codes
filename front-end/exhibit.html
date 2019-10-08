@@ -74,26 +74,40 @@
     <!--Header end-->
 
     <!--Content start-->
-    <div class="site-section" data-aos="fade">
-      <div class="container" >
+    <div data-aos="fade">
+      <div id="exhibit_container" class="container" >
         <div class="row justify-content-center">
-<!--          <div class="col-md-7">-->
             <div class="row">
-              <div class="col-12">
-                <h4 class="site-section-heading text-center" id="exb-title"></h4>
+              <div class="col-12" id="exb-title-div">
+                <h4 class="site-section-heading text-center mb-3" id="exb-title"></h4>
               </div>
             </div>
-<!--          </div>-->
         </div>
 
-        <div class="row mt-4" id="lightgallery">
+        <div class="row " id="lightgallery">
 
         </div>
       </div>
     </div>
+
+    <div id="nce-container" class="container" data-aos="fade" data-aos-delay="500">
+      <div class="swiper-container images-carousel">
+        <div id="swiper-wrapper" class="swiper-wrapper">
+          <!-- Create cards that shown in the index-->
+
+        </div>
+        <div class="swiper-pagination"></div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-scrollbar"></div>
+      </div>
+    </div>
+
+
   </div>
   <!--Content ends-->
   <script src="js/GuideXP/exhibition-load.js"></script>
+  <script src="js/GuideXP/nce.js"></script>
   <!--Footer-->
 
   <link href="http://vjs.zencdn.net/4.12/video-js.css" rel="stylesheet">

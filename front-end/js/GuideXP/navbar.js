@@ -90,15 +90,19 @@ if (request.status === 200){
     let nav_translation = JSON.parse(json['jsonString'])['index']['navbar'];
     translation_menu = JSON.parse(json['jsonString']);
     let html = `<li><a id='navbar-home' href='index.html'>${nav_translation[1]}</a></li>`;
-    html += `<li class='has-children'><a id='navbar-exhibitions'>${nav_translation[2]}</a></li>`;
+    html += `<li class='has-children'>`;
+
+    html += `<a id='navbar-exhibitions'>${nav_translation[2]}</a><ul class="dropdown" id="dropdowncontent">`;
 
 
-
+    html += `</ul></li>`;
     html += `<li><a id="navbar-about" href='about.html'>${nav_translation[3]}</a></li>`;
     html += `<li><a id="navbar-contact" href='contact.html'>${nav_translation[4]}</a></li>`;
     html += `<li class="d-xl-none"><div class="dropdown-divider"></div></li>`;
     let ele = document.getElementById('navbar-item');
     ele.innerHTML = html;
+
+
 
     // translate the page
     let currentPath = window.location.pathname;
@@ -185,6 +189,24 @@ if (request.status === 200){
             </div>`;
             document.getElementById("translation-1").innerHTML = html;
         }
+    }
+
+    if (window.location.href.substring(window.location.href.lastIndexOf("/")+1) !== "index.html"){
+        api_url = 'http://13.239.36.190/api/get_gallery/'+getCookie('lang')+'/all';
+        request.open("GET", api_url, false);
+        request.onload = function () {
+            if (request.readyState === 4 && request.status === 200){
+                let json = JSON.parse(request.responseText);
+                for(let i = 0; i<json.length; i++){
+                    let jsonString = JSON.parse(json[i]['jsonString']);
+                    let gallery_name = jsonString['gallery_name'];
+                    let dropdown = document.getElementById("dropdowncontent");
+                    dropdown.innerHTML = dropdown.innerHTML + `<li><a href=${'exhibit.html?gallery_id='+json[i]['model_id']}>${gallery_name}</a></li>`;
+                }
+                let dropdown = document.getElementById("dropdowncontent");
+            }
+        };
+        request.send(null);
     }
 
 }

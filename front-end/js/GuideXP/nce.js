@@ -58,7 +58,9 @@ if (obj.gallery_id == 1){
                         }
                     }
 
-                    html += `<a href="#" class="btn btn-primary" onclick="returnExhibition(); return false;">返回</a>`;
+                    html += `<a href="#" class="btn btn-primary" onclick="returnExhibition(); return false;">${translation_menu['Exhibitions']['button_1']}</a>`;
+
+
 
                     html += `</div></div>`;
                     let newele = document.getElementById("nce-container");

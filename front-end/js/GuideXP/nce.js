@@ -31,45 +31,45 @@ if (obj.gallery_id == 1){
                 let atag = ele.getElementsByTagName("a")[0];
                 atag.addEventListener("click", function (e) {
                     e.preventDefault();
-                    let titele = document.getElementById("exb-title-div");
-                    titele.children[0].style.display = "none";
-                    let node = document.createElement("h4");
-                    node.classList.add("site-section-heading","text-center", "mb-3");
-                    node.innerHTML = jsonString['exhibition_name'];
-                    setTimeout(function (e) {
-                        titele.appendChild(node);
-                    },0);
-                    let section_counter = 1;
-                    while (jsonString['section'][section_counter]){
-                        section_counter++;
-                    }
-                    section_counter--;
-                    let html = "";
-                    html += `<div class="card w-75" style="margin: 0 auto;" data-aos="fade-up" data-aos-duration="1500"><div class="card-body">`;
-                    for (let i = 1; i<=section_counter; i++){
-                        html += `<h3 class="card-title">${jsonString['section'][i]['title']}</h3>`;
-                        let paragraph_counter = 1;
-                        while(jsonString['section'][i]['paragraph'][paragraph_counter]){
-                            paragraph_counter++;
+                    if(typeof jsonString.section !== "undefined") {
+                        let titele = document.getElementById("exb-title-div");
+                        titele.children[0].style.display = "none";
+                        let node = document.createElement("h4");
+                        node.classList.add("site-section-heading", "text-center", "mb-3");
+                        node.innerHTML = jsonString['exhibition_name'];
+                        setTimeout(function (e) {
+                            titele.appendChild(node);
+                        }, 0);
+                        let section_counter = 1;
+                        while (jsonString['section'][section_counter]) {
+                            section_counter++;
                         }
-                        paragraph_counter--;
-                        for(let j = 1; j<=paragraph_counter; j++){
-                            html += `<p class="card-text">${jsonString['section'][i]['paragraph'][j]}</p>`;
+                        section_counter--;
+                        let html = "";
+                        html += `<div class="card w-75" style="margin: 0 auto;" data-aos="fade-up" data-aos-duration="1500"><div class="card-body">`;
+                        for (let i = 1; i <= section_counter; i++) {
+                            html += `<h3 class="card-title">${jsonString['section'][i]['title']}</h3>`;
+                            let paragraph_counter = 1;
+                            while (jsonString['section'][i]['paragraph'][paragraph_counter]) {
+                                paragraph_counter++;
+                            }
+                            paragraph_counter--;
+                            for (let j = 1; j <= paragraph_counter; j++) {
+                                html += `<p class="card-text">${jsonString['section'][i]['paragraph'][j]}</p>`;
+                            }
                         }
+
+                        html += `<a href="#" class="btn btn-primary" onclick="returnExhibition(); return false;">${translation_menu['Exhibitions']['button_1']}</a>`;
+
+
+                        html += `</div></div>`;
+                        let newele = document.getElementById("nce-container");
+                        newele.children[0].style.display = "none";
+                        let newnode = document.createElement("div");
+                        newnode.setAttribute("id", "exhibition-detail-text");
+                        newnode.innerHTML = html;
+                        newele.appendChild(newnode);
                     }
-
-                    html += `<a href="#" class="btn btn-primary" onclick="returnExhibition(); return false;">${translation_menu['Exhibitions']['button_1']}</a>`;
-
-
-
-                    html += `</div></div>`;
-                    let newele = document.getElementById("nce-container");
-                    newele.children[0].style.display = "none";
-                    let newnode = document.createElement("div");
-                    newnode.setAttribute("id", "exhibition-detail-text");
-                    newnode.innerHTML = html;
-                    newele.appendChild(newnode);
-
                 })
             }
         }

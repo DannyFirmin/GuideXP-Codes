@@ -33,8 +33,8 @@ xhr.onload = function (e) {
             atag.innerHTML = translation_menu['index']['card']['1'];
             atag.href = 'exhibit.html?gallery_id='+json[i]['model_id'];
 
-            let dropdown = document.getElementById("dropdowncontent");
-            dropdown.innerHTML = dropdown.innerHTML + `<li><a href=${'exhibit.html?gallery_id='+json[i]['model_id']}>${gallery_name}</a></li>`;
+            // let dropdown = document.getElementById("dropdowncontent");
+            // dropdown.innerHTML = dropdown.innerHTML + `<li><a href=${'exhibit.html?gallery_id='+json[i]['model_id']}>${gallery_name}</a></li>`;
 
             ele.getElementsByTagName("img")[0].src = media_url + gallery_cover;
         }

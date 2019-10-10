@@ -7,7 +7,7 @@ function generate_card(number) {
         html += ` <h2 id="card${i}-name" class="mb-1">${translation_menu["Exhibitions"]['h2']}</h2>`;
         // html += `<a id="card${i}-link" href="#" class="btn btn-outline-white py-2 px-4">${translation_menu['index']['card']['1']}</a>`;
         html += `</div>`;
-        html += `<img id="card${i}-img" src="images/placeholder.jpg" alt="Image">`;
+        html += `<img id="card${i}-img" src="https://canberra.com.au/wp-content/uploads/2016/12/20161125-CURATED-Canberra-Ragion-Tourism-Awards-International-Ready-1920x1280.jpg" alt="Image">`;
         html += `</div>`;
         html += `</div>`;
     }

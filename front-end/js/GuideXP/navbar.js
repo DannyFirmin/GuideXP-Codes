@@ -191,7 +191,7 @@ if (request.status === 200){
         }
     }
 
-    if (window.location.href.substring(window.location.href.lastIndexOf("/")+1) !== "index.html"){
+    // if (window.location.href.substring(window.location.href.lastIndexOf("/")+1) !== "index.html"){
         api_url = 'http://13.239.36.190/api/get_gallery/'+getCookie('lang')+'/all';
         request.open("GET", api_url, false);
         request.onload = function () {
@@ -204,10 +204,11 @@ if (request.status === 200){
                     dropdown.innerHTML = dropdown.innerHTML + `<li><a href=${'exhibit.html?gallery_id='+json[i]['model_id']}>${gallery_name}</a></li>`;
                 }
                 let dropdown = document.getElementById("dropdowncontent");
+                console.log(dropdown.innerHTML);
             }
         };
         request.send(null);
-    }
+    // }
 
 }
 

@@ -26,9 +26,9 @@ if (request.status === 200){
     }
     html += '</div></div>';
     //insert to the dom
-    let body = document.getElementsByTagName("body")[0];
-    body.innerHTML = body.innerHTML + html;
-    // $("#footer-div").html(html);
+    // let body = document.getElementsByTagName("body")[0];
+    // body.innerHTML = body.innerHTML + html;
+    $("#footer-div").html(html);
     $('.trigger, .slider').click(function() {
         $('.slider').toggleClass('close');
     });

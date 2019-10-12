@@ -42,7 +42,7 @@ if (obj.gallery_id == 1){
                             titele.children[0].style.display = "none";
                             let node = document.createElement("h4");
                             node.classList.add("site-section-heading", "text-center", "mb-3");
-                            node.innerHTML = jsonString['exhibition_name'];
+                            node.innerHTML = i + 1 + ' ' + jsonString['exhibition_name'];
                             setTimeout(function (e) {
                                 titele.appendChild(node);
                             }, 0);
